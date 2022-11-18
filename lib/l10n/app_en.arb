@@ -1,0 +1,13 @@
+{
+    "language":"English",
+    "@language":{
+        "description":"The current language"
+    },
+    "welcome":"Welcome",
+    "signinwith":"Sign in with ",
+    "or":"or",
+    "password":"password",
+    "withoutaccount":"you don't have an account ?",
+    "createaccount":"create one"
+    
+}
