@@ -5,6 +5,10 @@
     "or":"ou",
     "password":"mot de passe",
     "withoutaccount":"Vous n'avez pas de compte?",
-    "createaccount":"Rejognez nous"
+    "createaccount":"Rejognez nous",
+    "email":"E-mail",
+    "Password":'Mot de passe",
+    "signin":"Se connecter",
+    "forgotyour":"Vous avez oublié"
     
 }

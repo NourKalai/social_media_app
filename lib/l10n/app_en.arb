@@ -8,6 +8,10 @@
     "or":"or",
     "password":"password",
     "withoutaccount":"you don't have an account ?",
-    "createaccount":"create one"
-    
+    "createaccount":"create one",
+    "email":"Email",
+    "Password":'Password",
+    "signin":"Sign In",
+    "forgotyour":"Forgot your "
+ 
 }

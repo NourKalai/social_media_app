@@ -6,5 +6,8 @@
     "or":"أو",
     "password":"كلمه السر",
     "withoutaccount":"ليس لديك حساب؟",
-    "createaccount":"إصنع حساب"
+    "createaccount":"إصنع حساب",
+    "email":"البريد الإلكتروني",
+    "signin":"تسجيل الدخول",
+    "forgotyour":"نسيت"
 }

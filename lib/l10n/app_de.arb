@@ -6,5 +6,9 @@
     "or":"oder",
     "password":"passwort",
     "withoutaccount":"Sie haben kein Konto?",
-    "createaccount":"begleiten Sie uns"
+    "createaccount":"begleiten Sie uns",
+    "email":"Email",
+    "Password":"Passwort",
+    "signin":"Einloggen",
+    "forgotyour":"Cergessen Ihre"
 }

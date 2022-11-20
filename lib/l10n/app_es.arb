@@ -5,5 +5,9 @@
     "or":"o",
     "password":"clave",
     "withoutaccount":"no tienes una cuenta?",
-    "createaccount":"créalo"
+    "createaccount":"créalo",
+    "email":"Email",
+    "Password":"Clave",
+    "signin":"registrarse",
+    "forgotyour":"Ha olvidado su"
 }

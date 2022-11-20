@@ -1,6 +1,7 @@
 import 'package:diginas_app/authentification/widgets/FormWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:email_validator/email_validator.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../forgotpassword/forgotPassword.dart';
 
@@ -42,8 +43,8 @@ class _SignInPage2State extends State<SignInPage2> {
                         width: 200,
                       ),
                       const SizedBox(height: 35),
-                      const Text(
-                        "Sign In",
+                      Text(
+                        AppLocalizations.of(context)!.signin,
                         style: TextStyle(
                             color: Color.fromRGBO(46, 98, 212, 1),
                             fontSize: 50,
@@ -58,7 +59,7 @@ class _SignInPage2State extends State<SignInPage2> {
                               TextFormWdiget(
                                 textinputtype: TextInputType.text,
                                 obscure: false,
-                                hint: 'mail',
+                                hint: AppLocalizations.of(context)!.email,
                                 icon: Icons.mail,
                                 controller: mailController,
                                 validator: (input) {
@@ -79,7 +80,7 @@ class _SignInPage2State extends State<SignInPage2> {
                               TextFormWdiget(
                                 textinputtype: TextInputType.text,
                                 obscure: true,
-                                hint: 'Password',
+                                hint: AppLocalizations.of(context)!.Password,
                                 icon: Icons.lock,
                                 controller: passwordController,
                                 validator: (input) {
