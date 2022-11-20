@@ -47,7 +47,7 @@ class _SignInPage2State extends State<SignInPage2> {
                         AppLocalizations.of(context)!.signin,
                         style: TextStyle(
                             color: Color.fromRGBO(46, 98, 212, 1),
-                            fontSize: 50,
+                            fontSize: 40,
                             fontFamily: "Poppins",
                             fontWeight: FontWeight.bold),
                       ),
@@ -64,11 +64,13 @@ class _SignInPage2State extends State<SignInPage2> {
                                 controller: mailController,
                                 validator: (input) {
                                   if (input!.isEmpty) {
-                                    return 'Email should not be empty';
+                                    return AppLocalizations.of(context)!
+                                        .entermail;
                                   } else {
                                     return EmailValidator.validate(input)
                                         ? null
-                                        : 'Enter a valid email';
+                                        : AppLocalizations.of(context)!
+                                            .entervalidmail;
                                   }
                                 },
                                 OnSaved: (value) =>
@@ -80,12 +82,13 @@ class _SignInPage2State extends State<SignInPage2> {
                               TextFormWdiget(
                                 textinputtype: TextInputType.text,
                                 obscure: true,
-                                hint: AppLocalizations.of(context)!.Password,
+                                hint: AppLocalizations.of(context)!.password,
                                 icon: Icons.lock,
                                 controller: passwordController,
                                 validator: (input) {
                                   if (input!.isEmpty) {
-                                    return 'Password should not be empty';
+                                    return AppLocalizations.of(context)!
+                                        .enterpassword;
                                   }
                                   return null;
                                 },
@@ -95,13 +98,13 @@ class _SignInPage2State extends State<SignInPage2> {
                             ],
                           )),
                       SizedBox(height: 30),
-                      button(context, "Sign in", Color.fromRGBO(46, 98, 212, 1),
-                          Colors.white),
+                      button(context, AppLocalizations.of(context)!.signin,
+                          Color.fromRGBO(46, 98, 212, 1), Colors.white),
                       SizedBox(height: 30),
                       Row(
                         children: [
-                          const Text(
-                            "Forgot your",
+                          Text(
+                            AppLocalizations.of(context)!.forgotyour,
                             style: TextStyle(
                                 fontFamily: 'Poppins-Regular', fontSize: 16),
                           ),
@@ -114,8 +117,8 @@ class _SignInPage2State extends State<SignInPage2> {
                                           const ForgotPassword()),
                                 );
                               },
-                              child: const Text(
-                                "password?",
+                              child: Text(
+                                AppLocalizations.of(context)!.password + "?",
                                 style: TextStyle(
                                     color: Color.fromARGB(255, 8, 18, 41),
                                     fontSize: 16),

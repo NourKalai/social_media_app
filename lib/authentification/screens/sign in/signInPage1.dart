@@ -43,7 +43,7 @@ class SignInPage1 extends StatelessWidget {
                           elevation: 10,
                           Buttons.Facebook,
                           text: AppLocalizations.of(context)!.signinwith +
-                              " facebook",
+                              "facebook",
                           onPressed: () {},
                           padding: EdgeInsets.only(right: 16, left: 0),
                         ),
@@ -73,7 +73,8 @@ class SignInPage1 extends StatelessWidget {
                       button(
                           context,
                           AppLocalizations.of(context)!.signinwith +
-                              " password",
+                              " " +
+                              AppLocalizations.of(context)!.password,
                           Color.fromRGBO(46, 98, 212, 1),
                           Colors.white),
                       SizedBox(height: 20),

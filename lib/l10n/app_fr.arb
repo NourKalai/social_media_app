@@ -7,8 +7,18 @@
     "withoutaccount":"Vous n'avez pas de compte?",
     "createaccount":"Rejognez nous",
     "email":"E-mail",
-    "Password":'Mot de passe",
     "signin":"Se connecter",
-    "forgotyour":"Vous avez oublié"
+    "forgotyour":"Vous avez oublié votre",
+    "forgotpassword":"Mot de passe oublié",
+    "enterpassword":"entrer votre mot de passe",
+
+    "entermail":"Entrer votre mail",
+    "entervalidmail":"entrer un mail valide ",
+    "enterphone":"entrer votre numéro de téléphone",
+    "phonenumber":"numéro de téléphone",
+    "entervalidphonenumber":"enter un numéro de téléphone valide",
+    "enterusername":"entrer votre nom d'utilisation",
+    "username":"nom d'utilisation",
+    "next":"Suivant"
     
 }

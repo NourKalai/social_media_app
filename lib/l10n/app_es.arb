@@ -7,7 +7,17 @@
     "withoutaccount":"no tienes una cuenta?",
     "createaccount":"créalo",
     "email":"Email",
-    "Password":"Clave",
-    "signin":"registrarse",
-    "forgotyour":"Ha olvidado su"
+    "signin":"Registrarse",
+    "forgotyour":"Ha olvidado su",
+    "enterpassword":"ingresa tu contraseña",
+
+    "forgotpassword":"Has olvidado tu contraseña",
+    "entermail":"Introduce tu correo electrónico",
+    "entervalidmail":"Introduzca un correo electrónico válido",
+    "enterphone":"Ingrese su número telefónico",
+    "phonenumber":"número de teléfono",
+    "entervalidphonenumber":"introduce un número de teléfono válido",
+    "enterusername":"Ingrese su nombre de usuario",
+    "username":"nombre de usuario",
+    "next":"Próximo"
 }

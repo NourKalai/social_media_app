@@ -4,6 +4,7 @@ import 'package:diginas_app/authentification/widgets/buttonWidget.dart';
 import 'package:diginas_app/authentification/widgets/titleWidget.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ForgotPassword extends StatefulWidget {
   const ForgotPassword({Key? key}) : super(key: key);
@@ -36,8 +37,8 @@ class _ForgotPasswordState extends State<ForgotPassword> {
             child: SingleChildScrollView(
           padding: const EdgeInsets.only(top: 20, right: 40, left: 40),
           child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-            const Text(
-              "Forgot ",
+            Text(
+              AppLocalizations.of(context)!.forgotpassword,
               style: TextStyle(
                 color: Color.fromARGB(255, 3, 6, 12),
                 fontSize: 40,
@@ -45,52 +46,48 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            const Text(
-              "Password",
-              style: TextStyle(
-                color: Color.fromARGB(255, 3, 6, 12),
-                fontSize: 40,
-                fontFamily: "Poppins",
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+
             SizedBox(height: 30),
             Form(
               key: _loginFormKey,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  title(context, "Enter your mail"),
+                  title(
+                    context,
+                    AppLocalizations.of(context)!.entermail,
+                  ),
                   TextFormWdiget(
                     textinputtype: TextInputType.text,
                     obscure: false,
-                    hint: 'mail',
+                    hint: AppLocalizations.of(context)!.email,
                     icon: Icons.mail,
                     controller: mailController,
                     validator: (input) {
                       if (input!.isEmpty) {
-                        return 'Enter your mail';
+                        return AppLocalizations.of(context)!.entermail;
                       } else {
                         return EmailValidator.validate(input)
                             ? null
-                            : 'Entrer a valid mail';
+                            : AppLocalizations.of(context)!.entervalidmail;
                       }
                     },
                     OnSaved: (value) => setState(() => email = value),
                   ),
                   SizedBox(height: 30),
-                  title(context, "Enter your phone number"),
+                  title(context, AppLocalizations.of(context)!.enterphone),
                   TextFormWdiget(
                     textinputtype: TextInputType.phone,
                     obscure: false,
-                    hint: 'phone number',
+                    hint: AppLocalizations.of(context)!.phonenumber,
                     icon: Icons.phone,
                     controller: phoneNumberController,
                     validator: (input) {
                       if (input!.isEmpty) {
-                        return 'Enter your phone number';
+                        return AppLocalizations.of(context)!.enterphone;
                       } else if (input.length < 8) {
-                        return 'enter a valid phone number';
+                        return AppLocalizations.of(context)!
+                            .entervalidphonenumber;
                       } else {
                         return null;
                       }
@@ -98,16 +95,16 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                     OnSaved: (value) => setState(() => phoneNumber = value),
                   ),
                   SizedBox(height: 30),
-                  title(context, "Enter your username"),
+                  title(context, AppLocalizations.of(context)!.enterusername),
                   TextFormWdiget(
                     textinputtype: TextInputType.text,
                     obscure: false,
-                    hint: 'username',
+                    hint: AppLocalizations.of(context)!.username,
                     icon: Icons.person,
                     controller: userNameController,
                     validator: (input) {
                       if (input!.isEmpty) {
-                        return 'Enter your username';
+                        return AppLocalizations.of(context)!.enterusername;
                       } else
                         return null;
                     },
@@ -119,8 +116,8 @@ class _ForgotPasswordState extends State<ForgotPassword> {
             SizedBox(height: 50),
             // button(context, "Sign in", Color.fromRGBO(46, 98, 212, 1),
             //     Colors.white),
-            button(
-                context, "Next", Color.fromRGBO(46, 98, 212, 1), Colors.white),
+            button(context, AppLocalizations.of(context)!.next,
+                Color.fromRGBO(46, 98, 212, 1), Colors.white),
           ]),
         )));
   }

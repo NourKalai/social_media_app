@@ -9,5 +9,15 @@
     "createaccount":"إصنع حساب",
     "email":"البريد الإلكتروني",
     "signin":"تسجيل الدخول",
-    "forgotyour":"نسيت"
+    "forgotyour":"نسيت",
+        "enterpassword":"ادخل رقمك السري",
+      "forgotpassword":"نسيت رقمك السري",
+    "entermail":"أدخل بريدك الإلكتروني",
+    "entervalidmail":"أدخل بريد إلكتروني متاح ",
+    "enterphone":"أدخل رقم هاتفك",
+    "phonenumber":"رقم الهاتف",
+    "entervalidphonenumber":"أدخل رقم هاتف صالح",
+    "enterusername":"أدخل اسم المستخدم الخاص بك",
+    "username":"إسم المستخدم",
+    "next":"التالي"
 }

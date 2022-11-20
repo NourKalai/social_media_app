@@ -8,7 +8,18 @@
     "withoutaccount":"Sie haben kein Konto?",
     "createaccount":"begleiten Sie uns",
     "email":"Email",
-    "Password":"Passwort",
     "signin":"Einloggen",
-    "forgotyour":"Cergessen Ihre"
+    "forgotyour":"Cergessen Ihre",
+    "forgotpassword":"Haben Sie Ihr Passwort vergessen",
+    "entermail":"Geben sie ihre E-Mail Adresse ein",
+    "entervalidmail":"Geben Sie eine gültige E-Mail-Adresse ein ",
+    "enterphone":"Trage deine Telefonnummer ein",
+            "enterpassword":"Geben Sie Ihr Passwort ein",
+
+    "phonenumber":"Telefonnummer",
+    "entervalidphonenumber":"Geben Sie eine gültige Telefonnummer ein",
+    "enterusername":"geben Sie Ihren Benutzernamen ein",
+    "username":"Nutzername",
+    "next":"Nächste"
+
 }

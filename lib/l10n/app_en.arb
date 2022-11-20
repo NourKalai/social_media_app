@@ -10,8 +10,18 @@
     "withoutaccount":"you don't have an account ?",
     "createaccount":"create one",
     "email":"Email",
-    "Password":'Password",
     "signin":"Sign In",
-    "forgotyour":"Forgot your "
+    "forgotyour":"Forgot your ",
+    "forgotpassword":"Forgot password",
+    "entermail":"enter your mail",
+    "entervalidmail":"enter a valid mail",
+    "enterphone":"enter your phone number",
+    "enterpassword":"enter your password",
+    "phonenumber":"phone number",
+    "entervalidphonenumber":"enter a valid phone number",
+    "enterusername":"enter your username",
+    "username":"username",
+    "next":"next"
+
  
 }
