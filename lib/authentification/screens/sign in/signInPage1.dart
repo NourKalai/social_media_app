@@ -1,4 +1,6 @@
 import 'package:diginas_app/authentification/screens/sign%20in/signInPage2.dart';
+import 'package:diginas_app/authentification/screens/signup/registerwithphone.dart';
+import 'package:diginas_app/authentification/screens/signup/signup.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -43,7 +45,7 @@ class SignInPage1 extends StatelessWidget {
                           elevation: 10,
                           Buttons.Facebook,
                           text: AppLocalizations.of(context)!.signinwith +
-                              "facebook",
+                              " facebook",
                           onPressed: () {},
                           padding: EdgeInsets.only(right: 16, left: 0),
                         ),
@@ -59,7 +61,14 @@ class SignInPage1 extends StatelessWidget {
                           Buttons.Google,
                           text: AppLocalizations.of(context)!.signinwith +
                               " google",
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const RegisterWithPhoneNumber()),
+                            );
+                          },
                           padding: EdgeInsets.only(right: 20, left: 2),
                         ),
                       ),
@@ -86,7 +95,13 @@ class SignInPage1 extends StatelessWidget {
                                 TextStyle(fontFamily: 'Poppins', fontSize: 12),
                           ),
                           TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const SignUp()),
+                              );
+                            },
                             child: AutoSizeText(
                               AppLocalizations.of(context)!.createaccount,
                               style: TextStyle(

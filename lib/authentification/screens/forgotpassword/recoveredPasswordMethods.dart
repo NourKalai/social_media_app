@@ -1,5 +1,5 @@
-
-import 'package:diginas_app/authentification/screens/forgotpassword/validationCode.dart';
+import 'package:diginas_app/authentification/screens/forgotpassword/valid.dart';
+import 'package:diginas_app/authentification/screens/forgotpassword/validationMail.dart';
 import 'package:diginas_app/authentification/screens/forgotpassword/validationSecretQuestion.dart';
 import 'package:diginas_app/authentification/widgets/buttonWidget.dart';
 import 'package:diginas_app/authentification/widgets/titleWidget.dart';
@@ -8,7 +8,10 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 class RecoveredPasswordMethods extends StatelessWidget {
-  const RecoveredPasswordMethods({Key? key}) : super(key: key);
+  String phoneNumber;
+  String email;
+
+  RecoveredPasswordMethods({required this.phoneNumber, required this.email});
 
   @override
   Widget build(BuildContext context) {
@@ -70,7 +73,8 @@ class RecoveredPasswordMethods extends StatelessWidget {
               "Verification code via SMS",
               Color.fromARGB(190, 235, 231, 231),
               Colors.black,
-              ValidationCode()),
+              // ValidationCode(phoneNumber: phoneNumber)
+              Verificatoin(phoneNumber: phoneNumber)),
           SizedBox(
             height: 20,
           ),
@@ -79,7 +83,7 @@ class RecoveredPasswordMethods extends StatelessWidget {
               "Verification code via Mail",
               Color.fromARGB(190, 235, 231, 231),
               Colors.black,
-              const ValidationCode()),
+              VerificationMail(mail: email)),
         ]),
       )),
     );

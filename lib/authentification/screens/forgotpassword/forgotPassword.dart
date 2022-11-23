@@ -145,7 +145,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => const RecoveredPasswordMethods()),
+                    builder: (context) =>  RecoveredPasswordMethods(phoneNumber: phoneNumber,email:email)),
               );
               _loginFormKey.currentState!.save();
 

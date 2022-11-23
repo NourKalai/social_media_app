@@ -1,4 +1,5 @@
 import 'package:diginas_app/authentification/screens/forgotpassword/recoveredPasswordMethods.dart';
+import 'package:diginas_app/authentification/screens/sign%20in/signInPage1.dart';
 import 'package:diginas_app/authentification/widgets/FormWidget.dart';
 import 'package:diginas_app/authentification/widgets/buttonWidget.dart';
 import 'package:diginas_app/authentification/widgets/titleWidget.dart';
@@ -94,6 +95,7 @@ class _ValidationSecretQuestionState extends State<ValidationSecretQuestion> {
                     SizedBox(height: 30),
                     title(context, "Your answer"),
                     SizedBox(height: 30),
+                 
                     TextFormWdiget(
                         textinputtype: TextInputType.text,
                         obscure: false,
@@ -107,7 +109,7 @@ class _ValidationSecretQuestionState extends State<ValidationSecretQuestion> {
                         }),
                     SizedBox(height: 50),
                     button(context, "Next", Color.fromRGBO(46, 98, 212, 1),
-                        Colors.white, const RecoveredPasswordMethods()),
+                        Colors.white, SignInPage1()),
                   ],
                 ))
           ],
