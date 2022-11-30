@@ -1,4 +1,5 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:diginas_app/authentification/screens/sign%20in/login.screen.dart';
 import 'package:flutter/material.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
@@ -15,6 +16,7 @@ class RegisterWithPhoneNumber extends StatefulWidget {
 class _RegisterWithPhoneNumberState extends State<RegisterWithPhoneNumber> {
   final TextEditingController controller = TextEditingController();
   bool _isLoading = false;
+  String phoneNumber = "";
 
   @override
   Widget build(BuildContext context) {
@@ -80,9 +82,7 @@ class _RegisterWithPhoneNumberState extends State<RegisterWithPhoneNumber> {
                     child: Stack(
                       children: [
                         InternationalPhoneNumberInput(
-                          onInputChanged: (PhoneNumber number) {
-                            print(number.phoneNumber);
-                          },
+                          onInputChanged: (PhoneNumber number) {},
                           onInputValidated: (bool value) {
                             print(value);
                           },
@@ -106,9 +106,8 @@ class _RegisterWithPhoneNumberState extends State<RegisterWithPhoneNumber> {
                             hintStyle: TextStyle(
                                 color: Colors.grey.shade500, fontSize: 16),
                           ),
-                          onSaved: (PhoneNumber number) {
-                            print('On Saved: $number');
-                          },
+                          // onSaved: (value) =>
+                          //     setState(() => phoneNumber = value as String)
                         ),
                         Positioned(
                           left: 90,
@@ -128,7 +127,7 @@ class _RegisterWithPhoneNumberState extends State<RegisterWithPhoneNumber> {
                   height: 100,
                 ),
                 FadeInDown(
-                  delay: Duration(milliseconds: 600),
+                  //   delay: Duration(milliseconds: 600),
                   child: MaterialButton(
                     minWidth: double.infinity,
                     onPressed: () {
@@ -137,14 +136,16 @@ class _RegisterWithPhoneNumberState extends State<RegisterWithPhoneNumber> {
                       });
 
                       Future.delayed(Duration(seconds: 2), () {
-                        setState(() {
-                          _isLoading = false;
-                        });
+                        // setState(() {
+                        //   _isLoading = false;
+                        // });
+                        print("phone:" + phoneNumber);
+
                         Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => Verificatoin(
-                                      phoneNumber: "",
+                                      phoneNumber: phoneNumber,
                                     )));
                       });
                     },
@@ -185,7 +186,11 @@ class _RegisterWithPhoneNumberState extends State<RegisterWithPhoneNumber> {
                       ),
                       InkWell(
                         onTap: () {
-                          Navigator.of(context).pushReplacementNamed('/login');
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const LoginPage()),
+                          );
                         },
                         child: Text(
                           'Login',

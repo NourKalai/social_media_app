@@ -3,6 +3,7 @@ import 'package:diginas_app/authentification/screens/splashScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
+import 'authentification/screens/OnBoard/onboardscreen.dart';
 import 'l10n/l10n.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -25,7 +26,6 @@ class MyApp extends StatelessWidget {
             appBarTheme: const AppBarTheme(
                 color: Colors.white,
                 elevation: 0,
-                brightness: Brightness.light,
                 iconTheme:
                     IconThemeData(color: Color.fromARGB(255, 10, 9, 9)))),
         supportedLocales: L10n.all,
@@ -35,6 +35,7 @@ class MyApp extends StatelessWidget {
           GlobalWidgetsLocalizations.delegate,
           GlobalCupertinoLocalizations.delegate,
         ],
-        home: const SplashScreen());
+        home: const //SplashScreen()
+            SplashScreen());
   }
 }

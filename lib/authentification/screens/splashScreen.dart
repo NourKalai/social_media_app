@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'package:diginas_app/authentification/screens/OnBoard/onboardscreen.dart';
+import 'package:diginas_app/authentification/screens/sign%20in/login.screen.dart';
 import 'package:diginas_app/authentification/screens/sign%20in/signInPage1.dart';
 import 'package:flutter/material.dart';
 
@@ -25,7 +27,8 @@ class _SplashScreenState extends State<SplashScreen> {
                         Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const SignInPage1()));
+                                builder: (context) =>
+                                    const ConcentricTransitionPage()));
                       })
                     }
                   : _start++;

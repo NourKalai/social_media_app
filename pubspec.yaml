@@ -50,6 +50,9 @@ dependencies:
   pin_code_fields: ^7.4.0
   sms_receiver: ^0.4.1
   intl_phone_number_input: ^0.7.1
+  concentric_transition: ^1.0.3
+  lottie: ^1.4.2
+  image_picker: ^0.8.6
 
 dev_dependencies:
   flutter_test:

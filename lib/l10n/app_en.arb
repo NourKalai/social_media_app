@@ -4,7 +4,10 @@
         "description":"The current language"
     },
     "welcome":"Welcome",
+    "logintoyouraccount":"Login with",
+    "oruseyouraccount":"or use your account",
     "signinwith":"Sign in with ",
+    "rememberme":"Remember me",
     "or":"or",
     "password":"password",
     "withoutaccount":"you don't have an account ?",

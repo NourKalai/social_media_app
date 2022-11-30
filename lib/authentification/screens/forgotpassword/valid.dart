@@ -1,11 +1,13 @@
 // ignore_for_file: unnecessary_new
 
 import 'package:animate_do/animate_do.dart';
+import 'package:diginas_app/authentification/screens/signup/signup.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:async';
 import 'package:flutter_otp/flutter_otp.dart';
 import 'package:alt_sms_autofill/alt_sms_autofill.dart';
+import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:sms_receiver/sms_receiver.dart';
 
@@ -142,6 +144,7 @@ class _VerificatoinState extends State<Verificatoin> {
 
   @override
   Widget build(BuildContext context) {
+    print("phone:" + widget.phoneNumber);
     return Scaffold(
         appBar: AppBar(
           leading: IconButton(
@@ -338,6 +341,11 @@ class _VerificatoinState extends State<Verificatoin> {
                           ? () => {}
                           : () {
                               verify();
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => SignUp()),
+                              );
                             },
                       color: Color.fromARGB(255, 67, 120, 199),
                       minWidth: MediaQuery.of(context).size.width * 0.8,

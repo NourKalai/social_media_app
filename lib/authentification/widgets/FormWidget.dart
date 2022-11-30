@@ -1,3 +1,4 @@
+import 'package:diginas_app/config.dart';
 import 'package:flutter/material.dart';
 
 class TextFormWdiget extends StatelessWidget {
@@ -43,17 +44,15 @@ class TextFormWdiget extends StatelessWidget {
           borderRadius: BorderRadius.all(Radius.circular(20.0)),
           borderSide: BorderSide(color: Color.fromARGB(223, 245, 241, 241)),
         ),
-        fillColor: Color.fromARGB(223, 231, 229, 229),
+        fillColor: kPrimaryLightColor,
         //  suffixIcon: Icon(icon, size: 25, color: Colors.black38),
         filled: true,
         hintStyle: TextStyle(color: Colors.black38, fontSize: 15),
         contentPadding: EdgeInsets.fromLTRB(30, 20, 10, 20),
       ),
       controller: this.controller,
-
       validator: validator,
       onSaved: OnSaved,
     );
   }
 }
-
