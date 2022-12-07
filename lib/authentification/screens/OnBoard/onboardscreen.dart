@@ -23,7 +23,7 @@ class _ConcentricTransitionPageState extends State<ConcentricTransitionPage> {
 /////////////////////////////////////
   List<ConcentricModel> concentrics = [
     ConcentricModel(
-      lottie: "https://assets4.lottiefiles.com/packages/lf20_lhpm8hja.json",
+      lottie: "https://assets1.lottiefiles.com/packages/lf20_0cvczw8l.json",
       text: "Get new\nknowledge",
     ),
     ConcentricModel(
@@ -31,11 +31,11 @@ class _ConcentricTransitionPageState extends State<ConcentricTransitionPage> {
       text: "Take time for\nyourself",
     ),
     ConcentricModel(
-      lottie: "https://assets8.lottiefiles.com/packages/lf20_fbzszqak.json",
+      lottie: "https://assets9.lottiefiles.com/packages/lf20_3rlzwL.json",
       text: "Do what you\nlove",
     ),
     ConcentricModel(
-      lottie: "https://assets8.lottiefiles.com/packages/lf20_prsoqox5.json",
+      lottie: "https://assets2.lottiefiles.com/packages/lf20_ndLURGQdmU.json",
       text: "Try something\nnew",
     ),
   ];
@@ -47,8 +47,8 @@ class _ConcentricTransitionPageState extends State<ConcentricTransitionPage> {
         body: ConcentricPageView(
             onChange: (val) {},
             colors: const <Color>[
-              Color.fromARGB(255, 184, 106, 236),
-              Color(0xff013BCA),
+              Color.fromARGB(255, 89, 163, 212),
+              Color.fromARGB(255, 67, 110, 219),
               Colors.white,
               Color.fromARGB(183, 89, 245, 172),
             ],

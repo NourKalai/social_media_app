@@ -3,9 +3,15 @@ import 'package:diginas_app/authentification/screens/forgotpassword/validationMa
 import 'package:diginas_app/authentification/screens/forgotpassword/validationSecretQuestion.dart';
 import 'package:diginas_app/authentification/widgets/buttonWidget.dart';
 import 'package:diginas_app/authentification/widgets/titleWidget.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+
+import '../../widgets/UpWidget.dart';
+import '../sign in/login.screen.dart';
 
 class RecoveredPasswordMethods extends StatelessWidget {
   String phoneNumber;
@@ -16,49 +22,11 @@ class RecoveredPasswordMethods extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
-      ),
-      body: SafeArea(
-          child: SingleChildScrollView(
-        padding: const EdgeInsets.only(top: 30, right: 40, left: 40),
+      body: SingleChildScrollView(
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Text(
-            "Forgot ",
-            style: TextStyle(
-              color: Color.fromARGB(255, 3, 6, 12),
-              fontSize: 40,
-              fontFamily: "Poppins",
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          Text(
-            "Password",
-            style: TextStyle(
-              color: Color.fromARGB(255, 3, 6, 12),
-              fontSize: 40,
-              fontFamily: "Poppins",
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          SizedBox(height: 30),
-          Container(
-            child: titleWidget(context, "Have you forgot your password ?",
-                Color.fromARGB(255, 13, 14, 17)),
-          ),
-          titleWidget(
-            context,
-            "No problem , choose one way to  recover you account ",
-            Color.fromARGB(255, 29, 175, 49),
-          ),
-          SizedBox(
-            height: 40,
-          ),
-          button(
+          UpWidget(titleText: AppLocalizations.of(context)!.forgotpassword,),
+          SizedBox(height: 50),
+          buttonWidget(
             context,
             "Secret Question",
             Color.fromARGB(190, 235, 231, 231),
@@ -68,7 +36,7 @@ class RecoveredPasswordMethods extends StatelessWidget {
           SizedBox(
             height: 20,
           ),
-          button(
+          buttonWidget(
               context,
               "Verification code via SMS",
               Color.fromARGB(190, 235, 231, 231),
@@ -78,14 +46,39 @@ class RecoveredPasswordMethods extends StatelessWidget {
           SizedBox(
             height: 20,
           ),
-          button(
+          buttonWidget(
               context,
               "Verification code via Mail",
               Color.fromARGB(190, 235, 231, 231),
               Colors.black,
               VerificationMail(mail: email)),
+          SizedBox(height: 50),
+          button(context, Colors.blue, Colors.white)
         ]),
-      )),
+      ),
     );
+  }
+
+  Container button(BuildContext context, Color background, Color colorText) {
+    return Container(
+        width: 320,
+        height: 60,
+        child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              primary: background,
+              onPrimary: Colors.white,
+              shadowColor: Color.fromARGB(255, 14, 12, 12),
+              elevation: 5,
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const LoginPage()),
+              );
+            },
+            child: Text("Return to login")));
   }
 }

@@ -51,13 +51,22 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: SizedBox(
-          width: 110,
-          height: 130,
-          child: Image.asset("assets/images/logoDiginas.png"),
+      body: Stack(children: [
+        Container(
+            decoration: BoxDecoration(
+                color: Colors.blueAccent,
+                gradient: LinearGradient(
+                    colors: [(Colors.lightBlueAccent), (Colors.blue.shade400)],
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter))),
+        Center(
+          child: SizedBox(
+            width: 110,
+            height: 130,
+            child: Image.asset("assets/images/diginaslogo.png"),
+          ),
         ),
-      ),
+      ]),
     );
   }
 }

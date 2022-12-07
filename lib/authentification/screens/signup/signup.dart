@@ -9,6 +9,7 @@ import 'dart:io';
 
 import '../../widgets/rounded.input.field.dart';
 import '../../widgets/titleWidget.dart';
+import 'chooseUser.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({Key? key}) : super(key: key);
@@ -57,7 +58,7 @@ class _SignUpState extends State<SignUp> {
   TextEditingController lastNameController = TextEditingController();
   TextEditingController mailController = TextEditingController();
   late Size size;
-  String imagepath = "assets/images/avatar.jpg";
+  String imagepath = "assets/images/icon.png";
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
@@ -68,15 +69,39 @@ class _SignUpState extends State<SignUp> {
     size = MediaQuery.of(context).size;
 
     return Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Color.fromARGB(255, 110, 163, 165),
         appBar: AppBar(
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  colors: [
+                    const Color(0xFF3366FF),
+                    const Color(0xFF00CCFF),
+                  ],
+                  begin: const FractionalOffset(0.0, 0.0),
+                  end: const FractionalOffset(1.0, 0.0),
+                  stops: [0.0, 1.0],
+                  tileMode: TileMode.clamp),
+            ),
+          ),
           leading: IconButton(
-            icon: const Icon(Icons.arrow_back),
+            icon: const Icon(Icons.arrow_back, color: Colors.white),
             onPressed: () => Navigator.of(context).pop(),
           ),
         ),
         key: scaffoldKey,
-        body: SafeArea(
+        body: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  colors: [
+                    const Color(0xFF3366FF),
+                    const Color(0xFF00CCFF),
+                  ],
+                  begin: const FractionalOffset(0.0, 0.0),
+                  end: const FractionalOffset(1.0, 0.0),
+                  stops: [0.0, 1.0],
+                  tileMode: TileMode.clamp),
+            ),
             child: SingleChildScrollView(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
@@ -94,7 +119,7 @@ class _SignUpState extends State<SignUp> {
                           textAlign: TextAlign.center,
                           style: TextStyle(
                               fontSize: 40,
-                              color: Color.fromARGB(255, 47, 170, 113),
+                              color: Color.fromARGB(255, 234, 236, 241),
                               fontFamily: "Poppins",
                               fontWeight: FontWeight.bold),
                         ),
@@ -134,12 +159,8 @@ class _SignUpState extends State<SignUp> {
                                                       BottomSheet(context)),
                                                 );
                                               },
-                                              child: Image.asset(
-                                                  'assets/images/icon.png')),
+                                              child: Icon(Icons.edit)),
                                         ),
-
-                                        // Icon(Icons.add_a_photo,
-                                        //     color: Colors.black),
                                       ),
                                       decoration: BoxDecoration(
                                           border: Border.all(
@@ -201,7 +222,8 @@ class _SignUpState extends State<SignUp> {
                                         ),
                                         child: FlatButton(
                                           color: hasBeenPressed1
-                                              ? Colors.green
+                                              ? Color.fromARGB(
+                                                  255, 56, 105, 168)
                                               : Color.fromARGB(
                                                   255, 231, 229, 229),
                                           child: Text(
@@ -220,7 +242,7 @@ class _SignUpState extends State<SignUp> {
                                               hasBeenPressed1 = true;
                                               hasBeenPressed2 = false;
                                               imagepath =
-                                                  "assets/images/avatar.jpg";
+                                                  "assets/images/icon.png";
                                             });
                                           },
                                         ),
@@ -238,7 +260,7 @@ class _SignUpState extends State<SignUp> {
                                       child: FlatButton(
                                         color: hasBeenPressed1
                                             ? Colors.white
-                                            : Colors.green,
+                                            : Color.fromARGB(255, 56, 105, 168),
                                         child: Text(
                                           "Femme",
                                           style: TextStyle(
@@ -255,7 +277,7 @@ class _SignUpState extends State<SignUp> {
                                             hasBeenPressed2 = true;
                                             hasBeenPressed1 = false;
                                             imagepath =
-                                                "assets/images/Femme.png";
+                                                "assets/images/icon.png";
                                           });
                                         },
                                       ),
@@ -344,6 +366,30 @@ class _SignUpState extends State<SignUp> {
                                         ? Colors.green
                                         : Colors.red,
                                     textinputtype: TextInputType.text),
+                                title(context, "Enter your date of birth"),
+                                RoundedInputField(
+                                    obscure: false,
+                                    controller: lastNameController,
+                                    suffixIcon: Icon(
+                                      Icons.close,
+                                      color: islastNameCorrect
+                                          ? Colors.green
+                                          : Colors.red,
+                                    ),
+                                    onChanged: (value) {
+                                      if (!value!.isEmpty)
+                                        setState(() {
+                                          islastNameCorrect = true;
+                                        });
+                                    },
+                                    hintText: "AAAA/MM/JJ",
+                                    OnSaved: (value) =>
+                                        setState(() => lastName = value),
+                                    icon: Icons.calendar_month,
+                                    coloricon: isFirstNameCorrect
+                                        ? Colors.green
+                                        : Colors.red,
+                                    textinputtype: TextInputType.text),
                                 title(context, "Enter your password"),
                                 RoundedInputField(
                                     obscure: false,
@@ -371,58 +417,6 @@ class _SignUpState extends State<SignUp> {
                                         ? Colors.green
                                         : Colors.red,
                                     textinputtype: TextInputType.text),
-
-                                // TextFormWidget(
-                                //   obscure: false,
-                                //   textinputtype: TextInputType.number,
-                                //   hint: 'Numero de telephone',
-                                //   controller: phoneNumberController,
-                                //   validator: (input) {
-                                //     if (input!.isEmpty) {
-                                //       return 'Entrer un numero de telehone';
-                                //     } else if (input.length < 8) {
-                                //       return 'entrer un numero de telephone valide';
-                                //     } else
-                                //       return null;
-                                //   },
-                                // ),
-                                // const SizedBox(height: 25),
-                                // TextFormWidget(
-                                //     controller: passwordController,
-                                //     textinputtype: TextInputType.text,
-                                //     obscure: isHiddenPassword,
-                                //     suffixIcon: GestureDetector(
-                                //         onTap: () => setState(() =>
-                                //             isHiddenPassword = !isHiddenPassword),
-                                //         child: isHiddenPassword
-                                //             ? Icon(Icons.remove_red_eye,
-                                //                 size: 25, color: Colors.black38)
-                                //             : Icon(Icons.remove_red_eye,
-                                //                 size: 25,
-                                //                 color: Const.mainGreenColor)),
-                                //     validator: (input) {
-                                //       if (input!.isEmpty) {
-                                //         return 'Entrer votre mot de passe ';
-                                //       } else
-                                //         return null;
-                                //     },
-                                //     hint: "Mot de passe"),
-                                // const SizedBox(height: 25),
-                                // TextFormWidget(
-                                //     textinputtype: TextInputType.text,
-                                //     obscure: true,
-                                //     validator: (input) {
-                                //       if (input!.isEmpty) {
-                                //         return 'Entrer votre mot de passe ';
-                                //       } else if (input == passwordController.text) {
-                                //         return null;
-                                //       } else {
-                                //         'mot de passe incorrect ';
-                                //       }
-                                //       return null;
-                                //     },
-                                //     hint: "Confirmer mot de passe"),
-
                                 SizedBox(height: 25),
                                 Row(children: <Widget>[
                                   Checkbox(
@@ -452,7 +446,7 @@ class _SignUpState extends State<SignUp> {
                                         Text(
                                           " Conditions Générales ",
                                           style: TextStyle(
-                                              color: Colors.green,
+                                              color: Colors.white,
                                               fontSize: 13),
                                         ),
                                         const Text(
@@ -482,14 +476,16 @@ class _SignUpState extends State<SignUp> {
                                     child: Text(
                                       "Finaliser",
                                       style: TextStyle(
-                                          color: Colors.green, fontSize: 18),
+                                          color:
+                                              Color.fromARGB(255, 13, 138, 79),
+                                          fontSize: 18),
                                     ),
                                     onPressed: () {
                                       Navigator.push(
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) =>
-                                                ProfilePage()),
+                                                ChooseAccount()),
                                       );
                                       isChecked &&
                                               _loginFormKey.currentState!

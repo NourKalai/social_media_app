@@ -1,12 +1,17 @@
+import 'package:diginas_app/authentification/screens/splashScreen.dart';
 import 'package:diginas_app/authentification/widgets/pagetitleBar.dart';
 import 'package:diginas_app/authentification/widgets/rounded.icon.dart';
 import 'package:diginas_app/config.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import '../../../models/login-response.model.dart';
+import '../../services/authentification.service.dart';
 import '../../widgets/rounded.input.field.dart';
+import '../../widgets/rounded_button.dart';
 import '../../widgets/under.part.dart';
 import '../../widgets/upside.dart';
 import '../forgotpassword/forgotPassword.dart';
@@ -20,9 +25,15 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  bool isApiCallProcess = false;
+  AccessToken? _accessToken;
+  UserModel? _currentUser;
+  late LoginRequestModel loginRequestModel;
+
   @override
   void initState() {
     super.initState();
+    loginRequestModel = new LoginRequestModel();
   }
 
   @override
@@ -35,6 +46,7 @@ class _LoginPageState extends State<LoginPage> {
 
   TextEditingController mailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  final scaffoldKey = GlobalKey<ScaffoldState>();
 
   final _loginFormKey = GlobalKey<FormState>();
   String email = '';
@@ -42,9 +54,11 @@ class _LoginPageState extends State<LoginPage> {
   bool isMailCorrect = false;
   @override
   Widget build(BuildContext context) {
+    UserModel? user = _currentUser;
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
+      key: scaffoldKey,
       backgroundColor: Colors.white,
       body: SizedBox(
           width: size.width,
@@ -100,7 +114,6 @@ class _LoginPageState extends State<LoginPage> {
                                         EmailValidator.validate(value);
                                   });
                                 },
-                         
                                 hintText: AppLocalizations.of(context)!.email,
                                 OnSaved: (value) =>
                                     setState(() => email = value),
@@ -167,48 +180,6 @@ class _LoginPageState extends State<LoginPage> {
                                         color: Color.fromARGB(255, 8, 18, 41),
                                         fontSize: 16),
                                   ))
-
-                              // RoundedInputField(
-                              //     obscureText: isHiddenPassword,
-                              //     controller: passwordController,
-                              //     textinputtype: TextInputType.text,
-                              //     suffixIcon: GestureDetector(
-                              //         onTap: () => setState(() =>
-                              //             isHiddenPassword =
-                              //                 !isHiddenPassword),
-                              //         child: isHiddenPassword
-                              //             ? Icon(Icons.remove_red_eye,
-                              //                 size: 25, color: Colors.black38)
-                              //             : Icon(Icons.remove_red_eye,
-                              //                 size: 25,
-                              //                 color: kPrimaryColor)),
-                              //     validator: (input) {
-                              //       if (input!.isEmpty) {
-                              //         return 'Entrer votre mot de passe ';
-                              //       } else
-                              //         return null;
-                              //     },
-                              //     hintText: "Mot de passe"),
-                              // TextFormWdiget(
-                              //   textinputtype: TextInputType.text,
-                              //   obscure: false,
-                              //   hint: AppLocalizations.of(context)!.email,
-                              //   icon: Icons.mail,
-                              //   controller: mailController,
-                              //   validator: (input) {
-                              //     if (input!.isEmpty) {
-                              //       return AppLocalizations.of(context)!
-                              //           .entermail;
-                              //     } else {
-                              //       return EmailValidator.validate(input)
-                              //           ? null
-                              //           : AppLocalizations.of(context)!
-                              //               .entervalidmail;
-                              //     }
-                              //   },
-                              //   OnSaved: (value) =>
-                              //       setState(() => email = value),
-                              // ),
                             ],
                           ),
                         )
@@ -243,6 +214,27 @@ class _LoginPageState extends State<LoginPage> {
 
             if (isValid) {
               _loginFormKey.currentState!.save();
+              AuthService().login(loginRequestModel).then((value) {
+                if (value != null) {
+                  setState(() {
+                    isApiCallProcess = false;
+                  });
+                  if (value.token.isNotEmpty) {
+                    final snackBar = SnackBar(
+                      content: Text(
+                        "Login Successful",
+                        style: TextStyle(fontSize: 20),
+                      ),
+                      backgroundColor: Colors.green,
+                    );
+                    scaffoldKey.currentState!.showSnackBar(snackBar);
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => SplashScreen()));
+
+                    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                  }
+                }
+              });
 
               final message = 'Successful login! ';
               final snackBar = SnackBar(
@@ -287,13 +279,36 @@ class _LoginPageState extends State<LoginPage> {
   IconButton(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: const [
-        RoundedIcon(imageUrl: "assets/images/facebook.png"),
+      children: [
+        RoundedIcon(
+          imageUrl: "assets/images/facebook.png",
+          onTap: press,
+        ),
         SizedBox(width: 20),
         RoundedIcon(imageUrl: "assets/images/google.jpg"),
         SizedBox(width: 20),
         RoundedIcon(imageUrl: "assets/images/insta.png"),
       ],
     );
+  }
+
+  bool validateAndSave() {
+    final form = _loginFormKey.currentState;
+    if (form!.validate()) {
+      form.save();
+      return true;
+    }
+    return false;
+  }
+
+  Future<void> press() async {
+    final LoginResult result = await FacebookAuth.i.login();
+    if (result.status == LoginStatus.success) {
+      _accessToken = result.accessToken;
+      final data = await FacebookAuth.i.getUserData();
+      UserModel model = UserModel.fromJson(data);
+      _currentUser = model;
+      setState(() {});
+    }
   }
 }

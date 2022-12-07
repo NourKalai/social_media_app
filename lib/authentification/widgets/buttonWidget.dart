@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-Container button(BuildContext context, String text, Color background,
+Container buttonWidget(BuildContext context, String text, Color background,
     Color colorText, func) {
   return Container(
     width: 320,
@@ -16,7 +16,7 @@ Container button(BuildContext context, String text, Color background,
           overlayColor: MaterialStateProperty.resolveWith<Color?>(
             (Set<MaterialState> states) {
               if (states.contains(MaterialState.pressed))
-                return Color.fromARGB(255, 122, 255, 82); //<-- SEE HERE
+                return Color.fromARGB(255, 63, 123, 190); //<-- SEE HERE
 
               return null;
             },
@@ -33,8 +33,6 @@ Container button(BuildContext context, String text, Color background,
           style: TextStyle(
               color: colorText, fontSize: 17, fontFamily: 'Poppins-Regular'),
         )),
+      
   );
-
-
-  
 }

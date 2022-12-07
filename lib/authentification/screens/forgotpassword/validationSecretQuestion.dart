@@ -95,7 +95,6 @@ class _ValidationSecretQuestionState extends State<ValidationSecretQuestion> {
                     SizedBox(height: 30),
                     title(context, "Your answer"),
                     SizedBox(height: 30),
-                 
                     TextFormWdiget(
                         textinputtype: TextInputType.text,
                         obscure: false,
@@ -108,8 +107,12 @@ class _ValidationSecretQuestionState extends State<ValidationSecretQuestion> {
                             return null;
                         }),
                     SizedBox(height: 50),
-                    button(context, "Next", Color.fromRGBO(46, 98, 212, 1),
-                        Colors.white, SignInPage1()),
+                    buttonWidget(
+                        context,
+                        "Next",
+                        Color.fromRGBO(46, 98, 212, 1),
+                        Colors.white,
+                        SignInPage1()),
                   ],
                 ))
           ],

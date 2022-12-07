@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="facebook_app_id">702087571214326</string>
+    <string name="fb_login_protocol_scheme">fb702087571214326</string>
+    <string name="app_name">diginas</string>
+    <string name="facebook_client_token">ec3cbbfcda880c549dd5c69cb4a3c5b6</string>
+</resources>

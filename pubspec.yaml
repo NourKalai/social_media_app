@@ -53,6 +53,9 @@ dependencies:
   concentric_transition: ^1.0.3
   lottie: ^1.4.2
   image_picker: ^0.8.6
+  shared_preferences: ^2.0.15
+  quickalert: ^1.0.1
+  flutter_facebook_auth: ^5.0.6
 
 dev_dependencies:
   flutter_test:
