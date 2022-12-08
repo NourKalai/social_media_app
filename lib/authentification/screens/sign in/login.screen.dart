@@ -227,7 +227,6 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       backgroundColor: Colors.green,
                     );
-                    scaffoldKey.currentState!.showSnackBar(snackBar);
                     Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => SplashScreen()));
 
@@ -247,11 +246,6 @@ class _LoginPageState extends State<LoginPage> {
               ScaffoldMessenger.of(context).showSnackBar(snackBar);
             }
           },
-          //   Navigator.push(
-          //     context,
-          //     MaterialPageRoute(builder: (context) => const SignInPage2()),
-          //   );
-          // },
           child: Text(
             text,
             style: TextStyle(

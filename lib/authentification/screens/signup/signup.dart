@@ -1,5 +1,4 @@
-import 'package:diginas_app/authentification/screens/signup/profile.screen.dart';
-import 'package:diginas_app/authentification/widgets/FormWidget.dart';
+
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -202,86 +201,94 @@ class _SignUpState extends State<SignUp> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Container(
-                                      height: 30,
-                                      width: 170,
-                                      decoration: BoxDecoration(
-                                        color:
-                                            Color.fromARGB(223, 245, 241, 241),
-                                        borderRadius:
-                                            BorderRadius.circular(20.0),
-                                      ),
-                                      child: Container(
-                                        height: 30,
-                                        width: 170,
-                                        decoration: BoxDecoration(
-                                          color: Color.fromARGB(
-                                              223, 245, 241, 241),
-                                          borderRadius:
-                                              BorderRadius.circular(20.0),
-                                        ),
-                                        child: FlatButton(
-                                          color: hasBeenPressed1
-                                              ? Color.fromARGB(
-                                                  255, 56, 105, 168)
-                                              : Color.fromARGB(
-                                                  255, 231, 229, 229),
-                                          child: Text(
-                                            "Homme",
-                                            style: TextStyle(
-                                                fontSize: 20.0,
-                                                color: hasBeenPressed1
-                                                    ? Colors.white
-                                                    : Colors.black38),
-                                          ),
-                                          shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(15)),
-                                          onPressed: () {
-                                            setState(() {
-                                              hasBeenPressed1 = true;
-                                              hasBeenPressed2 = false;
-                                              imagepath =
-                                                  "assets/images/icon.png";
-                                            });
-                                          },
-                                        ),
-                                      ),
-                                    ),
-                                    Container(
-                                      height: 30,
-                                      width: 170,
-                                      decoration: BoxDecoration(
-                                        color:
-                                            Color.fromARGB(223, 245, 241, 241),
-                                        borderRadius:
-                                            BorderRadius.circular(20.0),
-                                      ),
-                                      child: FlatButton(
-                                        color: hasBeenPressed1
-                                            ? Colors.white
-                                            : Color.fromARGB(255, 56, 105, 168),
-                                        child: Text(
-                                          "Femme",
-                                          style: TextStyle(
-                                              fontSize: 20.0,
-                                              color: hasBeenPressed2
-                                                  ? Colors.white
-                                                  : Colors.black38),
-                                        ),
-                                        shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(15)),
-                                        onPressed: () {
-                                          setState(() {
-                                            hasBeenPressed2 = true;
-                                            hasBeenPressed1 = false;
-                                            imagepath =
-                                                "assets/images/icon.png";
-                                          });
-                                        },
-                                      ),
-                                    ),
+                                    // Container(
+                                    //   height: 30,
+                                    //   width: 170,
+                                    //   decoration: BoxDecoration(
+                                    //     color:
+                                    //         Color.fromARGB(223, 245, 241, 241),
+                                    //     borderRadius:
+                                    //         BorderRadius.circular(20.0),
+                                    //   ),
+                                    //   child: Container(
+                                    //     height: 30,
+                                    //     width: 170,
+                                    //     decoration: BoxDecoration(
+                                    //       color: Color.fromARGB(
+                                    //           223, 245, 241, 241),
+                                    //       borderRadius:
+                                    //           BorderRadius.circular(20.0),
+                                    //     ),
+                                    //     child: FlatButton(
+                                    //       color: hasBeenPressed1
+                                    //           ? Color.fromARGB(
+                                    //               255, 56, 105, 168)
+                                    //           : Color.fromARGB(
+                                    //               255, 231, 229, 229),
+                                    //       child: Text(
+                                    //         "Homme",
+                                    //         style: TextStyle(
+                                    //             fontSize: 20.0,
+                                    //             color: hasBeenPressed1
+                                    //                 ? Colors.white
+                                    //                 : Colors.black38),
+                                    //       ),
+                                    //       shape: RoundedRectangleBorder(
+                                    //           borderRadius:
+                                    //               BorderRadius.circular(15)),
+                                    //       onPressed: () {
+                                    //         setState(() {
+                                    //           hasBeenPressed1 = true;
+                                    //           hasBeenPressed2 = false;
+                                    //           imagepath =
+                                    //               "assets/images/icon.png";
+                                    //         });
+                                    //       },
+                                    //     ),
+                                    //   ),
+                                    // ),
+//                                     Container(
+//                                       height: 30,
+//                                       width: 170,
+//                                       decoration: BoxDecoration(
+//                                         color:
+//                                             Color.fromARGB(223, 245, 241, 241),
+//                                         borderRadius:
+//                                             BorderRadius.circular(20.0),
+//                                       ),
+//                                       child: ElevatedButton(
+                                        
+//                                         color: hasBeenPressed1
+//                                             ? Colors.white
+//                                             : Color.fromARGB(255, 56, 105, 168),
+//                                         child: Text(
+//                                           "Femme",
+//                                           style: TextStyle(
+//                                               fontSize: 20.0,
+//                                               color: hasBeenPressed2
+//                                                   ? Colors.white
+//                                                   : Colors.black38),
+//                                         ),
+//                                        style: ButtonStyle(
+//                                                         backgroundColor: Colors.purple,
+
+//   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+//     RoundedRectangleBorder(
+//       borderRadius: BorderRadius.circular(20),
+//       side: BorderSide(color: Colors.red)
+//     )
+//   )
+// ),
+//                                         onPressed: () {
+//                                           setState(() {
+//                                             hasBeenPressed2 = true;
+//                                             hasBeenPressed1 = false;
+//                                             imagepath =
+//                                                 "assets/images/icon.png";
+//                                           });
+//                                         },
+//                                       ),
+//                                     ),
                                   ],
                                 ))
                           ],
@@ -469,10 +476,16 @@ class _SignUpState extends State<SignUp> {
                                           color: Colors.green, width: 2),
                                       color: Colors.white),
                                   padding: EdgeInsets.zero,
-                                  child: FlatButton(
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(30),
-                                    ),
+                                  child: ElevatedButton(
+                                    style: ButtonStyle(
+  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+    RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(30.0),
+      side: BorderSide(color: Colors.red)
+    )
+  )
+),
+                                   
                                     child: Text(
                                       "Finaliser",
                                       style: TextStyle(
@@ -536,7 +549,7 @@ class _SignUpState extends State<SignUp> {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            FlatButton.icon(
+            ElevatedButton.icon(
                 onPressed: () {
                   pickImage(ImageSource.camera);
                 },
@@ -545,7 +558,7 @@ class _SignUpState extends State<SignUp> {
                   color: Colors.green,
                 ),
                 label: const Text("Camera")),
-            FlatButton.icon(
+            ElevatedButton.icon(
                 onPressed: () {
                   pickImage(ImageSource.gallery);
                 },
