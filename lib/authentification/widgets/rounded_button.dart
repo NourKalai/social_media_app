@@ -36,7 +36,7 @@ class RoundedButton extends StatelessWidget {
         text,
         style: TextStyle(color: textColor, fontSize: 17),
       ),
-      onPressed: press,
+      onPressed: this.press,
       style: ElevatedButton.styleFrom(
           primary: Color(0xfff1bb274),
           padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
@@ -48,8 +48,6 @@ class RoundedButton extends StatelessWidget {
               fontFamily: 'OpenSans')),
     );
   }
-
- 
 }
 
 class UserModel {

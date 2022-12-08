@@ -1,3 +1,4 @@
+import 'package:diginas_app/authentification/screens/sign%20in/home.dart';
 import 'package:diginas_app/authentification/screens/splashScreen.dart';
 import 'package:diginas_app/authentification/widgets/pagetitleBar.dart';
 import 'package:diginas_app/authentification/widgets/rounded.icon.dart';
@@ -270,13 +271,13 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  IconButton(BuildContext context) {
+  Row IconButton(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         RoundedIcon(
           imageUrl: "assets/images/facebook.png",
-          onTap: press,
+          ontap: press,
         ),
         SizedBox(width: 20),
         RoundedIcon(imageUrl: "assets/images/google.jpg"),
@@ -296,13 +297,31 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Future<void> press() async {
-    final LoginResult result = await FacebookAuth.i.login();
-    if (result.status == LoginStatus.success) {
-      _accessToken = result.accessToken;
-      final data = await FacebookAuth.i.getUserData();
-      UserModel model = UserModel.fromJson(data);
-      _currentUser = model;
-      setState(() {});
+    try {
+      final result =
+          await FacebookAuth.i.login(permissions: ['public_profile', 'email']);
+      if (result.status == LoginStatus.success) {
+        final userData = await FacebookAuth.i.getUserData();
+        print('facebook _login_data:-');
+        print(userData);
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: ((context) => HomePage(
+                    url: userData['picture']['data']['url'],
+                    name: userData['name'],
+                    email: userData['email']))));
+      }
+    } catch (error) {
+      print(error);
     }
+    // final LoginResult result = await FacebookAuth.i.login();
+    // if (result.status == LoginStatus.success) {
+    //   _accessToken = result.accessToken;
+    //   final data = await FacebookAuth.i.getUserData();
+    //   UserModel model = UserModel.fromJson(data);
+    //   _currentUser = model;
+    //   setState(() {});
+    // }
   }
 }
