@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../config.dart';
+import '../../constant/config.dart';
 
 class TextFieldContainer extends StatelessWidget {
   const TextFieldContainer({ Key? key,this.child }) : super(key: key);

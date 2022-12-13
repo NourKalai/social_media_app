@@ -1,4 +1,3 @@
-
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -71,14 +70,14 @@ class _SignUpState extends State<SignUp> {
         backgroundColor: Color.fromARGB(255, 110, 163, 165),
         appBar: AppBar(
           flexibleSpace: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               gradient: LinearGradient(
                   colors: [
-                    const Color(0xFF3366FF),
-                    const Color(0xFF00CCFF),
+                    Color.fromARGB(136, 51, 102, 255),
+                    Color(0xFF00CCFF),
                   ],
-                  begin: const FractionalOffset(0.0, 0.0),
-                  end: const FractionalOffset(1.0, 0.0),
+                  begin: FractionalOffset(0.0, 5),
+                  end: FractionalOffset(1.0, 0.0),
                   stops: [0.0, 1.0],
                   tileMode: TileMode.clamp),
             ),
@@ -90,14 +89,14 @@ class _SignUpState extends State<SignUp> {
         ),
         key: scaffoldKey,
         body: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               gradient: LinearGradient(
                   colors: [
-                    const Color(0xFF3366FF),
-                    const Color(0xFF00CCFF),
+                    Color.fromARGB(136, 51, 102, 255),
+                    Color(0xFF00CCFF),
                   ],
-                  begin: const FractionalOffset(0.0, 0.0),
-                  end: const FractionalOffset(1.0, 0.0),
+                  begin: FractionalOffset(0.0, 0.0),
+                  end: FractionalOffset(1.0, 0.0),
                   stops: [0.0, 1.0],
                   tileMode: TileMode.clamp),
             ),
@@ -113,7 +112,7 @@ class _SignUpState extends State<SignUp> {
                       ),
                       Center(
                           child: Column(children: [
-                        Text(
+                        const Text(
                           "Sign up",
                           textAlign: TextAlign.center,
                           style: TextStyle(
@@ -145,22 +144,6 @@ class _SignUpState extends State<SignUp> {
                                   top: 0,
                                   right: 4,
                                   child: Container(
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(2.0),
-                                        child: CircleAvatar(
-                                          backgroundColor: Colors.white,
-                                          radius: 13,
-                                          child: InkWell(
-                                              onTap: () {
-                                                showModalBottomSheet(
-                                                  context: context,
-                                                  builder: ((builder) =>
-                                                      BottomSheet(context)),
-                                                );
-                                              },
-                                              child: Icon(Icons.edit)),
-                                        ),
-                                      ),
                                       decoration: BoxDecoration(
                                           border: Border.all(
                                             width: 3,
@@ -182,7 +165,23 @@ class _SignUpState extends State<SignUp> {
                                               ),
                                               blurRadius: 3,
                                             ),
-                                          ])))
+                                          ]),
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(2.0),
+                                        child: CircleAvatar(
+                                          backgroundColor: Colors.white,
+                                          radius: 13,
+                                          child: InkWell(
+                                              onTap: () {
+                                                showModalBottomSheet(
+                                                  context: context,
+                                                  builder: ((builder) =>
+                                                      BottomSheet(context)),
+                                                );
+                                              },
+                                              child: const Icon(Icons.edit)),
+                                        ),
+                                      )))
                             ]),
                           ]),
                         ),
@@ -257,7 +256,7 @@ class _SignUpState extends State<SignUp> {
 //                                             BorderRadius.circular(20.0),
 //                                       ),
 //                                       child: ElevatedButton(
-                                        
+
 //                                         color: hasBeenPressed1
 //                                             ? Colors.white
 //                                             : Color.fromARGB(255, 56, 105, 168),
@@ -473,24 +472,26 @@ class _SignUpState extends State<SignUp> {
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(30),
                                       border: Border.all(
-                                          color: Colors.green, width: 2),
+                                          color: Color.fromARGB(
+                                              255, 213, 229, 231),
+                                          width: 2),
                                       color: Colors.white),
                                   padding: EdgeInsets.zero,
                                   child: ElevatedButton(
                                     style: ButtonStyle(
-  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-    RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(30.0),
-      side: BorderSide(color: Colors.red)
-    )
-  )
-),
-                                   
+                                        shape: MaterialStateProperty.all<
+                                                RoundedRectangleBorder>(
+                                            RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(30.0),
+                                                side: BorderSide(
+                                                    color: Color.fromARGB(
+                                                        255, 233, 229, 229))))),
                                     child: Text(
                                       "Finaliser",
                                       style: TextStyle(
-                                          color:
-                                              Color.fromARGB(255, 13, 138, 79),
+                                          color: Color.fromARGB(
+                                              255, 244, 250, 247),
                                           fontSize: 18),
                                     ),
                                     onPressed: () {
@@ -550,23 +551,35 @@ class _SignUpState extends State<SignUp> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ElevatedButton.icon(
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.white,
+                  elevation: 0,
+                ),
                 onPressed: () {
                   pickImage(ImageSource.camera);
                 },
-                icon: const Icon(
+                icon: Icon(
                   Icons.camera,
                   color: Colors.green,
                 ),
-                label: const Text("Camera")),
+                label: const Text("Camera",
+                    style: TextStyle(color: Colors.black))),
             ElevatedButton.icon(
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.white,
+                  elevation: 0,
+                ),
                 onPressed: () {
                   pickImage(ImageSource.gallery);
                 },
-                icon: const Icon(
+                icon: Icon(
                   Icons.photo,
                   color: Colors.green,
                 ),
-                label: const Text("Gallery"))
+                label: const Text(
+                  "Galerie",
+                  style: TextStyle(color: Colors.black),
+                )),
           ],
         )
       ]),

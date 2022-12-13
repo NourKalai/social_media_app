@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../config.dart';
+import '../../constant/config.dart';
 
 class UnderPart extends StatelessWidget {
   const UnderPart(

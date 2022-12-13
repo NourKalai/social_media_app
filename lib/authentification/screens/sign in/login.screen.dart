@@ -1,8 +1,10 @@
+import 'package:diginas_app/authentification/api/google_signin_api.dart';
+import 'package:diginas_app/authentification/screens/home/baseScreen.dart';
 import 'package:diginas_app/authentification/screens/sign%20in/home.dart';
 import 'package:diginas_app/authentification/screens/splashScreen.dart';
 import 'package:diginas_app/authentification/widgets/pagetitleBar.dart';
 import 'package:diginas_app/authentification/widgets/rounded.icon.dart';
-import 'package:diginas_app/config.dart';
+import 'package:diginas_app/constant/config.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
@@ -215,26 +217,36 @@ class _LoginPageState extends State<LoginPage> {
 
             if (isValid) {
               _loginFormKey.currentState!.save();
-              AuthService().login(loginRequestModel).then((value) {
-                if (value != null) {
-                  setState(() {
-                    isApiCallProcess = false;
-                  });
-                  if (value.token.isNotEmpty) {
-                    final snackBar = SnackBar(
-                      content: Text(
-                        "Login Successful",
-                        style: TextStyle(fontSize: 20),
-                      ),
-                      backgroundColor: Colors.green,
-                    );
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => SplashScreen()));
-
-                    ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                  }
-                }
+              setState(() {
+                isApiCallProcess = false;
               });
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => BaseScreen()));
+              // AuthService().login(loginRequestModel).then((value)
+
+              //  {
+              //   if (value != null) {
+              //     setState(() {
+              //       isApiCallProcess = false;
+              //     });
+              //         Navigator.of(context).push(MaterialPageRoute(
+              //           builder: (context) => BaseScreen()));
+
+              // if (value.token.isNotEmpty) {
+              //           final snackBar = SnackBar(
+              //             content: Text(
+              //               "Login Successful",
+              //               style: TextStyle(fontSize: 20),
+              //             ),
+              //             backgroundColor: Colors.green,
+              //           );
+              //           Navigator.of(context).push(MaterialPageRoute(
+              //               builder: (context) => BaseScreen()));
+
+              //           ScaffoldMessenger.of(context).showSnackBar(snackBar);
+              //         }
+              //  //     }
+              //     });
 
               final message = 'Successful login! ';
               final snackBar = SnackBar(
@@ -280,7 +292,10 @@ class _LoginPageState extends State<LoginPage> {
           ontap: press,
         ),
         SizedBox(width: 20),
-        RoundedIcon(imageUrl: "assets/images/google.jpg"),
+        RoundedIcon(
+          imageUrl: "assets/images/google.jpg",
+          ontap: signInGoogle,
+        ),
         SizedBox(width: 20),
         RoundedIcon(imageUrl: "assets/images/insta.png"),
       ],
@@ -294,6 +309,26 @@ class _LoginPageState extends State<LoginPage> {
       return true;
     }
     return false;
+  }
+
+  Future signInGoogle() async {
+    try {
+      final user = await GoogleSignInApi.login();
+      if (user == null) {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: const Text('Sign in Failed')));
+      } else {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: ((context) => HomePage(
+                    url: user.photoUrl!,
+                    name: user.displayName!,
+                    email: user.email))));
+      }
+    } catch (error) {
+      return error;
+    }
   }
 
   Future<void> press() async {
@@ -315,13 +350,5 @@ class _LoginPageState extends State<LoginPage> {
     } catch (error) {
       print(error);
     }
-    // final LoginResult result = await FacebookAuth.i.login();
-    // if (result.status == LoginStatus.success) {
-    //   _accessToken = result.accessToken;
-    //   final data = await FacebookAuth.i.getUserData();
-    //   UserModel model = UserModel.fromJson(data);
-    //   _currentUser = model;
-    //   setState(() {});
-    // }
   }
 }

@@ -1,4 +1,4 @@
-import 'package:diginas_app/config.dart';
+import 'package:diginas_app/constant/config.dart';
 import 'package:flutter/material.dart';
 
 class TextFormWdiget extends StatelessWidget {

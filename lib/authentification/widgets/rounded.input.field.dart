@@ -1,7 +1,7 @@
 import 'package:diginas_app/authentification/widgets/text_field_container.dart';
 import 'package:flutter/material.dart';
 
-import '../../config.dart';
+import '../../constant/config.dart';
 
 class RoundedInputField extends StatefulWidget {
   Widget? suffixIcon;

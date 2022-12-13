@@ -1,4 +1,4 @@
-import 'package:diginas_app/config.dart';
+import 'package:diginas_app/constant/config.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';

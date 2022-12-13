@@ -23,8 +23,29 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'action app',
         theme: ThemeData(
-            scaffoldBackgroundColor: Colors.white,
             fontFamily: 'Poppins',
+            primarySwatch: Colors.blue,
+            textTheme: const TextTheme(
+              titleLarge: TextStyle(
+                fontSize: 20,
+                color: Colors.white,
+                fontWeight: FontWeight.w500,
+              ),
+              bodyLarge: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w500,
+              ),
+              bodyMedium: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+              ),
+              displayMedium: TextStyle(
+                fontWeight: FontWeight.w700,
+                fontSize: 18,
+                color: Colors.black,
+              ),
+            ),
+            scaffoldBackgroundColor: Colors.white,
             appBarTheme: const AppBarTheme(
                 color: Colors.white,
                 elevation: 0,
