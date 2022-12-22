@@ -7,7 +7,15 @@ import 'package:flutter/src/widgets/framework.dart';
 class CircleButton extends StatefulWidget {
   final IconData icon;
   final VoidCallback onPressed;
-  const CircleButton({super.key, required this.icon, required this.onPressed});
+  final Color? color;
+  final Color? backgroundcolor;
+
+  const CircleButton(
+      {super.key,
+      required this.icon,
+      this.backgroundcolor = const Color.fromARGB(255, 144, 183, 214),
+      this.color = Colors.white,
+      required this.onPressed});
 
   @override
   State<CircleButton> createState() => _CircleButtonState();
@@ -21,9 +29,15 @@ class _CircleButtonState extends State<CircleButton> {
       width: 40,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        color: Colors.blue.shade200,
+        color: widget.backgroundcolor,
       ),
-      child: Icon(widget.icon, color: Colors.white),
+      child: IconButton(
+        icon: Icon(
+          widget.icon,
+          color: widget.color,
+        ),
+        onPressed: widget.onPressed,
+      ),
     );
   }
 }

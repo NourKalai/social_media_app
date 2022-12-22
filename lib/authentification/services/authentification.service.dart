@@ -8,7 +8,7 @@ import 'package:http/http.dart' as http;
 class AuthService {
   Future<LoginResponseModel> login(LoginRequestModel requestModel) async {
     try {
-            SharedPreferences sp = await SharedPreferences.getInstance();
+      SharedPreferences sp = await SharedPreferences.getInstance();
 
       final response = await http.post(
           Uri.parse("http://localhost:3001/user/login"),

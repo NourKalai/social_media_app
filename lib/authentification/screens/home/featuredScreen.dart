@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:diginas_app/authentification/screens/home/widgets/appbar.dart';
+import 'package:diginas_app/authentification/screens/home/widgets/sideBar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -15,14 +16,22 @@ class FeaturedScreen extends StatefulWidget {
 }
 
 class _FeaturedScreenState extends State<FeaturedScreen> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle.light,
       child: Scaffold(
+          drawer: SideBar(),
+          key: _scaffoldKey,
           body: Column(
-        children: [AppbarWidget()],
-      )),
+            children: [
+              AppbarWidget(
+                scaffoldKey: _scaffoldKey,
+              )
+            ],
+          )),
     );
   }
 }

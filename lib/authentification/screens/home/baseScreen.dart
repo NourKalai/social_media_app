@@ -1,4 +1,5 @@
 import 'package:diginas_app/authentification/screens/home/featuredScreen.dart';
+import 'package:diginas_app/authentification/screens/home/notificationScreen.dart';
 import 'package:diginas_app/constant/config.dart';
 import 'package:diginas_app/constant/icons.dart';
 import 'package:flutter/material.dart';
@@ -14,11 +15,11 @@ class BaseScreen extends StatefulWidget {
 
 class _BaseScreenState extends State<BaseScreen> {
   int _selectedIndex = 0;
-  static const List<Widget> _widgetOptions = <Widget>[
+  static List<Widget> _widgetOptions = <Widget>[
     FeaturedScreen(),
     FeaturedScreen(),
     FeaturedScreen(),
-    FeaturedScreen(),
+    NotificationScreen(),
   ];
 
   @override
@@ -56,10 +57,10 @@ class _BaseScreenState extends State<BaseScreen> {
           ),
           BottomNavigationBarItem(
             activeIcon:
-                Image.asset(icSetting, height: kBottomNavigationBarItemSize),
+                Icon(Icons.notifications, size: kBottomNavigationBarItemSize),
             icon: Image.asset(icSettingOutlined,
                 height: kBottomNavigationBarItemSize),
-            label: 'Settings',
+            label: 'Notifications',
           ),
         ],
         currentIndex: _selectedIndex,

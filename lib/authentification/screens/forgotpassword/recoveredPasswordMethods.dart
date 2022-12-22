@@ -2,12 +2,10 @@ import 'package:diginas_app/authentification/screens/forgotpassword/valid.dart';
 import 'package:diginas_app/authentification/screens/forgotpassword/validationMail.dart';
 import 'package:diginas_app/authentification/screens/forgotpassword/validationSecretQuestion.dart';
 import 'package:diginas_app/authentification/widgets/buttonWidget.dart';
-import 'package:diginas_app/authentification/widgets/titleWidget.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 import '../../widgets/UpWidget.dart';

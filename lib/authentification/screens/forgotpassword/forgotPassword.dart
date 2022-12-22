@@ -38,8 +38,8 @@ class _ForgotPasswordState extends State<ForgotPassword> {
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Container(
-              margin: EdgeInsets.only(left: 20, right: 20, top: 50),
-              padding: EdgeInsets.only(left: 20, right: 20),
+              margin: const EdgeInsets.only(left: 20, right: 20, top: 50),
+              padding: const EdgeInsets.only(left: 20, right: 20),
               decoration:
                   BoxDecoration(borderRadius: BorderRadius.circular(50)),
               child: RoundedInputField(
@@ -62,8 +62,8 @@ class _ForgotPasswordState extends State<ForgotPassword> {
               ),
             ),
             Container(
-              margin: EdgeInsets.only(left: 20, right: 20, top: 10),
-              padding: EdgeInsets.only(left: 20, right: 20),
+              margin: const EdgeInsets.only(left: 20, right: 20, top: 10),
+              padding: const EdgeInsets.only(left: 20, right: 20),
               decoration:
                   BoxDecoration(borderRadius: BorderRadius.circular(50)),
               child: RoundedInputField(
@@ -74,10 +74,11 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                   color: isMailCorrect ? Colors.green : Colors.red,
                 ),
                 onChanged: (value) {
-                  if (value!.length < 8)
+                  if (value!.length < 8) {
                     setState(() {
                       isPhoneCorrect = true;
                     });
+                  }
                 },
                 hintText: AppLocalizations.of(context)!.phonenumber,
                 OnSaved: (value) => setState(() => phoneNumber = value),
@@ -87,8 +88,8 @@ class _ForgotPasswordState extends State<ForgotPassword> {
               ),
             ),
             Container(
-              margin: EdgeInsets.only(left: 20, right: 20, top: 10),
-              padding: EdgeInsets.only(left: 20, right: 20),
+              margin: const EdgeInsets.only(left: 20, right: 20, top: 10),
+              padding: const EdgeInsets.only(left: 20, right: 20),
               decoration:
                   BoxDecoration(borderRadius: BorderRadius.circular(50)),
               child: RoundedInputField(
@@ -112,11 +113,11 @@ class _ForgotPasswordState extends State<ForgotPassword> {
               ),
             ),
           ])),
-      SizedBox(height: 50),
+      const SizedBox(height: 50),
       // button(context, "Sign in", Color.fromRGBO(46, 98, 212, 1),
       //     Colors.white),
       button(context, AppLocalizations.of(context)!.next,
-          (Color.fromARGB(255, 50, 166, 219)), Colors.white),
+          (const Color.fromARGB(255, 50, 166, 219)), Colors.white),
     ])
          
 
@@ -135,7 +136,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
             ),
             primary: background,
             onPrimary: Colors.white,
-            shadowColor: Color.fromARGB(255, 14, 12, 12),
+            shadowColor: const Color.fromARGB(255, 14, 12, 12),
             elevation: 5,
           ),
           onPressed: () {
@@ -155,7 +156,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
               final snackBar = SnackBar(
                 content: Text(
                   message,
-                  style: TextStyle(fontSize: 20),
+                  style: const TextStyle(fontSize: 20),
                 ),
                 backgroundColor: Colors.green,
               );

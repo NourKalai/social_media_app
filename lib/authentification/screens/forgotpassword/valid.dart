@@ -3,10 +3,8 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:diginas_app/authentification/screens/signup/signup.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'dart:async';
 import 'package:flutter_otp/flutter_otp.dart';
-import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:sms_receiver/sms_receiver.dart';
 

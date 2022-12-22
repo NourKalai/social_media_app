@@ -23,7 +23,7 @@ class RoundedInputField extends StatefulWidget {
     required this.controller,
     required this.icon,
     this.validator,
-    this.coloricon=kPrimaryColor,
+    this.coloricon = kPrimaryColor,
     this.OnSaved,
     this.onChanged,
     required this.textinputtype,
@@ -47,7 +47,8 @@ class _RoundedInputFieldState extends State<RoundedInputField> {
               color: kPrimaryColor,
             ),
             hintText: widget.hintText,
-            hintStyle: const TextStyle(fontFamily: 'OpenSans'),
+            hintStyle:
+                const TextStyle(fontFamily: 'OpenSans', color: Colors.black54),
             contentPadding: EdgeInsets.fromLTRB(30, 20, 10, 20),
             border: InputBorder.none),
         controller: widget.controller,
