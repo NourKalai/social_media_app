@@ -1,10 +1,7 @@
-import 'package:diginas_app/constant/config.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-
 class SearchTextField extends StatefulWidget {
-  const SearchTextField({super.key});
+  String? title;
+   SearchTextField({super.key,this.title});
 
   @override
   State<SearchTextField> createState() => _SearchTextFieldState();
@@ -15,7 +12,7 @@ class _SearchTextFieldState extends State<SearchTextField> {
   Widget build(BuildContext context) {
     return TextFormField(
       decoration: InputDecoration(
-        prefixIcon: Icon(
+        prefixIcon: const Icon(
           Icons.search,
           color: Colors.grey,
           size: 26,
@@ -26,7 +23,7 @@ class _SearchTextFieldState extends State<SearchTextField> {
           size: 26,
         ),
         floatingLabelBehavior: FloatingLabelBehavior.never,
-        labelText: "Search your topic",
+        labelText: widget.title,
         labelStyle: const TextStyle(color: Colors.grey),
         filled: true,
         fillColor: Colors.white,

@@ -4,9 +4,8 @@ import 'package:animate_do/animate_do.dart';
 import 'package:diginas_app/authentification/screens/signup/signup.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:flutter_otp/flutter_otp.dart';
-import 'package:pin_code_fields/pin_code_fields.dart';
-import 'package:sms_receiver/sms_receiver.dart';
 
 import 'package:flutter_verification_code/flutter_verification_code.dart';
 
@@ -14,6 +13,7 @@ class Verificatoin extends StatefulWidget {
   String phoneNumber;
   Verificatoin({Key? key, required this.phoneNumber}) : super(key: key);
   @override
+  // ignore: library_private_types_in_public_api
   _VerificatoinState createState() => _VerificatoinState();
 }
 
@@ -22,8 +22,8 @@ void sendOtp(String phoneNumber) {
 }
 
 class _VerificatoinState extends State<Verificatoin> {
+  // ignore: unused_field
   String _textContent = 'Waiting for messages...';
-  SmsReceiver? _smsReceiver;
 
   // @override
   // void initState() {
@@ -34,7 +34,7 @@ class _VerificatoinState extends State<Verificatoin> {
   // }
 
   void onSmsReceived(String? message) {
-    print(_textContent);
+    // print(_textContent);
 
     setState(() {
       _textContent = "1000";
@@ -48,9 +48,9 @@ class _VerificatoinState extends State<Verificatoin> {
   }
 
   void _startListening() async {
-    if (_smsReceiver == null)
-      return;
-    else
+    // if (_smsReceiver == null)
+    //   return;
+    // else
       setState(() {
         _textContent = 'Waiting for messages...';
       });
@@ -67,6 +67,7 @@ class _VerificatoinState extends State<Verificatoin> {
 
   String _code = '';
 
+  // ignore: unused_field
   late Timer _timer;
   int _start = 60;
   int _currentIndex = 0;
@@ -92,15 +93,16 @@ class _VerificatoinState extends State<Verificatoin> {
   }
 
   verify() {
-    if (_otpCode == _code)
+    if (_otpCode == _code) {
       setState(() {
         _isLoading = false;
         _isVerified = true;
       });
-    else
+    } else {
       setState(() {
         _isLoading = true;
       });
+    }
 
     // const oneSec = Duration(milliseconds: 2000);
     // _timer = new Timer.periodic(oneSec, (timer) {
@@ -115,7 +117,7 @@ class _VerificatoinState extends State<Verificatoin> {
   void initState() {
     _otpCode = "1000";
 
-    Timer.periodic(Duration(seconds: 5), (timer) {
+    Timer.periodic(const Duration(seconds: 5), (timer) {
       setState(() {
         _currentIndex++;
         if (_currentIndex == 3) _currentIndex = 0;
@@ -141,7 +143,7 @@ class _VerificatoinState extends State<Verificatoin> {
 
   @override
   Widget build(BuildContext context) {
-    print("phone:" + widget.phoneNumber);
+    // print("phone:" + widget.phoneNumber);
     return Scaffold(
         appBar: AppBar(
           leading: IconButton(
@@ -152,14 +154,14 @@ class _VerificatoinState extends State<Verificatoin> {
         backgroundColor: Colors.white,
         body: SingleChildScrollView(
           child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 10),
               height: MediaQuery.of(context).size.height,
               width: double.infinity,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Container(
+                  SizedBox(
                     height: 250,
                     child: Stack(children: [
                       Positioned(
@@ -169,7 +171,7 @@ class _VerificatoinState extends State<Verificatoin> {
                         bottom: 0,
                         child: AnimatedOpacity(
                           opacity: _currentIndex == 0 ? 1 : 0,
-                          duration: Duration(
+                          duration: const Duration(
                             seconds: 1,
                           ),
                           curve: Curves.linear,
@@ -185,7 +187,7 @@ class _VerificatoinState extends State<Verificatoin> {
                         bottom: 0,
                         child: AnimatedOpacity(
                           opacity: _currentIndex == 1 ? 1 : 0,
-                          duration: Duration(seconds: 1),
+                          duration: const Duration(seconds: 1),
                           curve: Curves.linear,
                           child: Image.network(
                             'https://ouch-cdn2.icons8.com/pi1hTsTcrgVklEBNOJe2TLKO2LhU6OlMoub6FCRCQ5M/rs:fit:784:666/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9zdmcvMzAv/MzA3NzBlMGUtZTgx/YS00MTZkLWI0ZTYt/NDU1MWEzNjk4MTlh/LnN2Zw.png',
@@ -199,7 +201,7 @@ class _VerificatoinState extends State<Verificatoin> {
                         bottom: 0,
                         child: AnimatedOpacity(
                           opacity: _currentIndex == 2 ? 1 : 0,
-                          duration: Duration(seconds: 1),
+                          duration: const Duration(seconds: 1),
                           curve: Curves.linear,
                           child: Image.network(
                             'https://ouch-cdn2.icons8.com/ElwUPINwMmnzk4s2_9O31AWJhH-eRHnP9z8rHUSS5JQ/rs:fit:784:784/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9zdmcvNzkw/Lzg2NDVlNDllLTcx/ZDItNDM1NC04YjM5/LWI0MjZkZWI4M2Zk/MS5zdmc.png',
@@ -208,83 +210,69 @@ class _VerificatoinState extends State<Verificatoin> {
                       )
                     ]),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
-                  FadeInDown(
-                      duration: Duration(milliseconds: 500),
-                      child: Text(
-                        "Verification",
-                        style: TextStyle(
-                            fontSize: 30, fontWeight: FontWeight.bold),
-                      )),
-                  SizedBox(
+                  const Text(
+                    "Verification",
+                    style: TextStyle(
+                        fontSize: 30, fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(
                     height: 30,
                   ),
-                  FadeInDown(
-                    delay: Duration(milliseconds: 500),
-                    duration: Duration(milliseconds: 500),
-                    child: Text(
-                      "Please enter the 4 digit code sent to \n ${widget.phoneNumber}",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          fontSize: 16,
-                          color: Colors.grey.shade500,
-                          height: 1.5),
-                    ),
+                  Text(
+                    "Please enter the 4 digit code sent to \n ${widget.phoneNumber}",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.grey.shade500,
+                        height: 1.5),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
 
                   // Verification Code Input
-                  FadeInDown(
-                    delay: Duration(milliseconds: 600),
-                    duration: Duration(milliseconds: 500),
-                    child: VerificationCode(
-                      length: 4,
-                      textStyle: TextStyle(fontSize: 20, color: Colors.black),
-                      underlineColor: Colors.black,
-                      keyboardType: TextInputType.number,
-                      underlineUnfocusedColor: Colors.black,
-                      onCompleted: (value) {
-                        setState(() {
-                          _code = value;
-                        });
-                      },
-                      onEditing: (value) {},
-                    ),
+                  VerificationCode(
+                    length: 4,
+                    textStyle: const TextStyle(fontSize: 20, color: Colors.black),
+                    underlineColor: Colors.black,
+                    keyboardType: TextInputType.number,
+                    underlineUnfocusedColor: Colors.black,
+                    onCompleted: (value) {
+                      setState(() {
+                        _code = value;
+                      });
+                    },
+                    onEditing: (value) {},
                   ),
 
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
-                  FadeInDown(
-                    delay: Duration(milliseconds: 700),
-                    duration: Duration(milliseconds: 500),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Don't resive the OTP?",
-                          style: TextStyle(
-                              fontSize: 14, color: Colors.grey.shade500),
-                        ),
-                        TextButton(
-                            onPressed: () {
-                              if (_isResendAgain) return;
-                              resend();
-                            },
-                            child: Text(
-                              _isResendAgain
-                                  ? "Try again in " + _start.toString()
-                                  : "Resend",
-                              style: TextStyle(color: Colors.blueAccent),
-                            ))
-                      ],
-                    ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Don't resive the OTP?",
+                        style: TextStyle(
+                            fontSize: 14, color: Colors.grey.shade500),
+                      ),
+                      TextButton(
+                          onPressed: () {
+                            if (_isResendAgain) return;
+                            resend();
+                          },
+                          child: Text(
+                            _isResendAgain
+                                ? "Try again in $_start"
+                                : "Resend",
+                            style: const TextStyle(color: Colors.blueAccent),
+                          ))
+                    ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 50,
                   ),
                   // PinCodeTextField(
@@ -330,8 +318,8 @@ class _VerificatoinState extends State<Verificatoin> {
                   //   },
                   // ),
                   FadeInDown(
-                    delay: Duration(milliseconds: 800),
-                    duration: Duration(milliseconds: 500),
+                    delay: const Duration(milliseconds: 800),
+                    duration: const Duration(milliseconds: 500),
                     child: MaterialButton(
                       elevation: 0,
                       onPressed: _code.length < 4
@@ -341,14 +329,14 @@ class _VerificatoinState extends State<Verificatoin> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => SignUp()),
+                                    builder: (context) => const SignUp()),
                               );
                             },
-                      color: Color.fromARGB(255, 67, 120, 199),
+                      color: const Color.fromARGB(255, 67, 120, 199),
                       minWidth: MediaQuery.of(context).size.width * 0.8,
                       height: 50,
                       child: _isLoading
-                          ? Container(
+                          ? const SizedBox(
                               width: 20,
                               height: 20,
                               child: CircularProgressIndicator(
@@ -358,12 +346,12 @@ class _VerificatoinState extends State<Verificatoin> {
                               ),
                             )
                           : _isVerified
-                              ? Icon(
+                              ? const Icon(
                                   Icons.check_circle,
                                   color: Colors.white,
                                   size: 30,
                                 )
-                              : Text(
+                              : const Text(
                                   "Verify",
                                   style: TextStyle(
                                       color: Colors.white, fontSize: 20),

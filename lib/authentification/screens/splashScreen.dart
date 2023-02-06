@@ -1,7 +1,5 @@
 import 'dart:async';
 import 'package:diginas_app/authentification/screens/OnBoard/onboardscreen.dart';
-import 'package:diginas_app/authentification/screens/sign%20in/login.screen.dart';
-import 'package:diginas_app/authentification/screens/sign%20in/signInPage1.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -53,12 +51,12 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       body: Stack(children: [
         Container(
-            decoration: BoxDecoration(
-                color: Colors.blueAccent,
-                gradient: LinearGradient(
-                    colors: [(Colors.lightBlueAccent), (Colors.blue.shade400)],
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter))),
+            decoration: const BoxDecoration(
+                color: Color.fromARGB(255, 42, 190, 99),
+                gradient: LinearGradient(colors: [
+                  (Color.fromARGB(255, 13, 153, 100)),
+                  (Color.fromARGB(255, 102, 199, 150))
+                ], begin: Alignment.topCenter, end: Alignment.bottomCenter))),
         Center(
           child: SizedBox(
             width: 110,

@@ -28,14 +28,14 @@ class SignInPage1 extends StatelessWidget {
                       const SizedBox(height: 35),
                       Text(
                         AppLocalizations.of(context)!.welcome,
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontFamily: "Poppins",
                             color: Color.fromRGBO(46, 98, 212, 1),
                             fontSize: 45),
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       Container(
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                             color: Color.fromARGB(255, 224, 219, 219)),
                         height: 50,
                         width: double.infinity,
@@ -47,10 +47,10 @@ class SignInPage1 extends StatelessWidget {
                           text: AppLocalizations.of(context)!.signinwith +
                               " facebook",
                           onPressed: () {},
-                          padding: EdgeInsets.only(right: 16, left: 0),
+                          padding: const EdgeInsets.only(right: 16, left: 0),
                         ),
                       ),
-                      SizedBox(height: 30),
+                      const SizedBox(height: 30),
                       Container(
                         width: double.infinity,
                         height: 50,
@@ -69,30 +69,30 @@ class SignInPage1 extends StatelessWidget {
                                       const RegisterWithPhoneNumber()),
                             );
                           },
-                          padding: EdgeInsets.only(right: 20, left: 2),
+                          padding: const EdgeInsets.only(right: 20, left: 2),
                         ),
                       ),
-                      SizedBox(height: 30),
+                      const SizedBox(height: 30),
                       Text(
                         AppLocalizations.of(context)!.or,
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 20, fontFamily: 'Poppins-Regular'),
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       button(
                           context,
                           AppLocalizations.of(context)!.signinwith +
                               " " +
                               AppLocalizations.of(context)!.password,
-                          Color.fromRGBO(46, 98, 212, 1),
+                          const Color.fromRGBO(46, 98, 212, 1),
                           Colors.white),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       Row(
                         children: [
                           Text(
                             AppLocalizations.of(context)!.withoutaccount,
                             style:
-                                TextStyle(fontFamily: 'Poppins', fontSize: 12),
+                                const TextStyle(fontFamily: 'Poppins', fontSize: 12),
                           ),
                           TextButton(
                             onPressed: () {
@@ -104,7 +104,7 @@ class SignInPage1 extends StatelessWidget {
                             },
                             child: AutoSizeText(
                               AppLocalizations.of(context)!.createaccount,
-                              style: TextStyle(
+                              style: const TextStyle(
                                   color: Color.fromARGB(255, 23, 40, 83),
                                   fontSize: 11,
                                   fontWeight: FontWeight.bold),
@@ -130,9 +130,9 @@ class SignInPage1 extends StatelessWidget {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10.0),
             ),
-            primary: background,
-            onPrimary: Colors.white,
-            shadowColor: Color.fromARGB(255, 14, 12, 12),
+            backgroundColor: background,
+            foregroundColor: Colors.white,
+            shadowColor: const Color.fromARGB(255, 14, 12, 12),
             elevation: 5,
           ),
           onPressed: () {

@@ -1,10 +1,8 @@
 import 'package:diginas_app/authentification/widgets/cadre.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 
 import '../../widgets/UpWidget.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ChooseAccount extends StatefulWidget {
   const ChooseAccount({Key? key}) : super(key: key);

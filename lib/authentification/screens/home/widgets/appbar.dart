@@ -1,13 +1,9 @@
-import 'package:diginas_app/authentification/screens/home/widgets/circlebutton.dart';
 import 'package:diginas_app/authentification/screens/home/widgets/searchTextField.dart';
-
 import 'package:flutter/material.dart';
-
-import '../notificationScreen.dart';
-
 class AppbarWidget extends StatefulWidget {
   GlobalKey<ScaffoldState>? scaffoldKey;
-  AppbarWidget({Key? key, this.scaffoldKey}) : super(key: key);
+  String? title;
+  AppbarWidget({Key? key, this.scaffoldKey,this.title}) : super(key: key);
   @override
   State<AppbarWidget> createState() => _AppbarWidgetState();
 }
@@ -21,11 +17,12 @@ class _AppbarWidgetState extends State<AppbarWidget> {
         height: 200,
         width: double.infinity,
         decoration: const BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage(
-                "assets/images/sky.png",
-              ),
-              fit: BoxFit.fill),
+          gradient: LinearGradient(
+            colors: [
+              Color.fromARGB(255, 44, 92, 224),
+              Color.fromARGB(255, 10, 238, 124),
+            ],
+          ),
           borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(20),
             bottomRight: Radius.circular(20),
@@ -40,13 +37,13 @@ class _AppbarWidgetState extends State<AppbarWidget> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    "Hello,\nWelcome Nour Kalai!",
-                    style: TextStyle(
+                   widget.title!,
+                    style: const TextStyle(
                         color: Colors.white,
                         fontSize: 20,
                         fontWeight: FontWeight.w600),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   // CircleButton(
                   //     color: Colors.white,
                   //     icon: Icons.notifications,
@@ -60,7 +57,7 @@ class _AppbarWidgetState extends State<AppbarWidget> {
               ),
             ),
             const SizedBox(height: 20),
-            const SearchTextField(),
+             SearchTextField(title:"Search your topic"),
           ],
         ),
       ),

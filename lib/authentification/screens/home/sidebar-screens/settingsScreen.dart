@@ -3,12 +3,8 @@ import 'package:diginas_app/authentification/screens/home/widgets/circlebutton.d
 import 'package:diginas_app/constant/provider/theme_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/src/widgets/container.dart';
 import 'package:image_picker/image_picker.dart';
-
 import 'dart:io';
-
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_settings_screens/flutter_settings_screens.dart';
 import 'package:provider/provider.dart';
 
@@ -43,10 +39,10 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
     return Scaffold(
-      appBar: AppBarSimple(title: "Settings"),
+      appBar: const AppBarSimple(title: "Settings"),
       body: SafeArea(
           child: ListView(
-        padding: EdgeInsets.all(24),
+        padding: const EdgeInsets.all(24),
         children: [
           Column(children: [
             Stack(children: [
@@ -67,7 +63,7 @@ class _SettingsPageState extends State<SettingsPage> {
                             width: 3,
                             color: Colors.white,
                           ),
-                          borderRadius: BorderRadius.all(
+                          borderRadius: const BorderRadius.all(
                             Radius.circular(
                               30,
                             ),
@@ -75,8 +71,8 @@ class _SettingsPageState extends State<SettingsPage> {
                           color: Colors.white,
                           boxShadow: [
                             BoxShadow(
-                              offset: Offset(2, 4),
-                              color: Color.fromARGB(255, 250, 246, 246)
+                              offset: const Offset(2, 4),
+                              color: const Color.fromARGB(255, 250, 246, 246)
                                   .withOpacity(
                                 0.3,
                               ),
@@ -102,7 +98,7 @@ class _SettingsPageState extends State<SettingsPage> {
           ]),
           const SizedBox(height: 30),
           SettingsGroup(title: 'GENERAL', children: <Widget>[
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             SimpleSettingsTile(
               title: 'Account Settings',
               subtitle: 'Privacy,Security,Language',
@@ -117,7 +113,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   title: "Language",
                   settingKey: keyLanguage,
                   selected: 1,
-                  values: <int, String>{
+                  values: const <int, String>{
                     1: "English",
                     2: "Arabic",
                     3: "French",
@@ -175,7 +171,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 provider.toggleTheme(value);
               },
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             SimpleSettingsTile(
               title: 'Desactivate Account',
               leading: CircleButton(
@@ -185,9 +181,9 @@ class _SettingsPageState extends State<SettingsPage> {
                   onPressed: () {}),
             )
           ]),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           SettingsGroup(title: 'FEEDBACK', children: <Widget>[
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             SimpleSettingsTile(
               title: 'Report A Bug',
               leading: CircleButton(
@@ -196,7 +192,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   color: Colors.teal,
                   onPressed: () {}),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             SimpleSettingsTile(
               title: 'Send Feedback',
               leading: CircleButton(
@@ -222,7 +218,7 @@ class _SettingsPageState extends State<SettingsPage> {
       child: Column(children: [
         const Text(
           "Choose your profile picture",
-          style: const TextStyle(fontSize: 20),
+          style: TextStyle(fontSize: 20),
         ),
         const SizedBox(
           height: 20,
@@ -232,13 +228,13 @@ class _SettingsPageState extends State<SettingsPage> {
           children: [
             ElevatedButton.icon(
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.white,
+                  backgroundColor: Colors.white,
                   elevation: 0,
                 ),
                 onPressed: () {
                   pickImage(ImageSource.camera);
                 },
-                icon: Icon(
+                icon: const Icon(
                   Icons.camera,
                   color: Colors.green,
                 ),
@@ -246,13 +242,13 @@ class _SettingsPageState extends State<SettingsPage> {
                     style: TextStyle(color: Colors.black))),
             ElevatedButton.icon(
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.white,
+                  backgroundColor: Colors.white,
                   elevation: 0,
                 ),
                 onPressed: () {
                   pickImage(ImageSource.gallery);
                 },
-                icon: Icon(
+                icon: const Icon(
                   Icons.photo,
                   color: Colors.green,
                 ),

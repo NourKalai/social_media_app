@@ -1,5 +1,4 @@
 import 'package:diginas_app/authentification/screens/sign%20in/login.screen.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 
@@ -20,7 +19,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(
+        title: const Center(
           child: Text(
             'Welcome',
             style: TextStyle(fontSize: 30, color: Colors.black),
@@ -37,17 +36,17 @@ class _HomePageState extends State<HomePage> {
             ),
             Text(
               widget.name,
-              style: TextStyle(fontSize: 20),
+              style: const TextStyle(fontSize: 20),
             ),
-            Text(widget.email, style: TextStyle(fontSize: 20)),
-            SizedBox(height: 100),
+            Text(widget.email, style: const TextStyle(fontSize: 20)),
+            const SizedBox(height: 100),
             ElevatedButton(
                 onPressed: () {
                   FacebookAuth.i.logOut();
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => LoginPage()));
+                      MaterialPageRoute(builder: (context) => const LoginPage()));
                 },
-                child: Text('Logout')),
+                child: const Text('Logout')),
           ],
         ),
       ),

@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "chewie": "^0.1.14",
+    "swiper": "^8.4.6"
+  }
+}

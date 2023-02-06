@@ -1,7 +1,6 @@
 import 'package:diginas_app/constant/config.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 
 class PageTitleBar extends StatelessWidget {
  const PageTitleBar({ Key? key,required this.title }) : super(key: key);
@@ -9,7 +8,7 @@ class PageTitleBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top: 260),
+      padding: const EdgeInsets.only(top: 260),
       child: Container(
         width: double.infinity,
         height: MediaQuery.of(context).size.height / 4,

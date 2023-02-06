@@ -31,7 +31,7 @@ class TextFormWdiget extends StatelessWidget {
       decoration: InputDecoration(
         hintText: hint,
 
-        prefixIcon: Icon(icon, size: 25, color: Color.fromRGBO(46, 98, 212, 1)),
+        prefixIcon: Icon(icon, size: 25, color: const Color.fromRGBO(46, 98, 212, 1)),
         border: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(20.0)),
           borderSide: BorderSide(color: Color.fromARGB(223, 245, 241, 241)),
@@ -47,10 +47,10 @@ class TextFormWdiget extends StatelessWidget {
         fillColor: kPrimaryLightColor,
         //  suffixIcon: Icon(icon, size: 25, color: Colors.black38),
         filled: true,
-        hintStyle: TextStyle(color: Colors.black38, fontSize: 15),
-        contentPadding: EdgeInsets.fromLTRB(30, 20, 10, 20),
+        hintStyle: const TextStyle(color: Colors.black38, fontSize: 15),
+        contentPadding: const EdgeInsets.fromLTRB(30, 20, 10, 20),
       ),
-      controller: this.controller,
+      controller:controller,
       validator: validator,
       onSaved: OnSaved,
     );

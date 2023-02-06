@@ -1,7 +1,6 @@
 import 'package:diginas_app/authentification/api/google_signin_api.dart';
 import 'package:diginas_app/authentification/screens/home/baseScreen.dart';
 import 'package:diginas_app/authentification/screens/sign%20in/home.dart';
-import 'package:diginas_app/authentification/screens/splashScreen.dart';
 import 'package:diginas_app/authentification/widgets/pagetitleBar.dart';
 import 'package:diginas_app/authentification/widgets/rounded.icon.dart';
 import 'package:diginas_app/constant/config.dart';
@@ -12,9 +11,7 @@ import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../../models/login-response.model.dart';
-import '../../services/authentification.service.dart';
 import '../../widgets/rounded.input.field.dart';
-import '../../widgets/rounded_button.dart';
 import '../../widgets/under.part.dart';
 import '../../widgets/upside.dart';
 import '../forgotpassword/forgotPassword.dart';
@@ -29,14 +26,14 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   bool isApiCallProcess = false;
-  AccessToken? _accessToken;
-  UserModel? _currentUser;
+  // AccessToken? _accessToken;
+  // UserModel? _currentUser;
   late LoginRequestModel loginRequestModel;
 
   @override
   void initState() {
     super.initState();
-    loginRequestModel = new LoginRequestModel();
+    loginRequestModel = LoginRequestModel();
   }
 
   @override
@@ -57,16 +54,17 @@ class _LoginPageState extends State<LoginPage> {
   bool isMailCorrect = false;
   @override
   Widget build(BuildContext context) {
-    UserModel? user = _currentUser;
+    // UserModel? user = _currentUser;
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: Colors.white,
-      body: SizedBox(
-          width: size.width,
-          height: size.height,
-          child: SingleChildScrollView(
+      body: SingleChildScrollView(
+        physics: const AlwaysScrollableScrollPhysics(),
+        child: SizedBox(
+            width: size.width,
+            height: size.height,
             child: Stack(
               children: [
                 const Upside(
@@ -84,115 +82,121 @@ class _LoginPageState extends State<LoginPage> {
                           topRight: Radius.circular(50),
                           topLeft: Radius.circular(50),
                         )),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        const SizedBox(height: 15),
-                        IconButton(context),
-                        const SizedBox(height: 15),
-                        Text(
-                          AppLocalizations.of(context)!.oruseyouraccount,
-                          style: TextStyle(
-                            color: Colors.grey,
-                            fontFamily: "Poppins",
-                            fontSize: 13,
-                            fontWeight: FontWeight.w600,
+                    child: SingleChildScrollView(
+                      physics: const AlwaysScrollableScrollPhysics(),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          const SizedBox(height: 15),
+                          IconButton(context),
+                          const SizedBox(height: 15),
+                          Text(
+                            AppLocalizations.of(context)!.oruseyouraccount,
+                            style: const TextStyle(
+                              color: Colors.grey,
+                              fontFamily: "Poppins",
+                              fontSize: 13,
+                              fontWeight: FontWeight.w600,
+                            ),
                           ),
-                        ),
-                        Form(
-                          key: _loginFormKey,
-                          child: Column(
-                            children: [
-                              RoundedInputField(
-                                obscure: false,
-                                controller: mailController,
-                                suffixIcon: Icon(
-                                  Icons.close,
-                                  color:
-                                      isMailCorrect ? Colors.green : Colors.red,
-                                ),
-                                onChanged: (value) {
-                                  setState(() {
-                                    isMailCorrect =
-                                        EmailValidator.validate(value);
-                                  });
-                                },
-                                hintText: AppLocalizations.of(context)!.email,
-                                OnSaved: (value) =>
-                                    setState(() => email = value),
-                                icon: Icons.email,
-                                coloricon:
-                                    isMailCorrect ? Colors.green : Colors.red,
-                                textinputtype: TextInputType.emailAddress,
-                              ),
-                              RoundedInputField(
-                                obscure: isHiddenPassword,
-                                controller: passwordController,
-                                textinputtype: TextInputType.text,
-                                suffixIcon: GestureDetector(
-                                    onTap: () => setState(() =>
-                                        isHiddenPassword = !isHiddenPassword),
-                                    child: isHiddenPassword
-                                        ? const Icon(Icons.remove_red_eye_sharp,
-                                            size: 25, color: Colors.grey)
-                                        : const Icon(Icons.remove_red_eye,
-                                            size: 25, color: kPrimaryColor)),
-                                hintText: "Mot de passe",
-                                icon: Icons.lock,
-                              ),
-                              switchListTile(),
-                              SizedBox(
-                                width: 20,
-                              ),
-                              button(
-                                  context,
-                                  AppLocalizations.of(context)!.signin,
-                                  kBlue,
-                                  Colors.white),
-                              const SizedBox(height: 30, width: 30),
-                              UnderPart(
-                                title: AppLocalizations.of(context)!
-                                    .withoutaccount,
-                                navigatorText:
-                                    AppLocalizations.of(context)!.createaccount,
-                                onTap: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              const RegisterWithPhoneNumber()));
-                                },
-                              ),
-                              const SizedBox(
-                                height: 20,
-                              ),
-                              TextButton(
-                                  onPressed: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              const ForgotPassword()),
-                                    );
+                          Form(
+                            key: _loginFormKey,
+                            child: Column(
+                              children: [
+                                RoundedInputField(
+                                  obscure: false,
+                                  controller: mailController,
+                                  suffixIcon: Icon(
+                                    Icons.close,
+                                    color: isMailCorrect
+                                        ? Colors.green
+                                        : Colors.red,
+                                  ),
+                                  onChanged: (value) {
+                                    setState(() {
+                                      isMailCorrect =
+                                          EmailValidator.validate(value);
+                                    });
                                   },
-                                  child: Text(
-                                    AppLocalizations.of(context)!
-                                            .forgotpassword +
-                                        "?",
-                                    style: TextStyle(
-                                        color: Color.fromARGB(255, 8, 18, 41),
-                                        fontSize: 16),
-                                  ))
-                            ],
-                          ),
-                        )
-                      ],
+                                  hintText: AppLocalizations.of(context)!.email,
+                                  OnSaved: (value) =>
+                                      setState(() => email = value),
+                                  icon: Icons.email,
+                                  coloricon:
+                                      isMailCorrect ? Colors.green : Colors.red,
+                                  textinputtype: TextInputType.emailAddress,
+                                ),
+                                RoundedInputField(
+                                  obscure: isHiddenPassword,
+                                  controller: passwordController,
+                                  textinputtype: TextInputType.text,
+                                  suffixIcon: GestureDetector(
+                                      onTap: () => setState(() =>
+                                          isHiddenPassword = !isHiddenPassword),
+                                      child: isHiddenPassword
+                                          ? const Icon(
+                                              Icons.remove_red_eye_sharp,
+                                              size: 25,
+                                              color: Colors.grey)
+                                          : const Icon(Icons.remove_red_eye,
+                                              size: 25, color: kPrimaryColor)),
+                                  hintText:
+                                      AppLocalizations.of(context)!.password,
+                                  icon: Icons.lock,
+                                ),
+                                switchListTile(),
+                                const SizedBox(
+                                  width: 20,
+                                ),
+                                button(
+                                    context,
+                                    AppLocalizations.of(context)!.signin,
+                                    kBlue,
+                                    Colors.white),
+                                const SizedBox(height: 30, width: 30),
+                                UnderPart(
+                                  title: AppLocalizations.of(context)!
+                                      .withoutaccount,
+                                  navigatorText: AppLocalizations.of(context)!
+                                      .createaccount,
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                const RegisterWithPhoneNumber()));
+                                  },
+                                ),
+                                const SizedBox(
+                                  height: 20,
+                                ),
+                                TextButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                const ForgotPassword()),
+                                      );
+                                    },
+                                    child: Text(
+                                      "${AppLocalizations.of(context)!
+                                              .forgotpassword}?",
+                                      style: const TextStyle(
+                                          color: Color.fromARGB(255, 8, 18, 41),
+                                          fontSize: 16),
+                                    ))
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 )
               ],
-            ),
-          )),
+            )),
+      ),
     );
   }
 
@@ -206,9 +210,9 @@ class _LoginPageState extends State<LoginPage> {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10.0),
             ),
-            primary: background,
-            onPrimary: Colors.white,
-            shadowColor: Color.fromARGB(255, 14, 12, 12),
+            backgroundColor: background,
+            foregroundColor: Colors.white,
+            shadowColor: const Color.fromARGB(255, 14, 12, 12),
             elevation: 5,
           ),
           onPressed: () {
@@ -221,7 +225,7 @@ class _LoginPageState extends State<LoginPage> {
                 isApiCallProcess = false;
               });
               Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => BaseScreen()));
+                  .push(MaterialPageRoute(builder: (context) => const BaseScreen()));
               // AuthService().login(loginRequestModel).then((value)
 
               //  {
@@ -248,8 +252,8 @@ class _LoginPageState extends State<LoginPage> {
               //  //     }
               //     });
 
-              final message = 'Successful login! ';
-              final snackBar = SnackBar(
+              const message = 'Successful login! ';
+              const snackBar = SnackBar(
                 content: Text(
                   message,
                   style: TextStyle(fontSize: 20),
@@ -274,7 +278,7 @@ class _LoginPageState extends State<LoginPage> {
         dense: true,
         title: Text(
           AppLocalizations.of(context)!.rememberme,
-          style: TextStyle(fontSize: 16, fontFamily: 'OpenSans'),
+          style: const TextStyle(fontSize: 16, fontFamily: 'OpenSans'),
         ),
         value: true,
         activeColor: kPrimaryColor,
@@ -291,13 +295,13 @@ class _LoginPageState extends State<LoginPage> {
           imageUrl: "assets/images/facebook.png",
           ontap: press,
         ),
-        SizedBox(width: 20),
+        const SizedBox(width: 20),
         RoundedIcon(
           imageUrl: "assets/images/google.jpg",
           ontap: signInGoogle,
         ),
-        SizedBox(width: 20),
-        RoundedIcon(imageUrl: "assets/images/insta.png"),
+        const SizedBox(width: 20),
+        const RoundedIcon(imageUrl: "assets/images/insta.png"),
       ],
     );
   }
@@ -315,9 +319,11 @@ class _LoginPageState extends State<LoginPage> {
     try {
       final user = await GoogleSignInApi.login();
       if (user == null) {
+        // ignore: use_build_context_synchronously
         ScaffoldMessenger.of(context)
-            .showSnackBar(SnackBar(content: const Text('Sign in Failed')));
+            .showSnackBar(const SnackBar(content: Text('Sign in Failed')));
       } else {
+        // ignore: use_build_context_synchronously
         Navigator.push(
             context,
             MaterialPageRoute(
@@ -337,8 +343,7 @@ class _LoginPageState extends State<LoginPage> {
           await FacebookAuth.i.login(permissions: ['public_profile', 'email']);
       if (result.status == LoginStatus.success) {
         final userData = await FacebookAuth.i.getUserData();
-        print('facebook _login_data:-');
-        print(userData);
+        // print(userData);
         Navigator.push(
             context,
             MaterialPageRoute(

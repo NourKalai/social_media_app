@@ -1,9 +1,7 @@
-import 'dart:ui';
 
 import 'package:diginas_app/constant/config.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
+
 
 class RoundedButton extends StatelessWidget {
   RoundedButton(
@@ -32,13 +30,9 @@ class RoundedButton extends StatelessWidget {
 
   Widget newElevatedButton() {
     return ElevatedButton(
-      child: Text(
-        text,
-        style: TextStyle(color: textColor, fontSize: 17),
-      ),
-      onPressed: this.press,
+      onPressed: press,
       style: ElevatedButton.styleFrom(
-          primary: Color(0xfff1bb274),
+        backgroundColor: Color(0xfff1bb274),
           padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
           textStyle: TextStyle(
               letterSpacing: 2,
@@ -46,6 +40,10 @@ class RoundedButton extends StatelessWidget {
               fontSize: 12,
               fontWeight: FontWeight.bold,
               fontFamily: 'OpenSans')),
+      child: Text(
+        text,
+        style: TextStyle(color: textColor, fontSize: 17),
+      ),
     );
   }
 }

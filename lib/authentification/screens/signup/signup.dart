@@ -27,7 +27,7 @@ class _SignUpState extends State<SignUp> {
         this.image = imageTemporary;
       });
     } on PlatformException catch (e) {
-      print('Failed to pick image:$e');
+      // print('Failed to pick image:$e');
     }
   }
 
@@ -67,7 +67,7 @@ class _SignUpState extends State<SignUp> {
     size = MediaQuery.of(context).size;
 
     return Scaffold(
-        backgroundColor: Color.fromARGB(255, 110, 163, 165),
+        backgroundColor: const Color.fromARGB(255, 110, 163, 165),
         appBar: AppBar(
           flexibleSpace: Container(
             decoration: const BoxDecoration(
@@ -149,7 +149,7 @@ class _SignUpState extends State<SignUp> {
                                             width: 3,
                                             color: Colors.white,
                                           ),
-                                          borderRadius: BorderRadius.all(
+                                          borderRadius: const BorderRadius.all(
                                             Radius.circular(
                                               30,
                                             ),
@@ -157,8 +157,8 @@ class _SignUpState extends State<SignUp> {
                                           color: Colors.white,
                                           boxShadow: [
                                             BoxShadow(
-                                              offset: Offset(2, 4),
-                                              color: Color.fromARGB(
+                                              offset: const Offset(2, 4),
+                                              color: const Color.fromARGB(
                                                       255, 250, 246, 246)
                                                   .withOpacity(
                                                 0.3,
@@ -193,13 +193,13 @@ class _SignUpState extends State<SignUp> {
                                 height: 30,
                                 width: 340,
                                 decoration: BoxDecoration(
-                                  color: Color.fromARGB(223, 245, 241, 241),
+                                  color: const Color.fromARGB(223, 245, 241, 241),
                                   borderRadius: BorderRadius.circular(20.0),
                                 ),
                                 child: Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
-                                  children: [
+                                  children:const  [
                                     // Container(
                                     //   height: 30,
                                     //   width: 170,
@@ -309,10 +309,11 @@ class _SignUpState extends State<SignUp> {
                                         : Colors.red,
                                   ),
                                   onChanged: (value) {
-                                    if (!value!.isEmpty)
+                                    if (!value!.isEmpty) {
                                       setState(() {
                                         isFirstNameCorrect = true;
                                       });
+                                    }
                                   },
                                   hintText: "First Name",
                                   OnSaved: (value) =>
@@ -334,10 +335,11 @@ class _SignUpState extends State<SignUp> {
                                           : Colors.red,
                                     ),
                                     onChanged: (value) {
-                                      if (!value!.isEmpty)
+                                      if (!value!.isEmpty) {
                                         setState(() {
                                           islastNameCorrect = true;
                                         });
+                                      }
                                     },
                                     hintText: "Last Name",
                                     OnSaved: (value) =>
@@ -358,11 +360,12 @@ class _SignUpState extends State<SignUp> {
                                           : Colors.red,
                                     ),
                                     onChanged: (value) {
-                                      if (!value!.isEmpty)
+                                      if (!value!.isEmpty) {
                                         setState(() {
                                           isMailCorrect =
                                               EmailValidator.validate(value);
                                         });
+                                      }
                                     },
                                     hintText: "Mail",
                                     OnSaved: (value) =>
@@ -383,10 +386,11 @@ class _SignUpState extends State<SignUp> {
                                           : Colors.red,
                                     ),
                                     onChanged: (value) {
-                                      if (!value!.isEmpty)
+                                      if (!value!.isEmpty) {
                                         setState(() {
                                           islastNameCorrect = true;
                                         });
+                                      }
                                     },
                                     hintText: "AAAA/MM/JJ",
                                     OnSaved: (value) =>
@@ -405,15 +409,16 @@ class _SignUpState extends State<SignUp> {
                                             isHiddenPassword =
                                                 !isHiddenPassword),
                                         child: isHiddenPassword
-                                            ? Icon(Icons.remove_red_eye,
+                                            ? const Icon(Icons.remove_red_eye,
                                                 size: 25, color: Colors.black38)
-                                            : Icon(Icons.remove_red_eye,
+                                            : const Icon(Icons.remove_red_eye,
                                                 size: 25, color: Colors.green)),
                                     onChanged: (value) {
-                                      if (!value!.isEmpty)
+                                      if (!value!.isEmpty) {
                                         setState(() {
                                           ispasswordCorrect = true;
                                         });
+                                      }
                                     },
                                     hintText: "Password",
                                     OnSaved: (value) =>
@@ -423,7 +428,7 @@ class _SignUpState extends State<SignUp> {
                                         ? Colors.green
                                         : Colors.red,
                                     textinputtype: TextInputType.text),
-                                SizedBox(height: 25),
+                                const SizedBox(height: 25),
                                 Row(children: <Widget>[
                                   Checkbox(
                                     shape: RoundedRectangleBorder(
@@ -442,8 +447,8 @@ class _SignUpState extends State<SignUp> {
                                   ),
                                   Expanded(
                                     child: Wrap(
-                                      children: [
-                                        const Text(
+                                      children: const [
+                                        Text(
                                           "J'accecpte les",
                                           style: TextStyle(
                                               color: Colors.black38,
@@ -455,7 +460,7 @@ class _SignUpState extends State<SignUp> {
                                               color: Colors.white,
                                               fontSize: 13),
                                         ),
-                                        const Text(
+                                        Text(
                                           " d'utilisation ",
                                           style: TextStyle(
                                               color: Colors.black38,
@@ -472,7 +477,7 @@ class _SignUpState extends State<SignUp> {
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(30),
                                       border: Border.all(
-                                          color: Color.fromARGB(
+                                          color: const Color.fromARGB(
                                               255, 213, 229, 231),
                                           width: 2),
                                       color: Colors.white),
@@ -484,10 +489,10 @@ class _SignUpState extends State<SignUp> {
                                             RoundedRectangleBorder(
                                                 borderRadius:
                                                     BorderRadius.circular(30.0),
-                                                side: BorderSide(
+                                                side: const BorderSide(
                                                     color: Color.fromARGB(
                                                         255, 233, 229, 229))))),
-                                    child: Text(
+                                    child: const Text(
                                       "Finaliser",
                                       style: TextStyle(
                                           color: Color.fromARGB(
@@ -499,7 +504,7 @@ class _SignUpState extends State<SignUp> {
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) =>
-                                                ChooseAccount()),
+                                                const ChooseAccount()),
                                       );
                                       isChecked &&
                                               _loginFormKey.currentState!
@@ -515,7 +520,7 @@ class _SignUpState extends State<SignUp> {
                                         final snackBar = SnackBar(
                                           content: Text(
                                             message,
-                                            style: TextStyle(fontSize: 20),
+                                            style: const TextStyle(fontSize: 20),
                                           ),
                                           backgroundColor: Colors.green,
                                         );
@@ -542,7 +547,7 @@ class _SignUpState extends State<SignUp> {
       child: Column(children: [
         const Text(
           "Choose your profile picture",
-          style: const TextStyle(fontSize: 20),
+          style: TextStyle(fontSize: 20),
         ),
         const SizedBox(
           height: 20,
@@ -558,7 +563,7 @@ class _SignUpState extends State<SignUp> {
                 onPressed: () {
                   pickImage(ImageSource.camera);
                 },
-                icon: Icon(
+                icon: const Icon(
                   Icons.camera,
                   color: Colors.green,
                 ),
@@ -572,7 +577,7 @@ class _SignUpState extends State<SignUp> {
                 onPressed: () {
                   pickImage(ImageSource.gallery);
                 },
-                icon: Icon(
+                icon: const Icon(
                   Icons.photo,
                   color: Colors.green,
                 ),

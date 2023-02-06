@@ -41,6 +41,7 @@ class _RoundedInputFieldState extends State<RoundedInputField> {
         onChanged: widget.onChanged,
         cursorColor: kPrimaryColor,
         decoration: InputDecoration(
+            labelStyle: const TextStyle(color: Colors.black54),
             suffixIcon: widget.suffixIcon,
             icon: Icon(
               widget.icon,
@@ -49,7 +50,7 @@ class _RoundedInputFieldState extends State<RoundedInputField> {
             hintText: widget.hintText,
             hintStyle:
                 const TextStyle(fontFamily: 'OpenSans', color: Colors.black54),
-            contentPadding: EdgeInsets.fromLTRB(30, 20, 10, 20),
+            contentPadding: const EdgeInsets.fromLTRB(30, 20, 10, 20),
             border: InputBorder.none),
         controller: widget.controller,
         validator: widget.validator,

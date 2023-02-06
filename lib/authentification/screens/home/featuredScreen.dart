@@ -1,12 +1,10 @@
-import 'dart:io';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'package:diginas_app/authentification/screens/home/widgets/appbar.dart';
+import 'package:diginas_app/authentification/screens/home/widgets/body.dart';
 import 'package:diginas_app/authentification/screens/home/widgets/sideBar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/widgets.dart';
 
 class FeaturedScreen extends StatefulWidget {
   const FeaturedScreen({super.key});
@@ -23,15 +21,23 @@ class _FeaturedScreenState extends State<FeaturedScreen> {
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle.light,
       child: Scaffold(
-          drawer: SideBar(),
+          drawer: const SideBar(),
           key: _scaffoldKey,
-          body: Column(
-            children: [
-              AppbarWidget(
-                scaffoldKey: _scaffoldKey,
-              )
-            ],
-          )),
+          body: SingleChildScrollView(
+              physics: const AlwaysScrollableScrollPhysics(),
+              child: Column(
+                children: [
+                  AppbarWidget(
+                    scaffoldKey: _scaffoldKey,
+                    // ignore: prefer_interpolation_to_compose_strings
+                    title: AppLocalizations.of(context)!.hello +
+                        '\n' +
+                        AppLocalizations.of(context)!.welcome +
+                        " Saad !",
+                  ),
+                  const Body()
+                ],
+              ))),
     );
   }
 }

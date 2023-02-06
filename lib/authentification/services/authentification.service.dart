@@ -1,7 +1,5 @@
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
-
-import '../../constant/config.dart';
 import '../../models/login-response.model.dart';
 import 'package:http/http.dart' as http;
 
@@ -15,7 +13,7 @@ class AuthService {
           body: requestModel.toJson());
       if (response.statusCode == 200 || response.statusCode == 400) {
         final resData = jsonDecode(response.body);
-        print(response);
+        // print(response);
         return LoginResponseModel.fromJson(
           json.decode(response.body),
         );

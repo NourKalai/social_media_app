@@ -1,6 +1,6 @@
-import 'package:diginas_app/constant/config.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class CustomButton extends StatelessWidget {
   CustomButton({
     required this.onTap,
@@ -20,29 +20,26 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 24),
-      child: InkWell(
-        onTap: onTap,
-        child: Container(
-          alignment: Alignment.center,
-          height: height,
-          width: double.infinity,
-          decoration: BoxDecoration(
-            color: color,
-            borderRadius: BorderRadius.circular(30),
-            border: colorBorder == null
-                ? null
-                : Border.all(color: colorBorder!, width: 2),
-          ),
-          child: Text(
-            text!,
-            style: TextStyle(
-              color: textColor ?? Colors.white,
-              fontFamily: "Poppins",
-              fontWeight: FontWeight.w100,
-              fontSize: 16,
-            ),
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        alignment: Alignment.center,
+        height: height,
+        width: MediaQuery.of(context).size.width * 0.2,
+        decoration: BoxDecoration(
+          color: color,
+          borderRadius: BorderRadius.circular(30),
+          border: colorBorder == null
+              ? null
+              : Border.all(color: colorBorder!, width: 2),
+        ),
+        child: Text(
+          text!,
+          style: TextStyle(
+            color: textColor ?? Colors.white,
+            fontFamily: "Poppins",
+            fontWeight: FontWeight.w100,
+            fontSize: 16,
           ),
         ),
       ),

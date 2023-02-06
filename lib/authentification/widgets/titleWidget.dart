@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 Container titleWidget(BuildContext context, String labelText, Color colortext) {
   return Container(
-    margin: EdgeInsets.only(left: 20, right: 20, top: 70),
+    margin: const EdgeInsets.only(left: 20, right: 20, top: 70),
     child: Text(
       labelText,
       style: TextStyle(
@@ -18,7 +18,7 @@ Container titleWidget(BuildContext context, String labelText, Color colortext) {
 Text title(BuildContext context, String labelText) {
   return Text(
     labelText,
-    style: TextStyle(
+    style: const TextStyle(
       color: Colors.white,
       fontSize: 14,
       fontFamily: "Poppins",

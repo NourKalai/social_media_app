@@ -1,8 +1,10 @@
+import 'package:diginas_app/authentification/screens/home/sidebar-screens/friends.dart';
 import 'package:diginas_app/authentification/screens/home/sidebar-screens/requestScreen.dart';
 import 'package:diginas_app/authentification/screens/sign%20in/login.screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import '../sidebar-screens/coinsScreen.dart';
+import '../sidebar-screens/coinScreen.dart';
 import '../sidebar-screens/favoriteScreen.dart';
 import '../sidebar-screens/policiesScreen.dart';
 import '../sidebar-screens/profileScreen.dart';
@@ -27,11 +29,12 @@ class SideBar extends StatelessWidget {
                       width: 90, height: 90, fit: BoxFit.cover)),
             ),
             decoration: const BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage(
-                      "assets/images/sky.png",
-                    ),
-                    fit: BoxFit.cover)),
+                gradient: LinearGradient(
+              colors: [
+                Color.fromARGB(255, 44, 92, 224),
+                Color.fromARGB(255, 10, 238, 124),
+              ],
+            )),
           ),
           ListTile(
               leading: Icon(
@@ -39,7 +42,7 @@ class SideBar extends StatelessWidget {
                 color: Colors.blue.shade900,
                 size: 30,
               ),
-              title: const Text('Settings'),
+              title: Text(AppLocalizations.of(context)!.settings),
               onTap: () => Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -52,7 +55,7 @@ class SideBar extends StatelessWidget {
               color: Colors.blue.shade900,
               size: 30,
             ),
-            title: const Text('Profile'),
+            title: Text(AppLocalizations.of(context)!.profile),
             onTap: () => Navigator.push(
               context,
               MaterialPageRoute(
@@ -66,11 +69,11 @@ class SideBar extends StatelessWidget {
               color: Colors.blue.shade900,
               size: 30,
             ),
-            title: const Text('Coins'),
+            title: Text(AppLocalizations.of(context)!.coins),
             onTap: () => Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const CoinsScreen(),
+                builder: (context) => const CoinScreen(),
               ),
             ),
           ),
@@ -80,11 +83,11 @@ class SideBar extends StatelessWidget {
               color: Colors.blue.shade900,
               size: 30,
             ),
-            title: const Text('Friends'),
+            title: Text(AppLocalizations.of(context)!.friends),
             onTap: () => Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const SupporterScreen(),
+                builder: (context) => const FollowersScreen(),
               ),
             ),
           ),
@@ -94,7 +97,7 @@ class SideBar extends StatelessWidget {
               color: Colors.blue.shade900,
               size: 30,
             ),
-            title: const Text('Favorite'),
+            title: Text(AppLocalizations.of(context)!.favorite),
             onTap: () => Navigator.push(
               context,
               MaterialPageRoute(
@@ -108,7 +111,7 @@ class SideBar extends StatelessWidget {
               color: Colors.blue.shade900,
               size: 30,
             ),
-            title: const Text('Requests'),
+            title: Text(AppLocalizations.of(context)!.requests),
             onTap: () => Navigator.push(context,
                 MaterialPageRoute(builder: (context) => const RequestScreen())),
             trailing: Container(
@@ -127,7 +130,7 @@ class SideBar extends StatelessWidget {
               color: Colors.blue.shade900,
               size: 30,
             ),
-            title: const Text('Policies'),
+            title: Text(AppLocalizations.of(context)!.policies),
             onTap: () => Navigator.push(
               context,
               MaterialPageRoute(
@@ -141,9 +144,9 @@ class SideBar extends StatelessWidget {
               color: Colors.blue.shade900,
               size: 30,
             ),
-            title: const Text('Exit'),
-            onTap: () => Navigator.push(
-                context, MaterialPageRoute(builder: (context) => const LoginPage())),
+            title: Text(AppLocalizations.of(context)!.exit),
+            onTap: () => Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const LoginPage())),
           ),
         ],
       ),

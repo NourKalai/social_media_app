@@ -15,15 +15,9 @@ class ConcentricTransitionPage extends StatefulWidget {
 }
 
 class _ConcentricTransitionPageState extends State<ConcentricTransitionPage> {
-/////////////////////////////////////
-//@CodeWithFlexz on Instagram
-//
-//AmirBayat0 on Github
-//Programming with Flexz on Youtube
-/////////////////////////////////////
   List<ConcentricModel> concentrics = [
     ConcentricModel(
-      lottie: "https://assets1.lottiefiles.com/packages/lf20_0cvczw8l.json",
+      lottie: "https://assets5.lottiefiles.com/packages/lf20_N1FgLO.json",
       text: "Get new\nknowledge",
     ),
     ConcentricModel(
@@ -35,7 +29,7 @@ class _ConcentricTransitionPageState extends State<ConcentricTransitionPage> {
       text: "Do what you\nlove",
     ),
     ConcentricModel(
-      lottie: "https://assets2.lottiefiles.com/packages/lf20_ndLURGQdmU.json",
+      lottie: "https://assets5.lottiefiles.com/packages/lf20_N1FgLO.json",
       text: "Try something\nnew",
     ),
   ];
@@ -47,69 +41,74 @@ class _ConcentricTransitionPageState extends State<ConcentricTransitionPage> {
         body: ConcentricPageView(
             onChange: (val) {},
             colors: const <Color>[
-              Color.fromARGB(255, 89, 163, 212),
-              Color.fromARGB(255, 67, 110, 219),
-              Colors.white,
+              Color.fromARGB(255, 78, 172, 109),
+              Color.fromARGB(255, 58, 201, 170),
+              Color.fromARGB(252, 247, 245, 245),
               Color.fromARGB(183, 89, 245, 172),
             ],
             itemCount: concentrics.length,
             onFinish: () {
-              print("Finished");
+              // print("Finished");
             },
-            itemBuilder: (index) => Column(
-                  children: [
-                    Align(
-                      alignment: Alignment.topRight,
-                      child: Padding(
-                        padding: const EdgeInsets.only(top: 20, right: 20),
-                        child: GestureDetector(
-                          onTap: () {
-                            // ignore: avoid_print
-                            print("Skipped");
-                          },
-                          child: TextButton(
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => const LoginPage()),
-                                );
-                              },
-                              child: Text(
-                                "Skip",
-                                style: TextStyle(
-                                    color: Color.fromARGB(255, 8, 18, 41),
-                                    fontSize: 16),
-                              )),
+            itemBuilder: (index) => SingleChildScrollView(
+                  scrollDirection: Axis.vertical,
+                  child: Column(
+                    children: [
+                      Align(
+                        alignment: Alignment.topRight,
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 20, right: 20),
+                          child: GestureDetector(
+                            onTap: () {},
+                            child: TextButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const LoginPage()),
+                                  );
+                                },
+                                child: const Text(
+                                  "Skip",
+                                  style: TextStyle(
+                                      color: Color.fromARGB(255, 8, 18, 41),
+                                      fontSize: 16),
+                                )),
+                          ),
                         ),
                       ),
-                    ),
-                    SizedBox(
-                      height: 290,
-                      width: 300,
-                      child: Lottie.network(concentrics[index].lottie,
-                          animate: true),
-                    ),
-                    Text(
-                      concentrics[index].text,
-                      textAlign: TextAlign.center,
-                      style: GoogleFonts.rubik(
-                        color: index == 2 ? Colors.black : Colors.white,
-                        fontSize: 40,
-                        fontWeight: FontWeight.bold,
+                      Padding(
+                        padding: const EdgeInsets.all(20.0),
+                        child: SizedBox(
+                          height: 290,
+                          width: 300,
+                          child: Lottie.network(concentrics[index].lottie,
+                              animate: true),
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 15.0),
-                      child: Text(
-                        "${index + 1} / ${concentrics.length}",
+                      const SizedBox(height: 30),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 15.0),
+                        child: Text(
+                          "${index + 1} / ${concentrics.length}",
+                          style: GoogleFonts.rubik(
+                              color: index == 2 ? Colors.black : Colors.white,
+                              fontWeight: FontWeight.w400,
+                              fontSize: 22),
+                        ),
+                      ),
+                      Text(
+                        concentrics[index].text,
+                        textAlign: TextAlign.center,
                         style: GoogleFonts.rubik(
-                            color: index == 2 ? Colors.black : Colors.white,
-                            fontWeight: FontWeight.w400,
-                            fontSize: 22),
+                          color: index == 2 ? Colors.black : Colors.white,
+                          fontSize: 40,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 )),
       ),
     );

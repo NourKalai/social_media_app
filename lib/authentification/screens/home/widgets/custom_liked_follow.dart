@@ -1,10 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-
-import '../../../../constant/colors.dart';
-
 class CustomLikedNotifcation extends StatelessWidget {
   const CustomLikedNotifcation({Key? key}) : super(key: key);
 
@@ -42,10 +36,7 @@ class CustomLikedNotifcation extends StatelessWidget {
                 text: TextSpan(
                     text: "Emna",
                     style: Theme.of(context).textTheme.titleLarge,
-                    // style: Theme.of(context)
-                    //     .textTheme
-                    //     .headline3!
-                    //     .copyWith(color: mainText),
+               
                     children: [
                       TextSpan(
                         text: " and",
@@ -64,12 +55,9 @@ class CustomLikedNotifcation extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              Text(
+              const Text(
                 "Liked your video. 6am",
-                // style: Theme.of(context)
-                //     .textTheme
-                //     .subtitle1!
-                //     .copyWith(color: SecondaryText)
+  
               )
             ],
           ),

@@ -1,12 +1,8 @@
-import 'package:diginas_app/authentification/screens/forgotpassword/recoveredPasswordMethods.dart';
-import 'package:diginas_app/authentification/screens/sign%20in/signInPage1.dart';
+import 'package:diginas_app/authentification/screens/sign%20in/login.screen.dart';
 import 'package:diginas_app/authentification/widgets/FormWidget.dart';
 import 'package:diginas_app/authentification/widgets/buttonWidget.dart';
 import 'package:diginas_app/authentification/widgets/titleWidget.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class ValidationSecretQuestion extends StatefulWidget {
   const ValidationSecretQuestion({Key? key}) : super(key: key);
@@ -33,7 +29,7 @@ class _ValidationSecretQuestionState extends State<ValidationSecretQuestion> {
         padding: const EdgeInsets.only(top: 30, right: 60, left: 40),
         child: Column(
           children: [
-            Text(
+            const Text(
               "Forgot ",
               style: TextStyle(
                 color: Color.fromARGB(255, 3, 6, 12),
@@ -42,7 +38,7 @@ class _ValidationSecretQuestionState extends State<ValidationSecretQuestion> {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            Text(
+            const Text(
               "Password ",
               style: TextStyle(
                 color: Color.fromARGB(255, 3, 6, 12),
@@ -51,23 +47,23 @@ class _ValidationSecretQuestionState extends State<ValidationSecretQuestion> {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
             Form(
                 key: _loginFormKey,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     title(context, "Your secret question:"),
-                    SizedBox(
+                    const SizedBox(
                       height: 30,
                     ),
                     Container(
                       height: 60,
                       width: 320,
-                      padding: EdgeInsets.all(10),
+                      padding: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
                         border: Border.all(
-                          color: Color.fromARGB(255, 59, 102, 195),
+                          color: const Color.fromARGB(255, 59, 102, 195),
                         ),
                         borderRadius: BorderRadius.circular(20.0),
                         color: Colors.white,
@@ -75,7 +71,7 @@ class _ValidationSecretQuestionState extends State<ValidationSecretQuestion> {
                       child: Center(
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
+                          children: const [
                             Icon(
                               Icons.info,
                               color: Color.fromARGB(255, 27, 76, 148),
@@ -92,9 +88,9 @@ class _ValidationSecretQuestionState extends State<ValidationSecretQuestion> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 30),
+                    const SizedBox(height: 30),
                     title(context, "Your answer"),
-                    SizedBox(height: 30),
+                    const SizedBox(height: 30),
                     TextFormWdiget(
                         textinputtype: TextInputType.text,
                         obscure: false,
@@ -103,16 +99,17 @@ class _ValidationSecretQuestionState extends State<ValidationSecretQuestion> {
                         validator: (input) {
                           if (input!.isEmpty) {
                             return 'Enter your answer';
-                          } else
+                          } else {
                             return null;
+                          }
                         }),
-                    SizedBox(height: 50),
+                    const SizedBox(height: 50),
                     buttonWidget(
                         context,
                         "Next",
-                        Color.fromRGBO(46, 98, 212, 1),
+                        const Color.fromRGBO(46, 98, 212, 1),
                         Colors.white,
-                        SignInPage1()),
+                        const LoginPage()),
                   ],
                 ))
           ],

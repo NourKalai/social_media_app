@@ -1,12 +1,15 @@
-import 'dart:ffi';
+// ignore: file_names
+// ignore_for_file: import_of_legacy_library_into_null_safe
 
+import 'package:diginas_app/authentification/screens/home/sidebar-screens/friends.dart';
 import 'package:flutter/material.dart';
 import 'package:transparent_image/transparent_image.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
+import '../widgets/sideBar.dart';
+
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
-
   @override
   State<ProfileScreen> createState() => _ProfileScreenState();
 }
@@ -14,6 +17,8 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
+    final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
     List tags = ['challenge1', 'challenge2', 'challenge3', 'challenge4'];
     List<String> imageList = [
       'https://cdn.pixabay.com/photo/2019/03/15/09/49/girl-4056684_960_720.jpg',
@@ -40,20 +45,30 @@ class _ProfileScreenState extends State<ProfileScreen> {
     ];
     return SafeArea(
       child: Scaffold(
+          drawer: const SideBar(),
+          key: _scaffoldKey,
           appBar: AppBar(
-            backgroundColor: Color.fromARGB(66, 122, 119, 119),
+            // backgroundColor: const Color.fromARGB(66, 122, 119, 119),
+
             leading: IconButton(
-              icon: Icon(Icons.arrow_back_ios),
+              icon: const Icon(
+                Icons.arrow_back_ios,
+              ),
               onPressed: () => Navigator.of(context).pop(),
             ),
             elevation: 0,
             actions: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Icon(
-                  Icons.more_vert,
-                ),
-              )
+              Builder(builder: (context) {
+                return Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: IconButton(
+                    icon: Icon(Icons.more_vert),
+                    onPressed: () {
+                      Scaffold.of(context).openDrawer();
+                    },
+                  ),
+                );
+              })
             ],
           ),
           body: SingleChildScrollView(
@@ -63,8 +78,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                 Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 28.0, top: 7),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 28.0, top: 7),
                     child: CircleAvatar(
                       radius: 35,
                       backgroundImage: AssetImage("assets/images/nan.png"),
@@ -75,7 +90,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
+                          const Text(
                             'Nour Kalai',
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
@@ -86,13 +101,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             padding: const EdgeInsets.only(top: 8.0),
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
+                              children: const [
                                 Icon(
                                   Icons.location_on,
                                   size: 17,
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.only(
+                                  padding: EdgeInsets.only(
                                     left: 8.0,
                                   ),
                                   child: Text('Tunisia',
@@ -114,13 +129,32 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
-                                Text(
-                                  '17K',
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 25),
+                                TextButton(
+                                  child: Center(
+                                    child: RichText(
+                                        text: TextSpan(
+                                            text: '17K\n',
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 25),
+                                            children: [
+                                          TextSpan(
+                                            text: 'followers',
+                                            style: TextStyle(
+                                                color: Colors.black87,
+                                                fontSize: 15),
+                                          ),
+                                        ])),
+                                  ),
+                                  onPressed: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                const FollowersScreen()));
+                                  },
                                 ),
-                                Text('followers'),
                               ]),
                           Container(
                             color: Colors.white,
@@ -129,7 +163,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                           Column(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
+                            children: const [
                               Text(
                                 '387',
                                 style: TextStyle(
@@ -146,20 +180,20 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             height: 22,
                           ),
                           Container(
-                            padding: EdgeInsets.only(
+                            padding: const EdgeInsets.only(
                                 left: 18, right: 18, top: 8, bottom: 8),
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               borderRadius:
                                   BorderRadius.all(Radius.circular(33)),
                               gradient: LinearGradient(
                                   colors: [
-                                    Color(0xff6D0EB5),
-                                    Color(0xff4059F1)
+                                    Color.fromARGB(255, 44, 92, 224),
+                                    Color.fromARGB(255, 10, 238, 124),
                                   ],
                                   begin: Alignment.bottomRight,
                                   end: Alignment.centerLeft),
                             ),
-                            child: Text('follow',
+                            child: const Text('follow',
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold)),
@@ -167,9 +201,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ])),
                 Container(
                   width: double.infinity,
-                  margin: EdgeInsets.only(top: 15),
+                  margin: const EdgeInsets.only(top: 15),
                   decoration: const BoxDecoration(
-                      color: Colors.black38,
+                      color: Colors.black12,
                       borderRadius: BorderRadius.vertical(
                         top: Radius.circular(34),
                       )),
@@ -177,15 +211,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Padding(
+                        const Padding(
                           padding: EdgeInsets.only(
                               top: 33, right: 24, left: 25, bottom: 25),
                           child: Text(
                             'Portfolio',
                             style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 33,
-                                color: Color.fromARGB(255, 226, 222, 222)),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 33,
+                              color: Color.fromARGB(255, 10, 238, 124),
+                            ),
                           ),
                         ),
                         Container(
@@ -199,9 +234,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(30),
                                       border: Border.all(
-                                          color: Color.fromARGB(
-                                              221, 225, 228, 236))),
-                                  margin: EdgeInsets.only(right: 13),
+                                          color: const Color.fromARGB(
+                                              221, 34, 35, 37))),
+                                  margin: const EdgeInsets.only(right: 13),
                                   child: Padding(
                                     padding: const EdgeInsets.only(
                                         top: 13,
@@ -216,7 +251,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               }),
                         ),
                         Container(
-                            padding: EdgeInsets.only(left: 25),
+                            padding: const EdgeInsets.only(left: 25),
                             height: 40,
                             child: ListView.builder(
                                 scrollDirection: Axis.horizontal,
@@ -232,11 +267,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                               children: [
                                                 Text(
                                                   days[index],
-                                                  style: TextStyle(
+                                                  style: const TextStyle(
                                                       color: Color(0xff434AE8),
                                                       fontSize: 19),
                                                 ),
-                                                CircleAvatar(
+                                                const CircleAvatar(
                                                   radius: 2,
                                                   backgroundColor:
                                                       Color(0xff43aAE8),
@@ -245,14 +280,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                             )
                                           : Text(days[index],
                                               style: TextStyle(
-                                                  color: Color.fromARGB(
+                                                  color: const Color.fromARGB(
                                                           255, 22, 20, 20)
                                                       .withOpacity(0.9),
                                                   fontSize: 19)));
                                 })),
                         Container(
                           height: 1000,
-                          margin: EdgeInsets.all(12),
+                          margin: const EdgeInsets.all(12),
                           child: StaggeredGridView.countBuilder(
                               crossAxisCount: 2,
                               crossAxisSpacing: 10,
@@ -260,13 +295,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               itemCount: imageList.length,
                               itemBuilder: (context, index) {
                                 return Container(
-                                  decoration: BoxDecoration(
-                                      color: Colors.transparent,
+                                  decoration: const BoxDecoration(
+                                      color: Color.fromARGB(207, 230, 217, 217),
                                       borderRadius: BorderRadius.all(
                                           Radius.circular(15))),
                                   child: ClipRRect(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(15)),
+                                    borderRadius: const BorderRadius.all(
+                                        Radius.circular(15)),
                                     child: FadeInImage.memoryNetwork(
                                       placeholder: kTransparentImage,
                                       image: imageList[index],

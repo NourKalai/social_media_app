@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-
 import '../widgets/appBarSimple.dart';
-
 class FavoriteScreen extends StatefulWidget {
   const FavoriteScreen({super.key});
-
   @override
   State<FavoriteScreen> createState() => _FavoriteScreenState();
 }
@@ -14,11 +9,10 @@ class FavoriteScreen extends StatefulWidget {
 class _FavoriteScreenState extends State<FavoriteScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       appBar: AppBarSimple(
         title: 'Favorite List',
       ),
     );
-    ;
   }
 }

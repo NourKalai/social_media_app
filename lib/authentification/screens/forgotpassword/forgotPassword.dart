@@ -100,10 +100,11 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                   color: isNameCorrect ? Colors.green : Colors.red,
                 ),
                 onChanged: (value) {
-                  if (value!.isEmpty)
+                  if (value!.isEmpty) {
                     setState(() {
                       isNameCorrect = true;
                     });
+                  }
                 },
                 hintText: AppLocalizations.of(context)!.username,
                 OnSaved: (value) => setState(() => phoneNumber = value),
@@ -134,8 +135,8 @@ class _ForgotPasswordState extends State<ForgotPassword> {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10.0),
             ),
-            primary: background,
-            onPrimary: Colors.white,
+            backgroundColor: background,
+            foregroundColor: Colors.white,
             shadowColor: const Color.fromARGB(255, 14, 12, 12),
             elevation: 5,
           ),
@@ -152,11 +153,11 @@ class _ForgotPasswordState extends State<ForgotPassword> {
               );
               _loginFormKey.currentState!.save();
 
-              final message = 'Successful ! ';
-              final snackBar = SnackBar(
+              const message = 'Successful ! ';
+              const snackBar =  SnackBar(
                 content: Text(
                   message,
-                  style: const TextStyle(fontSize: 20),
+                  style: TextStyle(fontSize: 20),
                 ),
                 backgroundColor: Colors.green,
               );

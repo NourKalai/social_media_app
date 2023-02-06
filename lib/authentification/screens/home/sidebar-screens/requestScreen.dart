@@ -1,6 +1,7 @@
+// ignore: file_names
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
+// ignore_for_file: import_of_legacy_library_into_null_safe
 
 import '../widgets/appBarSimple.dart';
 
@@ -14,11 +15,11 @@ class RequestScreen extends StatefulWidget {
 class _RequestScreenState extends State<RequestScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       appBar: AppBarSimple(
         title: 'Requests',
       ),
     );
-    ;
+  
   }
 }

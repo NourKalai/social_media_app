@@ -45,13 +45,13 @@ class _SignInPage2State extends State<SignInPage2> {
                       const SizedBox(height: 35),
                       Text(
                         AppLocalizations.of(context)!.signin,
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: Color.fromRGBO(46, 98, 212, 1),
                             fontSize: 40,
                             fontFamily: "Poppins",
                             fontWeight: FontWeight.bold),
                       ),
-                      SizedBox(height: 30),
+                      const SizedBox(height: 30),
                       Form(
                           key: _loginFormKey,
                           child: Column(
@@ -76,7 +76,7 @@ class _SignInPage2State extends State<SignInPage2> {
                                 OnSaved: (value) =>
                                     setState(() => email = value),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 20,
                               ),
                               TextFormWdiget(
@@ -97,15 +97,15 @@ class _SignInPage2State extends State<SignInPage2> {
                               )
                             ],
                           )),
-                      SizedBox(height: 30),
+                      const SizedBox(height: 30),
                       button(context, AppLocalizations.of(context)!.signin,
-                          Color.fromRGBO(46, 98, 212, 1), Colors.white),
-                      SizedBox(height: 30),
+                          const Color.fromRGBO(46, 98, 212, 1), Colors.white),
+                      const SizedBox(height: 30),
                       Row(
                         children: [
                           Text(
                             AppLocalizations.of(context)!.forgotyour,
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontFamily: 'Poppins-Regular', fontSize: 16),
                           ),
                           TextButton(
@@ -118,8 +118,8 @@ class _SignInPage2State extends State<SignInPage2> {
                                 );
                               },
                               child: Text(
-                                AppLocalizations.of(context)!.password + "?",
-                                style: TextStyle(
+                                "${AppLocalizations.of(context)!.password}?",
+                                style: const TextStyle(
                                     color: Color.fromARGB(255, 8, 18, 41),
                                     fontSize: 16),
                               ))
@@ -142,9 +142,9 @@ class _SignInPage2State extends State<SignInPage2> {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10.0),
             ),
-            primary: background,
-            onPrimary: Colors.white,
-            shadowColor: Color.fromARGB(255, 14, 12, 12),
+            backgroundColor: background,
+            foregroundColor: Colors.white,
+            shadowColor: const Color.fromARGB(255, 14, 12, 12),
             elevation: 5,
           ),
           onPressed: () {
@@ -154,8 +154,8 @@ class _SignInPage2State extends State<SignInPage2> {
             if (isValid) {
               _loginFormKey.currentState!.save();
 
-              final message = 'Successful login! ';
-              final snackBar = SnackBar(
+              const message = 'Successful login! ';
+            const snackBar = SnackBar(
                 content: Text(
                   message,
                   style: TextStyle(fontSize: 20),

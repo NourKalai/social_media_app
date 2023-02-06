@@ -27,7 +27,7 @@ class _VerificationMailState extends State<VerificationMail> {
     });
 
     const oneSec = Duration(seconds: 1);
-    _timer = new Timer.periodic(oneSec, (timer) {
+    _timer = Timer.periodic(oneSec, (timer) {
       setState(() {
         if (_start == 0) {
           _start = 60;
@@ -46,7 +46,7 @@ class _VerificationMailState extends State<VerificationMail> {
     });
 
     const oneSec = Duration(milliseconds: 2000);
-    _timer = new Timer.periodic(oneSec, (timer) {
+    _timer =  Timer.periodic(oneSec, (timer) {
       setState(() {
         _isLoading = false;
         _isVerified = true;
@@ -56,7 +56,7 @@ class _VerificationMailState extends State<VerificationMail> {
 
   @override
   void initState() {
-    Timer.periodic(Duration(seconds: 5), (timer) {
+    Timer.periodic(const Duration(seconds: 5), (timer) {
       setState(() {
         _currentIndex++;
 
@@ -79,7 +79,7 @@ class _VerificationMailState extends State<VerificationMail> {
         backgroundColor: Colors.white,
         body: SingleChildScrollView(
           child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 10),
               height: MediaQuery.of(context).size.height,
               width: double.infinity,
               child: Column(
@@ -96,7 +96,7 @@ class _VerificationMailState extends State<VerificationMail> {
                         bottom: 0,
                         child: AnimatedOpacity(
                           opacity: _currentIndex == 0 ? 1 : 0,
-                          duration: Duration(
+                          duration: const Duration(
                             seconds: 1,
                           ),
                           curve: Curves.linear,
@@ -112,7 +112,7 @@ class _VerificationMailState extends State<VerificationMail> {
                         bottom: 0,
                         child: AnimatedOpacity(
                           opacity: _currentIndex == 1 ? 1 : 0,
-                          duration: Duration(seconds: 1),
+                          duration: const Duration(seconds: 1),
                           curve: Curves.linear,
                           child: Image.network(
                             'https://ouch-cdn2.icons8.com/pi1hTsTcrgVklEBNOJe2TLKO2LhU6OlMoub6FCRCQ5M/rs:fit:784:666/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9zdmcvMzAv/MzA3NzBlMGUtZTgx/YS00MTZkLWI0ZTYt/NDU1MWEzNjk4MTlh/LnN2Zw.png',
@@ -126,7 +126,7 @@ class _VerificationMailState extends State<VerificationMail> {
                         bottom: 0,
                         child: AnimatedOpacity(
                           opacity: _currentIndex == 2 ? 1 : 0,
-                          duration: Duration(seconds: 1),
+                          duration: const Duration(seconds: 1),
                           curve: Curves.linear,
                           child: Image.network(
                             'https://ouch-cdn2.icons8.com/ElwUPINwMmnzk4s2_9O31AWJhH-eRHnP9z8rHUSS5JQ/rs:fit:784:784/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9zdmcvNzkw/Lzg2NDVlNDllLTcx/ZDItNDM1NC04YjM5/LWI0MjZkZWI4M2Zk/MS5zdmc.png',
@@ -135,22 +135,22 @@ class _VerificationMailState extends State<VerificationMail> {
                       )
                     ]),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
                   FadeInDown(
-                      duration: Duration(milliseconds: 500),
-                      child: Text(
+                      duration: const Duration(milliseconds: 500),
+                      child: const Text(
                         "Verification",
                         style: TextStyle(
                             fontSize: 30, fontWeight: FontWeight.bold),
                       )),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
                   FadeInDown(
-                    delay: Duration(milliseconds: 500),
-                    duration: Duration(milliseconds: 500),
+                    delay: const Duration(milliseconds: 500),
+                    duration: const Duration(milliseconds: 500),
                     child: Text(
                       "Please enter the 4 digit code sent to \n ${widget.mail}",
                       textAlign: TextAlign.center,
@@ -160,17 +160,17 @@ class _VerificationMailState extends State<VerificationMail> {
                           height: 1.5),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
 
                   // Verification Code Input
                   FadeInDown(
-                    delay: Duration(milliseconds: 600),
-                    duration: Duration(milliseconds: 500),
+                    delay: const Duration(milliseconds: 600),
+                    duration: const Duration(milliseconds: 500),
                     child: VerificationCode(
                       length: 4,
-                      textStyle: TextStyle(fontSize: 20, color: Colors.black),
+                      textStyle: const TextStyle(fontSize: 20, color: Colors.black),
                       underlineColor: Colors.black,
                       keyboardType: TextInputType.number,
                       underlineUnfocusedColor: Colors.black,
@@ -183,12 +183,12 @@ class _VerificationMailState extends State<VerificationMail> {
                     ),
                   ),
 
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   FadeInDown(
-                    delay: Duration(milliseconds: 700),
-                    duration: Duration(milliseconds: 500),
+                    delay: const Duration(milliseconds: 700),
+                    duration: const Duration(milliseconds: 500),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -204,19 +204,19 @@ class _VerificationMailState extends State<VerificationMail> {
                             },
                             child: Text(
                               _isResendAgain
-                                  ? "Try again in " + _start.toString()
+                                  ? "Try again in $_start"
                                   : "Resend",
-                              style: TextStyle(color: Colors.blueAccent),
+                              style: const TextStyle(color: Colors.blueAccent),
                             ))
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 50,
                   ),
                   FadeInDown(
-                    delay: Duration(milliseconds: 800),
-                    duration: Duration(milliseconds: 500),
+                    delay: const Duration(milliseconds: 800),
+                    duration: const Duration(milliseconds: 500),
                     child: MaterialButton(
                       elevation: 0,
                       onPressed: _code.length < 4
@@ -224,26 +224,26 @@ class _VerificationMailState extends State<VerificationMail> {
                           : () {
                               verify();
                             },
-                      color: Color.fromARGB(255, 67, 120, 199),
+                      color: const Color.fromARGB(255, 67, 120, 199),
                       minWidth: MediaQuery.of(context).size.width * 0.8,
                       height: 50,
                       child: _isLoading
                           ? Container(
                               width: 20,
                               height: 20,
-                              child: CircularProgressIndicator(
+                              child: const CircularProgressIndicator(
                                 backgroundColor: Colors.white,
                                 strokeWidth: 3,
                                 color: Colors.black,
                               ),
                             )
                           : _isVerified
-                              ? Icon(
+                              ? const Icon(
                                   Icons.check_circle,
                                   color: Colors.white,
                                   size: 30,
                                 )
-                              : Text(
+                              : const Text(
                                   "Verify",
                                   style: TextStyle(
                                       color: Colors.white, fontSize: 20),
