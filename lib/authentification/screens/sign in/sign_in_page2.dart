@@ -1,9 +1,9 @@
-import 'package:diginas_app/authentification/widgets/FormWidget.dart';
+import 'package:diginas_app/authentification/widgets/form_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import '../forgotpassword/forgotPassword.dart';
+import '../forgotpassword/forgot_password.dart';
 
 class SignInPage2 extends StatefulWidget {
   const SignInPage2({Key? key}) : super(key: key);
@@ -73,7 +73,7 @@ class _SignInPage2State extends State<SignInPage2> {
                                             .entervalidmail;
                                   }
                                 },
-                                OnSaved: (value) =>
+                                onSaved: (value) =>
                                     setState(() => email = value),
                               ),
                               const SizedBox(
@@ -92,7 +92,7 @@ class _SignInPage2State extends State<SignInPage2> {
                                   }
                                   return null;
                                 },
-                                OnSaved: (value) =>
+                                onSaved: (value) =>
                                     setState(() => password = value),
                               )
                             ],

@@ -1,5 +1,5 @@
 import 'package:diginas_app/authentification/screens/home/SeeAll.dart';
-import 'package:diginas_app/authentification/screens/home/widgets/categoryCard.dart';
+import 'package:diginas_app/authentification/screens/home/widgets/category_card.dart';
 import 'package:flutter/material.dart';
 
 

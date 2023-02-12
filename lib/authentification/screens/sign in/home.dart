@@ -1,4 +1,4 @@
-import 'package:diginas_app/authentification/screens/sign%20in/login.screen.dart';
+import 'package:diginas_app/authentification/screens/sign%20in/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 

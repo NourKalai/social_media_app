@@ -1,9 +1,6 @@
-import 'package:diginas_app/authentification/screens/home/widgets/appbarResearch.dart';
-import 'package:diginas_app/authentification/screens/home/widgets/custom_follow_notification.dart';
+import 'package:diginas_app/authentification/screens/home/widgets/appbar-research.dart';
 import 'package:diginas_app/authentification/screens/home/widgets/custom_request.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 import '../models/follow_model.dart';
 

@@ -4,9 +4,10 @@ import 'package:video_player/video_player.dart';
 
 class PortraitLandscapePlayerPage extends StatefulWidget {
   final String src;
-  PortraitLandscapePlayerPage({super.key, required this.src});
+  const PortraitLandscapePlayerPage({super.key, required this.src});
 
   @override
+  // ignore: library_private_types_in_public_api
   _PortraitLandscapePlayerPageState createState() =>
       _PortraitLandscapePlayerPageState();
 }

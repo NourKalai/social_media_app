@@ -3,8 +3,7 @@ import 'package:diginas_app/authentification/screens/home/widgets/content_list.d
 import 'package:diginas_app/authentification/screens/home/widgets/custom_appbar.dart';
 import 'package:diginas_app/authentification/screens/home/widgets/preview.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 
 import 'models/data_content.dart';
 
@@ -17,7 +16,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   // late ScrollController _scrollController;
-  double _scrollOffset = 0.0;
+ final double _scrollOffset = 0.0;
   @override
   // void initState() {
   //   _scrollController = ScrollController()
@@ -46,13 +45,13 @@ class _HomeScreenState extends State<HomeScreen> {
             scrollOffset: _scrollOffset,
           ),
         ),
-        body: CustomScrollView(
+        body: const CustomScrollView(
           // controller: _scrollController,
           slivers: [
             SliverToBoxAdapter(
                 child: ContentHeader(featuredContent: sintelContent)),
             SliverPadding(
-              padding: const EdgeInsets.only(top: 20),
+              padding: EdgeInsets.only(top: 20),
               sliver: SliverToBoxAdapter(
                   child: Preview(title: 'Previews', contentList: previews)),
             ),

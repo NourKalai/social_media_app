@@ -4,8 +4,9 @@ import 'package:video_player/video_player.dart';
 
 class PortraitPlayerWidget extends StatefulWidget {
   final String src;
-  PortraitPlayerWidget({super.key, required this.src});
+ const PortraitPlayerWidget({super.key, required this.src});
   @override
+  // ignore: library_private_types_in_public_api
   _PortraitPlayerWidgetState createState() => _PortraitPlayerWidgetState();
 }
 

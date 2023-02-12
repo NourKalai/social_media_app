@@ -1,5 +1,5 @@
 import 'package:diginas_app/authentification/screens/home/video_player_full_screen.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
 class VideoPlayerScreen extends StatefulWidget {

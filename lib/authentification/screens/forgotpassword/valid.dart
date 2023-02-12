@@ -1,7 +1,6 @@
 // ignore_for_file: unnecessary_new
 
-import 'package:animate_do/animate_do.dart';
-import 'package:diginas_app/authentification/screens/signup/signup.dart';
+import 'package:diginas_app/authentification/screens/signup/sign_up.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 // ignore: import_of_legacy_library_into_null_safe
@@ -10,8 +9,8 @@ import 'package:flutter_otp/flutter_otp.dart';
 import 'package:flutter_verification_code/flutter_verification_code.dart';
 
 class Verificatoin extends StatefulWidget {
-  String phoneNumber;
-  Verificatoin({Key? key, required this.phoneNumber}) : super(key: key);
+  final String phoneNumber;
+ const  Verificatoin({Key? key, required this.phoneNumber}) : super(key: key);
   @override
   // ignore: library_private_types_in_public_api
   _VerificatoinState createState() => _VerificatoinState();
@@ -51,14 +50,14 @@ class _VerificatoinState extends State<Verificatoin> {
     // if (_smsReceiver == null)
     //   return;
     // else
-      setState(() {
-        _textContent = 'Waiting for messages...';
-      });
+    setState(() {
+      _textContent = 'Waiting for messages...';
+    });
   }
 
   // TextEditingController? textEditingController1;
 
-  String _comingSms = 'Unknown';
+//  final String _comingSms = 'Unknown';
 
   bool _isResendAgain = false;
   bool _isVerified = false;
@@ -154,7 +153,7 @@ class _VerificatoinState extends State<Verificatoin> {
         backgroundColor: Colors.white,
         body: SingleChildScrollView(
           child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 5),
               height: MediaQuery.of(context).size.height,
               width: double.infinity,
               child: Column(
@@ -216,7 +215,10 @@ class _VerificatoinState extends State<Verificatoin> {
                   const Text(
                     "Verification",
                     style: TextStyle(
-                        fontSize: 30, fontWeight: FontWeight.bold),
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(255, 83, 223, 130),
+                    ),
                   ),
                   const SizedBox(
                     height: 30,
@@ -225,9 +227,7 @@ class _VerificatoinState extends State<Verificatoin> {
                     "Please enter the 4 digit code sent to \n ${widget.phoneNumber}",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.grey.shade500,
-                        height: 1.5),
+                        fontSize: 16, color: Colors.grey.shade500, height: 1.5),
                   ),
                   const SizedBox(
                     height: 30,
@@ -236,7 +236,8 @@ class _VerificatoinState extends State<Verificatoin> {
                   // Verification Code Input
                   VerificationCode(
                     length: 4,
-                    textStyle: const TextStyle(fontSize: 20, color: Colors.black),
+                    textStyle:
+                        const TextStyle(fontSize: 20, color: Colors.black),
                     underlineColor: Colors.black,
                     keyboardType: TextInputType.number,
                     underlineUnfocusedColor: Colors.black,
@@ -265,10 +266,10 @@ class _VerificatoinState extends State<Verificatoin> {
                             resend();
                           },
                           child: Text(
-                            _isResendAgain
-                                ? "Try again in $_start"
-                                : "Resend",
-                            style: const TextStyle(color: Colors.blueAccent),
+                            _isResendAgain ? "Try again in $_start" : "Resend",
+                            style: const TextStyle(
+                              color: Color.fromARGB(255, 83, 223, 130),
+                            ),
                           ))
                     ],
                   ),
@@ -317,46 +318,42 @@ class _VerificatoinState extends State<Verificatoin> {
                   //     });
                   //   },
                   // ),
-                  FadeInDown(
-                    delay: const Duration(milliseconds: 800),
-                    duration: const Duration(milliseconds: 500),
-                    child: MaterialButton(
-                      elevation: 0,
-                      onPressed: _code.length < 4
-                          ? () => {}
-                          : () {
-                              verify();
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const SignUp()),
-                              );
-                            },
-                      color: const Color.fromARGB(255, 67, 120, 199),
-                      minWidth: MediaQuery.of(context).size.width * 0.8,
-                      height: 50,
-                      child: _isLoading
-                          ? const SizedBox(
-                              width: 20,
-                              height: 20,
-                              child: CircularProgressIndicator(
-                                backgroundColor: Colors.white,
-                                strokeWidth: 3,
-                                color: Colors.black,
+                  MaterialButton(
+                    elevation: 0,
+                    onPressed: _code.length < 4
+                        ? () => {}
+                        : () {
+                            verify();
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const SignUp()),
+                            );
+                          },
+                    color:const Color.fromARGB(255, 83, 223, 130),
+                    minWidth: MediaQuery.of(context).size.width * 0.8,
+                    height: 50,
+                    child: _isLoading
+                        ? const SizedBox(
+                            width: 20,
+                            height: 20,
+                            child: CircularProgressIndicator(
+                              backgroundColor: Colors.white,
+                              strokeWidth: 3,
+                              color: Colors.black,
+                            ),
+                          )
+                        : _isVerified
+                            ? const Icon(
+                                Icons.check_circle,
+                                color: Colors.white,
+                                size: 30,
+                              )
+                            : const Text(
+                                "Verify",
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 20),
                               ),
-                            )
-                          : _isVerified
-                              ? const Icon(
-                                  Icons.check_circle,
-                                  color: Colors.white,
-                                  size: 30,
-                                )
-                              : const Text(
-                                  "Verify",
-                                  style: TextStyle(
-                                      color: Colors.white, fontSize: 20),
-                                ),
-                    ),
                   ),
                   // ElevatedButton(
                   //   child: const Text('Listen Again'),

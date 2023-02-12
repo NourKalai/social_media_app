@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../widgets/appBarSimple.dart';
+import '../widgets/appbar_simple.dart';
 class PoliciesScreen extends StatefulWidget {
   const PoliciesScreen({super.key});
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 class SearchTextField extends StatefulWidget {
-  String? title;
-   SearchTextField({super.key,this.title});
+  final String? title;
+  const  SearchTextField({super.key,this.title});
 
   @override
   State<SearchTextField> createState() => _SearchTextFieldState();

@@ -46,16 +46,16 @@ class _VideoPlayerBothWidgetState extends State<VideoPlayerBothWidget> {
   void setOrientation(bool isPortrait) {
     if (isPortrait) {
       Wakelock.disable();
-      SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
+      SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: SystemUiOverlay.values);
     } else {
       Wakelock.enable();
-      SystemChrome.setEnabledSystemUIOverlays([]);
+      SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
     }
   }
 
   @override
   Widget build(BuildContext context) =>
-      widget.controller != null && widget.controller.value.isInitialized
+      widget.controller.value.isInitialized
           ? Container(alignment: Alignment.topCenter, child: buildVideo())
           : const Center(child: CircularProgressIndicator());
 

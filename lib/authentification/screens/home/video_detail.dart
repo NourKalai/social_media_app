@@ -69,13 +69,13 @@ class _VideoInfoState extends State<VideoInfo> {
                       child: Row(
                         //centrer lektiba fi wost l wedget
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Icon(Icons.timer,
+                        children: const [
+                          Icon(Icons.timer,
                               size: 20, color: Colors.white),
-                          const SizedBox(
+                          SizedBox(
                             width: 5,
                           ),
-                          const Text(
+                          Text(
                             "2 days",
                             style: TextStyle(fontSize: 16, color: Colors.white),
                           )
@@ -99,13 +99,13 @@ class _VideoInfoState extends State<VideoInfo> {
                       child: Row(
                         //centrer lektiba fi wost l wedget
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Icon(Icons.handyman,
+                        children: const [
+                          Icon(Icons.handyman,
                               size: 20, color: Colors.white),
-                          const SizedBox(
+                          SizedBox(
                             width: 5,
                           ),
-                          const Text(
+                          Text(
                             "Gain 5 coins",
                             style: TextStyle(fontSize: 16, color: Colors.white),
                           )

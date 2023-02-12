@@ -1,10 +1,8 @@
-// ignore: file_names
-// ignore_for_file: import_of_legacy_library_into_null_safe
 
 import 'package:diginas_app/authentification/screens/home/sidebar-screens/friends.dart';
 import 'package:flutter/material.dart';
-import 'package:transparent_image/transparent_image.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:transparent_image/transparent_image.dart';
 
 import '../widgets/sideBar.dart';
 
@@ -17,7 +15,7 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
-    final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+    final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
     List tags = ['challenge1', 'challenge2', 'challenge3', 'challenge4'];
     List<String> imageList = [
@@ -46,7 +44,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return SafeArea(
       child: Scaffold(
           drawer: const SideBar(),
-          key: _scaffoldKey,
+          key: scaffoldKey,
           appBar: AppBar(
             // backgroundColor: const Color.fromARGB(66, 122, 119, 119),
 
@@ -60,9 +58,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
             actions: [
               Builder(builder: (context) {
                 return Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: IconButton(
-                    icon: Icon(Icons.more_vert),
+                    icon: const Icon(Icons.more_vert),
                     onPressed: () {
                       Scaffold.of(context).openDrawer();
                     },
@@ -132,7 +130,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 TextButton(
                                   child: Center(
                                     child: RichText(
-                                        text: TextSpan(
+                                        text: const TextSpan(
                                             text: '17K\n',
                                             style: TextStyle(
                                                 color: Colors.black,
@@ -163,14 +161,32 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                           Column(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            children: const [
-                              Text(
-                                '387',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 25),
-                              ),
-                              Text(
-                                'following',
+                            children: [
+                              TextButton(
+                                child: Center(
+                                  child: RichText(
+                                      text: const TextSpan(
+                                          text: '2K\n',
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 25),
+                                          children: [
+                                        TextSpan(
+                                          text: 'following',
+                                          style: TextStyle(
+                                              color: Colors.black87,
+                                              fontSize: 15),
+                                        ),
+                                      ])),
+                                ),
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const FollowersScreen()));
+                                },
                               ),
                             ],
                           ),

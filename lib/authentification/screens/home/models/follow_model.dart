@@ -1,4 +1,3 @@
-import 'package:http/http.dart';
 
 class Follow {
   String name;

@@ -1,7 +1,8 @@
-import 'package:diginas_app/authentification/screens/sign%20in/login.screen.dart';
-import 'package:diginas_app/authentification/widgets/FormWidget.dart';
-import 'package:diginas_app/authentification/widgets/buttonWidget.dart';
-import 'package:diginas_app/authentification/widgets/titleWidget.dart';
+// ignore: file_names
+import 'package:diginas_app/authentification/screens/sign%20in/login_screen.dart';
+import 'package:diginas_app/authentification/widgets/form_widget.dart';
+import 'package:diginas_app/authentification/widgets/button_widget.dart';
+import 'package:diginas_app/authentification/widgets/title_widget.dart';
 import 'package:flutter/material.dart';
 
 class ValidationSecretQuestion extends StatefulWidget {

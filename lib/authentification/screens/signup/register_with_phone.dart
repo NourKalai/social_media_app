@@ -1,5 +1,5 @@
 import 'package:animate_do/animate_do.dart';
-import 'package:diginas_app/authentification/screens/sign%20in/login.screen.dart';
+import 'package:diginas_app/authentification/screens/sign%20in/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
@@ -22,11 +22,11 @@ class _RegisterWithPhoneNumberState extends State<RegisterWithPhoneNumber> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SingleChildScrollView(
-      child: Container(
-        padding: const EdgeInsets.all(30),
-        width: double.infinity,
-        height: MediaQuery.of(context).size.height,
+        body: Container(
+      padding: const EdgeInsets.all(30),
+      width: double.infinity,
+      height: MediaQuery.of(context).size.height,
+      child: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -39,7 +39,7 @@ class _RegisterWithPhoneNumberState extends State<RegisterWithPhoneNumber> {
               height: 50,
             ),
             FadeInDown(
-              child: Text(
+              child: const Text(
                 'REGISTER',
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
@@ -47,30 +47,26 @@ class _RegisterWithPhoneNumberState extends State<RegisterWithPhoneNumber> {
                     color: Color.fromARGB(255, 66, 199, 106)),
               ),
             ),
-            FadeInDown(
-              delay: const Duration(milliseconds: 200),
-              child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 15.0, horizontal: 20),
-                child: Text(
-                  'Enter your phone number to continu, we will send you OTP to verifiy.',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 14, color: Colors.grey.shade700),
-                ),
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(vertical: 15.0, horizontal: 20),
+              child: Text(
+                'Enter your phone number to continu, we will send you OTP to verifiy.',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 14, color: Colors.grey.shade700),
               ),
             ),
             const SizedBox(
               height: 30,
             ),
             Container(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 5, horizontal: 15),
+              padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 15),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(8),
                 border: Border.all(color: Colors.black.withOpacity(0.13)),
-                boxShadow: [
-                  const BoxShadow(
+                boxShadow: const [
+                  BoxShadow(
                     color: Color(0xffeeeeee),
                     blurRadius: 10,
                     offset: Offset(0, 4),
@@ -101,8 +97,8 @@ class _RegisterWithPhoneNumberState extends State<RegisterWithPhoneNumber> {
                           const EdgeInsets.only(bottom: 15, left: 0),
                       border: InputBorder.none,
                       hintText: 'Phone Number',
-                      hintStyle: TextStyle(
-                          color: Colors.grey.shade500, fontSize: 16),
+                      hintStyle:
+                          TextStyle(color: Colors.grey.shade500, fontSize: 16),
                     ),
                     // onSaved: (value) =>
                     //     setState(() => phoneNumber = value as String)
@@ -144,11 +140,10 @@ class _RegisterWithPhoneNumberState extends State<RegisterWithPhoneNumber> {
                               )));
                 });
               },
-              color: Color.fromARGB(255, 83, 223, 130),
+              color: const Color.fromARGB(255, 83, 223, 130),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(5)),
-              padding:
-                  const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
+              padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
               child: _isLoading
                   ? const SizedBox(
                       width: 20,

@@ -1,7 +1,6 @@
 // ignore_for_file: import_of_legacy_library_into_null_safe
 import 'package:diginas_app/authentification/screens/home/videos/content_screen.dart';
 import 'package:flutter/material.dart';
-import '../widgets/appBarSimple.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 
 class SupporterScreen extends StatefulWidget {
@@ -26,34 +25,32 @@ class _SupporterScreenState extends State<SupporterScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: SafeArea(
-            child: Container(
-      child: Stack(
-        children: [
-          Swiper(
-            itemBuilder: (BuildContext context, int index) {
-              return ContentScreen(src: videos[index]);
-            },
-            itemCount: videos.length,
-            scrollDirection: Axis.vertical,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            child: Stack(
               children: [
-                Text(
-                  'Adventures Reels',
-                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
+                Swiper(
+                  itemBuilder: (BuildContext context, int index) {
+                    return ContentScreen(src: videos[index]);
+                  },
+                  itemCount: videos.length,
+                  scrollDirection: Axis.vertical,
                 ),
-                Icon(
-                  Icons.camera_alt,
-                  size: 30,
-                ),
+                Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: const [
+                      Text(
+                        'Adventures Reels',
+                        style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
+                      ),
+                      Icon(
+                        Icons.camera_alt,
+                        size: 30,
+                      ),
+                    ],
+                  ),
+                )
               ],
-            ),
-          )
-        ],
-      ),
-    )));
+            )));
   }
 }

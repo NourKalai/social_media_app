@@ -16,13 +16,13 @@ class _CoinScreenState extends State<CoinScreen> {
   static const Color _secondaryColor = Color.fromARGB(255, 10, 238, 124);
 
   final List<TransactionModel> _transactionList = const [
-     TransactionModel(
+    TransactionModel(
       logo: 'assets/images/mcdonalds.png',
       name: "McDonald's",
       date: '22.02.2020',
       amount: '-22,50',
     ),
-     TransactionModel(
+    TransactionModel(
       logo: 'assets/images/gas-station.png',
       name: "Petrol",
       date: '22.02.2020',
@@ -41,8 +41,6 @@ class _CoinScreenState extends State<CoinScreen> {
       amount: '-75,45',
     ),
   ];
-
- 
 
   @override
   Widget build(BuildContext context) {
@@ -113,7 +111,7 @@ class _CoinScreenState extends State<CoinScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: const <Widget> [
+            children: const <Widget>[
               Text(
                 '\$',
                 style: TextStyle(

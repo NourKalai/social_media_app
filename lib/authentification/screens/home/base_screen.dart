@@ -1,16 +1,14 @@
+// ignore: file_names
 import 'package:diginas_app/authentification/screens/home/feed_screen.dart';
-import 'package:diginas_app/authentification/screens/home/featuredScreen.dart';
 import 'package:diginas_app/authentification/screens/home/messages.dart';
 import 'package:diginas_app/authentification/screens/home/notificationScreen.dart';
 import 'package:diginas_app/authentification/screens/home/sidebar-screens/profileScreen.dart';
-import 'package:diginas_app/authentification/screens/home/videos/video_page.dart';
 import 'package:flutter/material.dart';
 
 import 'home_screen.dart';
 
 class BaseScreen extends StatefulWidget {
   const BaseScreen({super.key});
-
   @override
   State<BaseScreen> createState() => _BaseScreenState();
 }
@@ -19,7 +17,7 @@ class _BaseScreenState extends State<BaseScreen> {
   int _selectedIndex = 0;
   static final List<Widget> _widgetOptions = <Widget>[
     const HomeScreen(),
-    FeedScreen(),
+   const FeedScreen(),
     const ChatScreen(),
     NotificationScreen(),
     const ProfileScreen()

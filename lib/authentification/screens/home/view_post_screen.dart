@@ -6,7 +6,7 @@ import 'models/post_model.dart';
 class ViewPostScreen extends StatefulWidget {
   final Post post;
 
-  const ViewPostScreen({required this.post});
+  const ViewPostScreen({super.key, required this.post});
 
   @override
   _ViewPostScreenState createState() => _ViewPostScreenState();
@@ -53,7 +53,7 @@ class _ViewPostScreenState extends State<ViewPostScreen> {
             Icons.favorite_border,
           ),
           color: Colors.grey,
-          onPressed: () => print('Like comment'),
+          onPressed: () {},
         ),
       ),
     );
@@ -126,14 +126,14 @@ class _ViewPostScreenState extends State<ViewPostScreen> {
                                 trailing: IconButton(
                                   icon: const Icon(Icons.more_horiz),
                                   color: Colors.black,
-                                  onPressed: () => print('More'),
+                                  onPressed: (){},
                                 ),
                               ),
                             ),
                           ],
                         ),
                         InkWell(
-                          onDoubleTap: () => print('Like post'),
+                          onDoubleTap: () {},
                           child: Container(
                             margin: const EdgeInsets.all(10.0),
                             width: double.infinity,
@@ -166,7 +166,7 @@ class _ViewPostScreenState extends State<ViewPostScreen> {
                                       IconButton(
                                         icon: const Icon(Icons.favorite_border),
                                         iconSize: 30.0,
-                                        onPressed: () => print('Like post'),
+                                        onPressed: () {},
                                       ),
                                       const Text(
                                         '2,515',
@@ -184,7 +184,7 @@ class _ViewPostScreenState extends State<ViewPostScreen> {
                                         icon: const Icon(Icons.chat),
                                         iconSize: 30.0,
                                         onPressed: () {
-                                          print('Chat');
+                                        
                                         },
                                       ),
                                       const Text(
@@ -201,7 +201,7 @@ class _ViewPostScreenState extends State<ViewPostScreen> {
                               IconButton(
                                 icon: const Icon(Icons.bookmark_border),
                                 iconSize: 30.0,
-                                onPressed: () => print('Save post'),
+                                onPressed: () {},
                               ),
                             ],
                           ),
@@ -303,7 +303,7 @@ class _ViewPostScreenState extends State<ViewPostScreen> {
                         borderRadius: BorderRadius.circular(30.0),
                       ),
                     ),
-                    onPressed: () => print('Post comment'),
+                    onPressed: () {},
                     child: const Icon(
                       Icons.send,
                       size: 25.0,

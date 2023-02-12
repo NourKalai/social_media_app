@@ -1,17 +1,17 @@
-import 'package:diginas_app/authentification/screens/home/widgets/appBarSimple.dart';
+import 'package:diginas_app/authentification/screens/home/widgets/appbar_simple.dart';
 import 'package:diginas_app/authentification/screens/home/widgets/custom_follow_notification.dart';
 import 'package:diginas_app/authentification/screens/home/widgets/custom_liked_follow.dart';
 import 'package:flutter/material.dart';
 
 class NotificationScreen extends StatelessWidget {
   NotificationScreen({super.key});
-  List newItem = ["liked", "follow"];
-  List todayItem = ["follow", "liked", "liked"];
-  List oldesItem = ["follow", "follow", "liked", "liked"];
+  final List newItem = ["liked", "follow"];
+  final List todayItem = ["follow", "liked", "liked"];
+  final List oldesItem = ["follow", "follow", "liked", "liked"];
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    // final Size size = MediaQuery.of(context).size;
 
     return SafeArea(
         child: Scaffold(

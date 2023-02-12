@@ -71,6 +71,7 @@ dependencies:
   flutter_swiper: ^1.1.6
   chewie: ^1.4.0
   flutter_bootstrap: ^2.0.0
+  flutter_datetime_picker: ^1.5.1
 
 dev_dependencies:
   flutter_test:

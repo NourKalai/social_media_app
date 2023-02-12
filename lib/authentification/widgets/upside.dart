@@ -24,7 +24,7 @@ class Upside extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           width: 50,
         ),
         //  iconBackButton(context),

@@ -47,7 +47,7 @@ class _CustomRequestState extends State<CustomRequest> {
             child: CustomButton(
               height: 40,
               color: follow == false
-                  ? Color.fromARGB(255, 153, 196, 174)
+                  ? const Color.fromARGB(255, 153, 196, 174)
                   : const Color.fromARGB(255, 238, 234, 234),
               textColor: follow == false ? Colors.white : Colors.black,
               onTap: () {

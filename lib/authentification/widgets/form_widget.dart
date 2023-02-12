@@ -1,6 +1,7 @@
 import 'package:diginas_app/constant/config.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class TextFormWdiget extends StatelessWidget {
   String? hint;
 
@@ -10,7 +11,8 @@ class TextFormWdiget extends StatelessWidget {
   TextInputType textinputtype;
   Widget? suffixIcon;
   final String? Function(String?)? validator;
-  final OnSaved;
+  // ignore: prefer_typing_uninitialized_variables
+  final onSaved;
 
   TextFormWdiget(
       {Key? key,
@@ -21,7 +23,7 @@ class TextFormWdiget extends StatelessWidget {
       required this.obscure,
       this.controller,
       required this.validator,
-      this.OnSaved})
+      this.onSaved})
       : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -52,7 +54,7 @@ class TextFormWdiget extends StatelessWidget {
       ),
       controller:controller,
       validator: validator,
-      onSaved: OnSaved,
+      onSaved: onSaved,
     );
   }
 }

@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-
 import '../models/content_model.dart';
 
 class ContentList extends StatelessWidget {
@@ -32,7 +29,7 @@ class ContentList extends StatelessWidget {
                 final Content content = contentList[index];
 
                 return GestureDetector(
-                  onTap: () => print(content.name),
+                  onTap: () => {},
                   child: Container(
                     margin: const EdgeInsets.symmetric(horizontal: 8),
                     height: isAll ? 400 : 200,

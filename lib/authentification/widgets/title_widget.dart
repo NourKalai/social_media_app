@@ -19,7 +19,7 @@ Text title(BuildContext context, String labelText) {
   return Text(
     labelText,
     style: const TextStyle(
-      color: Colors.white,
+      color: Color.fromARGB(255, 11, 145, 82),
       fontSize: 14,
       fontFamily: "Poppins",
       fontWeight: FontWeight.bold,

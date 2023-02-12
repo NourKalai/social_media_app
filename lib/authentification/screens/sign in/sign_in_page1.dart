@@ -1,6 +1,6 @@
-import 'package:diginas_app/authentification/screens/sign%20in/signInPage2.dart';
-import 'package:diginas_app/authentification/screens/signup/registerwithphone.dart';
-import 'package:diginas_app/authentification/screens/signup/signup.dart';
+import 'package:diginas_app/authentification/screens/sign%20in/sign_in_page2.dart';
+import 'package:diginas_app/authentification/screens/signup/register_with_phone.dart';
+import 'package:diginas_app/authentification/screens/signup/sign_up.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -59,8 +59,7 @@ class SignInPage1 extends StatelessWidget {
                               borderRadius: BorderRadius.circular(10)),
                           elevation: 5,
                           Buttons.Google,
-                          text: AppLocalizations.of(context)!.signinwith +
-                              " google",
+                          text: "${AppLocalizations.of(context)!.signinwith} google",
                           onPressed: () {
                             Navigator.push(
                               context,
@@ -81,9 +80,7 @@ class SignInPage1 extends StatelessWidget {
                       const SizedBox(height: 20),
                       button(
                           context,
-                          AppLocalizations.of(context)!.signinwith +
-                              " " +
-                              AppLocalizations.of(context)!.password,
+                          "${AppLocalizations.of(context)!.signinwith} ${AppLocalizations.of(context)!.password}",
                           const Color.fromRGBO(46, 98, 212, 1),
                           Colors.white),
                       const SizedBox(height: 20),

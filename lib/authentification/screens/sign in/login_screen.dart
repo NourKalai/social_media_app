@@ -1,8 +1,8 @@
 import 'package:diginas_app/authentification/api/google_signin_api.dart';
-import 'package:diginas_app/authentification/screens/home/baseScreen.dart';
+import 'package:diginas_app/authentification/screens/home/base_screen.dart';
 import 'package:diginas_app/authentification/screens/sign%20in/home.dart';
-import 'package:diginas_app/authentification/widgets/pagetitleBar.dart';
-import 'package:diginas_app/authentification/widgets/rounded.icon.dart';
+import 'package:diginas_app/authentification/widgets/page_titleBar.dart';
+import 'package:diginas_app/authentification/widgets/rounded_icon.dart';
 import 'package:diginas_app/constant/config.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
@@ -12,10 +12,10 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../../models/login-response.model.dart';
 import '../../widgets/rounded.input.field.dart';
-import '../../widgets/under.part.dart';
+import '../../widgets/under_part.dart';
 import '../../widgets/upside.dart';
-import '../forgotpassword/forgotPassword.dart';
-import '../signup/registerwithphone.dart';
+import '../forgotpassword/forgot_password.dart';
+import '../signup/register_with_phone.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -119,7 +119,7 @@ class _LoginPageState extends State<LoginPage> {
                                     });
                                   },
                                   hintText: AppLocalizations.of(context)!.email,
-                                  OnSaved: (value) =>
+                                  onSaved: (value) =>
                                       setState(() => email = value),
                                   icon: Icons.email,
                                   coloricon:
@@ -344,6 +344,7 @@ class _LoginPageState extends State<LoginPage> {
       if (result.status == LoginStatus.success) {
         final userData = await FacebookAuth.i.getUserData();
         // print(userData);
+        // ignore: use_build_context_synchronously
         Navigator.push(
             context,
             MaterialPageRoute(

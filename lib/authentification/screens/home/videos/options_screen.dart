@@ -9,16 +9,16 @@ class OptionsScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            SizedBox(),
+            const SizedBox(),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Column(
                   children: [
-                    SizedBox(height: 110),
+                    const SizedBox(height: 110),
                     Row(
                       children: [
-                        CircleAvatar(
+                        const CircleAvatar(
                           backgroundColor: Colors.black,
                           child: Icon(
                             Icons.person,
@@ -27,18 +27,18 @@ class OptionsScreen extends StatelessWidget {
                           ),
                           radius: 16,
                         ),
-                        SizedBox(width: 6),
-                        Text(
+                        const SizedBox(width: 6),
+                        const Text(
                           'flutter_developer02',
                           style: TextStyle(
                               fontWeight: FontWeight.w700, color: Colors.white),
                         ),
-                        SizedBox(width: 10),
-                        Icon(Icons.verified, size: 15),
-                        SizedBox(width: 6),
+                        const SizedBox(width: 10),
+                        const Icon(Icons.verified, size: 15),
+                        const SizedBox(width: 6),
                         TextButton(
                           onPressed: () {},
-                          child: Text(
+                          child: const Text(
                             'Follow',
                             style: TextStyle(
                                 color: Colors.white,
@@ -47,25 +47,25 @@ class OptionsScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 6,
                     ),
-                    Text(
+                    const Text(
                       'Flutter is beautiful and fast 💙❤💛 ..',
                       style: TextStyle(
                         fontWeight: FontWeight.w700,
                         color: Colors.white,
                       ),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     Row(
                       children: [
-                        Icon(
+                        const Icon(
                           Icons.music_note,
                           size: 15,
                           color: Colors.white,
                         ),
-                        Text(
+                        const Text(
                           'Original Audio - some music track--',
                           style: TextStyle(color: Colors.white),
                         ),
@@ -75,33 +75,33 @@ class OptionsScreen extends StatelessWidget {
                 ),
                 Column(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.favorite_outline,
                       color: Colors.white,
                     ),
-                    Text('601k',
+                    const Text('601k',
                         style: TextStyle(
                           color: Colors.white,
                         )),
-                    SizedBox(height: 20),
-                    Icon(
+                    const SizedBox(height: 20),
+                    const Icon(
                       Icons.comment_rounded,
                       color: Colors.white,
                     ),
-                    Text('1123',
+                    const Text('1123',
                         style: TextStyle(
                           color: Colors.white,
                         )),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     Transform(
                       transform: Matrix4.rotationZ(5.8),
-                      child: Icon(
+                      child: const Icon(
                         Icons.send,
                         color: Colors.white,
                       ),
                     ),
-                    SizedBox(height: 50),
-                    Icon(
+                    const SizedBox(height: 50),
+                    const Icon(
                       Icons.more_vert,
                       color: Colors.white,
                     ),

@@ -1,8 +1,7 @@
 import 'package:flutter/services.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:video_player/video_player.dart';
 import 'package:wakelock/wakelock.dart';
+import 'package:flutter/material.dart';
 
 class LandscapePlayerPage extends StatefulWidget {
   const LandscapePlayerPage({super.key});
@@ -26,14 +25,14 @@ class _LandscapePlayerPageState extends State<LandscapePlayerPage> {
   }
 
   Future setLandscape() async {
-    await SystemChrome.setEnabledSystemUIOverlays([]);
+    await SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
     await SystemChrome.setPreferredOrientations(
         [DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight]);
     await Wakelock.enable();
   }
 
   Future setAllOrientations() async {
-    await SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
+    await SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: SystemUiOverlay.values);
 
     await SystemChrome.setPreferredOrientations(DeviceOrientation.values);
     await Wakelock.disable();

@@ -1,9 +1,8 @@
 import 'package:diginas_app/authentification/screens/home/models/content_model.dart';
-import 'package:flutter/material.dart';
 
 import 'assets.dart';
 
-final Content sintelContent = Content(
+const Content sintelContent = Content(
   name: 'Sintel',
   imageUrl: Assets.challenge1,
   videoUrl: Assets.sintelVideoUrl,
@@ -11,7 +10,7 @@ final Content sintelContent = Content(
       'A lonely young woman, Sintel, helps and befriends a dragon,\nwhom she calls Scales. But when he is kidnapped by an adult\ndragon, Sintel decides to embark on a dangerous quest to find\nher lost friend Scales.',
 );
 
-final List<Content> previews = const [
+const List<Content> previews = [
   Content(
     name: 'Save Nature',
     imageUrl: Assets.challenge2,
@@ -50,7 +49,7 @@ final List<Content> previews = const [
   ),
 ];
 
-final List<Content> myList = const [
+const List<Content> myList = [
   Content(name: 'Violet Evergarden', imageUrl: Assets.challenge1),
   Content(name: 'How to Sell Drugs Online (Fast)', imageUrl: Assets.challenge2),
   Content(name: 'Kakegurui', imageUrl: Assets.challenge3),
@@ -63,7 +62,7 @@ final List<Content> myList = const [
   Content(name: 'Black Mirror', imageUrl: Assets.challenge10),
 ];
 
-final List<Content> originals = const [
+const List<Content> originals = [
   Content(name: 'Violet Evergarden', imageUrl: Assets.challenge1),
   Content(name: 'How to Sell Drugs Online (Fast)', imageUrl: Assets.challenge2),
   Content(name: 'Kakegurui', imageUrl: Assets.challenge3),
@@ -76,7 +75,7 @@ final List<Content> originals = const [
   Content(name: 'Black Mirror', imageUrl: Assets.challenge10),
 ];
 
-final List<Content> trending = const [
+const List<Content> trending = [
   Content(name: 'Violet Evergarden', imageUrl: Assets.challenge1),
   Content(name: 'How to Sell Drugs Online (Fast)', imageUrl: Assets.challenge2),
   Content(name: 'Kakegurui', imageUrl: Assets.challenge3),

@@ -57,7 +57,7 @@ class _AppbarWidgetState extends State<AppbarWidget> {
               ),
             ),
             const SizedBox(height: 20),
-             SearchTextField(title:"Search your topic"),
+          const   SearchTextField(title:"Search your topic"),
           ],
         ),
       ),

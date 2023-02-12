@@ -1,24 +1,20 @@
 // ignore_for_file: library_private_types_in_public_api
 
-import 'package:diginas_app/authentification/screens/home/Landscape_player_page.dart';
-import 'package:diginas_app/authentification/screens/home/messages.dart';
 import 'package:diginas_app/authentification/screens/home/models/post_model.dart';
-import 'package:diginas_app/authentification/screens/home/sidebar-screens/supporterScreen.dart';
 import 'package:diginas_app/authentification/screens/home/view_post_screen.dart';
-import 'package:diginas_app/authentification/screens/home/widgets/custom_appbar.dart';
 import 'package:diginas_app/authentification/screens/home/widgets/custom_appbar_icons.dart';
 import 'package:flutter/material.dart';
 
-import 'orientation/portrait_landscape_player_page.dart';
-import 'orientation/portrait_player_widget.dart';
 
 class FeedScreen extends StatefulWidget {
+  const FeedScreen({super.key});
+
   @override
   _FeedScreenState createState() => _FeedScreenState();
 }
 
 class _FeedScreenState extends State<FeedScreen> {
-  double _scrollOffset = 0.0;
+  final double _scrollOffset = 0.0;
 
   @override
   Widget build(BuildContext context) {
@@ -133,11 +129,11 @@ class _FeedScreenState extends State<FeedScreen> {
                     trailing: IconButton(
                       icon: const Icon(Icons.more_horiz),
                       color: Colors.black,
-                      onPressed: () => print('More'),
+                      onPressed: () {},
                     ),
                   ),
                   InkWell(
-                    onDoubleTap: () => print('Like post'),
+                    onDoubleTap: () {},
                     onTap: () {
                       Navigator.push(
                         context,
@@ -154,8 +150,8 @@ class _FeedScreenState extends State<FeedScreen> {
                       height: 400.0,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(25.0),
-                        boxShadow: [
-                          const BoxShadow(
+                        boxShadow: const [
+                          BoxShadow(
                             color: Colors.black45,
                             offset: Offset(0, 5),
                             blurRadius: 8.0,
@@ -180,7 +176,7 @@ class _FeedScreenState extends State<FeedScreen> {
                                 IconButton(
                                   icon: const Icon(Icons.favorite_border),
                                   iconSize: 30.0,
-                                  onPressed: () => print('Like post'),
+                                  onPressed: () {},
                                 ),
                                 const Text(
                                   '2,515',
@@ -222,7 +218,7 @@ class _FeedScreenState extends State<FeedScreen> {
                         IconButton(
                           icon: const Icon(Icons.bookmark_border),
                           iconSize: 30.0,
-                          onPressed: () => print('Save post'),
+                          onPressed: () {},
                         ),
                       ],
                     ),

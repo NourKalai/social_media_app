@@ -1,10 +1,6 @@
 import 'package:chewie/chewie.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:video_player/video_player.dart';
-
-import '../orientation/portrait_landscape_player_page.dart';
 import '../orientation/portrait_player_widget.dart';
 import '../widgets/like_icon.dart';
 import 'options_screen.dart';
@@ -12,7 +8,7 @@ import 'options_screen.dart';
 class ContentScreen extends StatefulWidget {
   final String src;
 
-  ContentScreen({super.key, required this.src});
+  const ContentScreen({super.key, required this.src});
 
   @override
   State<ContentScreen> createState() => _ContentScreenState();
@@ -55,7 +51,7 @@ class _ContentScreenState extends State<ContentScreen> {
           },
         ),
         if (_liked)
-          Center(
+          const Center(
             child: LikeIcon(),
           ),
         OptionsScreen()

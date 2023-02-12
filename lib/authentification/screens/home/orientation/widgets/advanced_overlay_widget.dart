@@ -45,12 +45,12 @@ class AdvancedOverlayWidget extends StatelessWidget {
                     Expanded(child: buildIndicator()),
                     const SizedBox(width: 12),
                     GestureDetector(
+                      onTap: onClickedFullScreen,
                       child: const Icon(
                         Icons.fullscreen,
                         color: Colors.white,
                         size: 28,
                       ),
-                      onTap: onClickedFullScreen,
                     ),
                     const SizedBox(width: 8),
                   ],

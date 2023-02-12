@@ -1,3 +1,4 @@
+// ignore: file_names
 import 'package:diginas_app/authentification/screens/home/sidebar-screens/models/info.dart';
 import 'package:diginas_app/authentification/screens/home/video_detail.dart';
 import 'package:flutter/material.dart';

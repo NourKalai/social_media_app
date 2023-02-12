@@ -1,5 +1,5 @@
-import 'package:diginas_app/authentification/screens/home/widgets/appBarSimple.dart';
-import 'package:diginas_app/authentification/screens/home/widgets/circlebutton.dart';
+import 'package:diginas_app/authentification/screens/home/widgets/appbar_simple.dart';
+import 'package:diginas_app/authentification/screens/home/widgets/circle_button.dart';
 import 'package:diginas_app/constant/provider/theme_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -27,7 +27,7 @@ class _SettingsPageState extends State<SettingsPage> {
         this.image = imageTemporary;
       });
     } on PlatformException catch (e) {
-      print('Failed to pick image:$e');
+      return e;
     }
   }
 
@@ -207,6 +207,7 @@ class _SettingsPageState extends State<SettingsPage> {
     );
   }
 
+  // ignore: non_constant_identifier_names
   Widget BottomSheet(BuildContext context) {
     return Container(
       height: 100.0,

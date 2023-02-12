@@ -34,7 +34,7 @@ class _AppBarResearchState extends State<AppBarResearch> {
         ),
       ),
       child: Column(
-        children: [
+        children: const [
           SearchTextField(title: "Search by name"),
         ],
       ),

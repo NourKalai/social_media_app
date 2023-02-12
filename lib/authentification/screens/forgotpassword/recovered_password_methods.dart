@@ -1,20 +1,20 @@
 import 'package:diginas_app/authentification/screens/forgotpassword/valid.dart';
-import 'package:diginas_app/authentification/screens/forgotpassword/validationMail.dart';
-import 'package:diginas_app/authentification/screens/forgotpassword/validationSecretQuestion.dart';
-import 'package:diginas_app/authentification/widgets/buttonWidget.dart';
+import 'package:diginas_app/authentification/screens/forgotpassword/validation_mail.dart';
+import 'package:diginas_app/authentification/screens/forgotpassword/validation_secret_question.dart';
+import 'package:diginas_app/authentification/widgets/button_widget.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 
 import 'package:flutter/material.dart';
 
-import '../../widgets/UpWidget.dart';
-import '../sign in/login.screen.dart';
+import '../../widgets/up_widget.dart';
+import '../sign in/login_screen.dart';
 
 class RecoveredPasswordMethods extends StatelessWidget {
-  String phoneNumber;
-  String email;
+  final String phoneNumber;
+  final String email;
 
-RecoveredPasswordMethods({super.key, required this.phoneNumber, required this.email});
+const RecoveredPasswordMethods({super.key, required this.phoneNumber, required this.email});
 
   @override
   Widget build(BuildContext context) {

@@ -1,6 +1,6 @@
 import 'package:diginas_app/authentification/screens/home/sidebar-screens/friends.dart';
 import 'package:diginas_app/authentification/screens/home/sidebar-screens/requestScreen.dart';
-import 'package:diginas_app/authentification/screens/sign%20in/login.screen.dart';
+import 'package:diginas_app/authentification/screens/sign%20in/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -9,8 +9,6 @@ import '../sidebar-screens/favoriteScreen.dart';
 import '../sidebar-screens/policiesScreen.dart';
 import '../sidebar-screens/profileScreen.dart';
 import '../sidebar-screens/settingsScreen.dart';
-import '../sidebar-screens/supporterScreen.dart';
-
 class SideBar extends StatelessWidget {
   const SideBar({super.key});
 

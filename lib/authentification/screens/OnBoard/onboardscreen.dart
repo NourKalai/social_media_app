@@ -1,6 +1,6 @@
 // ignore: avoid_print
 
-import 'package:diginas_app/authentification/screens/sign%20in/login.screen.dart';
+import 'package:diginas_app/authentification/screens/sign%20in/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:concentric_transition/concentric_transition.dart';
 import 'package:lottie/lottie.dart';

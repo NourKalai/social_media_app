@@ -1,3 +1,4 @@
+// ignore: file_names
 import 'dart:async';
 import 'package:diginas_app/authentification/screens/OnBoard/onboardscreen.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +36,6 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     startTimer();
   }

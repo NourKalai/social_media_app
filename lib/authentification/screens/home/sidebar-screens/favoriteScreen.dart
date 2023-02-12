@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../widgets/appBarSimple.dart';
+import '../widgets/appbar_simple.dart';
 class FavoriteScreen extends StatefulWidget {
   const FavoriteScreen({super.key});
   @override

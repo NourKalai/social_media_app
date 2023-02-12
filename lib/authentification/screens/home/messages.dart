@@ -141,7 +141,7 @@ class _ChatScreenState extends State<ChatScreen> {
       onTap: () {
         Navigator.of(context).push(
           MaterialPageRoute(
-            builder: (context) => ChatPage(),
+            builder: (context) =>const ChatPage(),
           ),
         );
       },
@@ -200,7 +200,7 @@ class Avatar extends StatelessWidget {
   final double size;
   final image;
   final EdgeInsets margin;
-  Avatar({super.key, this.image, this.size = 50, this.margin = const EdgeInsets.all(0)});
+  const Avatar({super.key, this.image, this.size = 50, this.margin = const EdgeInsets.all(0)});
   @override
   Widget build(BuildContext context) {
     return Padding(

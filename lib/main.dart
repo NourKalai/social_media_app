@@ -1,5 +1,4 @@
-import 'package:diginas_app/authentification/screens/splashScreen.dart';
-import 'package:diginas_app/authentification/viewmodels/AuthViewModel.dart';
+import 'package:diginas_app/authentification/screens/splash_screen1.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -12,9 +11,8 @@ import 'package:provider/provider.dart';
 Future<void> main() async {
   await Settings.init();
 
-  runApp(MultiProvider(
-      providers: [ChangeNotifierProvider(create: (_) => AuthViewModel())],
-      child: const MyApp()));
+  runApp(
+    const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -26,7 +24,7 @@ class MyApp extends StatelessWidget {
       builder: (context, _) {
         final themeProvider = Provider.of<ThemeProvider>(context);
         return MaterialApp(
-            scrollBehavior: MaterialScrollBehavior().copyWith(
+            scrollBehavior: const MaterialScrollBehavior().copyWith(
               dragDevices: {
                 PointerDeviceKind.mouse,
                 PointerDeviceKind.touch,
@@ -42,8 +40,8 @@ class MyApp extends StatelessWidget {
             darkTheme: MyThemes.darkTheme,
             supportedLocales: L10n.all,
             theme: ThemeData(
-                appBarTheme: AppBarTheme(
-                  backgroundColor: const Color.fromARGB(255, 10, 238, 124),
+                appBarTheme: const AppBarTheme(
+                  backgroundColor: Color.fromARGB(255, 10, 238, 124),
                   iconTheme: IconThemeData(
                     color: Colors.white, //<-- SEE HERE
                   ),
@@ -55,7 +53,9 @@ class MyApp extends StatelessWidget {
               GlobalWidgetsLocalizations.delegate,
               GlobalCupertinoLocalizations.delegate,
             ],
-            home: const //SplashScreen()
-                SplashScreen());
+            home: const SplashScreen()
+                // SignUp()
+                
+                );
       });
 }

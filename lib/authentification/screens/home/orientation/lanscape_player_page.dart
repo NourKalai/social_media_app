@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:diginas_app/authentification/screens/home/orientation/video_player_fullscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -5,6 +7,8 @@ import 'package:video_player/video_player.dart';
 import 'package:wakelock/wakelock.dart';
 
 class LandscapePlayerPage extends StatefulWidget {
+  const LandscapePlayerPage({super.key});
+
   @override
   _LandscapePlayerPageState createState() => _LandscapePlayerPageState();
 }
@@ -34,7 +38,7 @@ class _LandscapePlayerPageState extends State<LandscapePlayerPage> {
   }
 
   Future setLandscape() async {
-    await SystemChrome.setEnabledSystemUIOverlays([]);
+    await SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
     await SystemChrome.setPreferredOrientations([
       DeviceOrientation.landscapeLeft,
       DeviceOrientation.landscapeRight,
@@ -44,7 +48,7 @@ class _LandscapePlayerPageState extends State<LandscapePlayerPage> {
   }
 
   Future setAllOrientations() async {
-    await SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
+    await SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: SystemUiOverlay.values);
     await SystemChrome.setPreferredOrientations(DeviceOrientation.values);
 
     await Wakelock.disable();

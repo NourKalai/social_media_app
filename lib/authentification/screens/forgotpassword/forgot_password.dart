@@ -1,11 +1,11 @@
-import 'package:diginas_app/authentification/screens/forgotpassword/recoveredPasswordMethods.dart';
 
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import '../../widgets/UpWidget.dart';
+import '../../widgets/up_widget.dart';
 import '../../widgets/rounded.input.field.dart';
+import 'recovered_password_methods.dart';
 
 class ForgotPassword extends StatefulWidget {
   const ForgotPassword({Key? key}) : super(key: key);
@@ -55,7 +55,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                   });
                 },
                 hintText: AppLocalizations.of(context)!.email,
-                OnSaved: (value) => setState(() => email = value),
+                onSaved: (value) => setState(() => email = value),
                 icon: Icons.email,
                 coloricon: isMailCorrect ? Colors.green : Colors.red,
                 textinputtype: TextInputType.emailAddress,
@@ -81,7 +81,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                   }
                 },
                 hintText: AppLocalizations.of(context)!.phonenumber,
-                OnSaved: (value) => setState(() => phoneNumber = value),
+                onSaved: (value) => setState(() => phoneNumber = value),
                 icon: Icons.phone,
                 coloricon: isPhoneCorrect ? Colors.green : Colors.red,
                 textinputtype: TextInputType.phone,
@@ -107,7 +107,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                   }
                 },
                 hintText: AppLocalizations.of(context)!.username,
-                OnSaved: (value) => setState(() => phoneNumber = value),
+                onSaved: (value) => setState(() => phoneNumber = value),
                 icon: Icons.person,
                 coloricon: isNameCorrect ? Colors.green : Colors.red,
                 textinputtype: TextInputType.text,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'widgets/appbarResearch.dart';
-import 'widgets/categoryCard.dart';
+import 'widgets/appbar-research.dart';
+import 'widgets/category_card.dart';
 
 class SeeAll extends StatefulWidget {
   const SeeAll({super.key});

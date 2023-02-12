@@ -1,8 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-
 import '../messages.dart';
 import '../sidebar-screens/supporterScreen.dart';
 
@@ -15,7 +11,7 @@ class CustomAppBarIcons extends StatelessWidget {
     final Size screenSize = MediaQuery.of(context).size;
 
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20.0),
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20.0),
       color:
           Colors.white.withOpacity((scrollOffset / 350).clamp(0, 1).toDouble()),
       child: Row(
@@ -31,7 +27,7 @@ class CustomAppBarIcons extends StatelessWidget {
                     widget: Container(
                       width: 20,
                       child: IconButton(
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.send,
                           size: 30,
                           color: Colors.green,
@@ -50,7 +46,7 @@ class CustomAppBarIcons extends StatelessWidget {
                     widget: Container(
                       width: 20,
                       child: IconButton(
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.live_tv,
                           size: 30,
                           color: Colors.green,
@@ -79,7 +75,7 @@ class _AppBarButton extends StatelessWidget {
   final Widget widget;
 
   final Function? onTap;
-  const _AppBarButton({Key? key, required this.widget, this.onTap});
+  const _AppBarButton({ required this.widget, this.onTap});
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(

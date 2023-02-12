@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../constant/config.dart';
 
+// ignore: must_be_immutable
 class RoundedInputField extends StatefulWidget {
   Widget? suffixIcon;
   final String? hintText;
@@ -11,20 +12,23 @@ class RoundedInputField extends StatefulWidget {
 
   TextEditingController? controller;
   final String? Function(String?)? validator;
+  final void Function()? onTap;
+
   TextInputType textinputtype;
-  final OnSaved;
+  final onSaved;
   final onChanged;
   final Color coloricon;
   RoundedInputField({
     Key? key,
     this.suffixIcon,
     this.hintText,
+    this.onTap,
     required this.obscure,
     required this.controller,
     required this.icon,
     this.validator,
     this.coloricon = kPrimaryColor,
-    this.OnSaved,
+    this.onSaved,
     this.onChanged,
     required this.textinputtype,
   }) : super(key: key);
@@ -53,8 +57,9 @@ class _RoundedInputFieldState extends State<RoundedInputField> {
             contentPadding: const EdgeInsets.fromLTRB(30, 20, 10, 20),
             border: InputBorder.none),
         controller: widget.controller,
+        onTap: widget.onTap,
         validator: widget.validator,
-        onSaved: widget.OnSaved,
+        onSaved: widget.onSaved,
         obscureText: widget.obscure,
       ),
     );

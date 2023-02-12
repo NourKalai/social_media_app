@@ -1,10 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-
 import '../models/content_model.dart';
-
 class Preview extends StatelessWidget {
   final String title;
   final List<Content> contentList;
@@ -30,7 +25,7 @@ class Preview extends StatelessWidget {
               itemBuilder: (BuildContext context, int index) {
                 final Content content = contentList[index];
                 return GestureDetector(
-                  onTap: () => print(content.name),
+                  onTap: () {},
                   child: Stack(children: [
                     Container(
                       margin: const EdgeInsets.symmetric(horizontal: 16),
@@ -68,7 +63,7 @@ class Preview extends StatelessWidget {
                             child: Center(
                               child: Text(
                                 content.name,
-                                style: TextStyle(
+                                style: const TextStyle(
                                   fontSize: 21,
                                   fontWeight: FontWeight.bold,
                                 ),

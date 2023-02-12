@@ -1,8 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-
 import '../sidebar-screens/supporterScreen.dart';
 
 class CustomAppBar extends StatelessWidget {
@@ -11,7 +7,7 @@ class CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 10, horizontal: 24.0),
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 24.0),
       color:
           Colors.white.withOpacity((scrollOffset / 350).clamp(0, 1).toDouble()),
       child: Row(
@@ -23,36 +19,35 @@ class CustomAppBar extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 _AppBarButton(
-                    widget: Text("Reels",
+                    widget: const Text("Reels",
                         style: TextStyle(
                             fontSize: 15.0,
                             fontWeight: FontWeight.w600,
                             color: Colors.white)),
                     onTap: () {
-                      print("in reels");
                       Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) => const SupporterScreen()),
                       );
-                      ;
+                      
                     }),
-                SizedBox(width: 30),
+                const SizedBox(width: 30),
                 _AppBarButton(
-                    widget: Text("Supporters",
+                    widget: const Text("Supporters",
                         style: TextStyle(
                             fontSize: 15.0,
                             fontWeight: FontWeight.w600,
                             color: Colors.white)),
-                    onTap: () => print('Supportes')),
-                SizedBox(width: 30),
+                    onTap: () {}),
+                const SizedBox(width: 30),
                 _AppBarButton(
-                    widget: Text("Others",
+                    widget: const Text("Others",
                         style: TextStyle(
                             fontSize: 15.0,
                             fontWeight: FontWeight.w600,
                             color: Colors.white)),
-                    onTap: () => print("others")),
+                    onTap: () {}),
               ],
             ),
           )
@@ -66,7 +61,7 @@ class _AppBarButton extends StatelessWidget {
   final Widget widget;
 
   final Function onTap;
-  const _AppBarButton({Key? key, required this.widget, required this.onTap});
+  const _AppBarButton({required this.widget, required this.onTap});
   @override
   Widget build(BuildContext context) {
     return GestureDetector(onTap: () => onTap, child: widget);
