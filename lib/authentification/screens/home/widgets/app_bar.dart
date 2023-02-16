@@ -1,5 +1,6 @@
-import 'package:diginas_app/authentification/screens/home/widgets/searchTextField.dart';
+import 'package:diginas_app/authentification/screens/home/widgets/search_text_field.dart';
 import 'package:flutter/material.dart';
+// ignore: must_be_immutable
 class AppbarWidget extends StatefulWidget {
   GlobalKey<ScaffoldState>? scaffoldKey;
   String? title;

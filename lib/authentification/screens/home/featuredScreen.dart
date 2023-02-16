@@ -2,7 +2,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'package:diginas_app/authentification/screens/home/widgets/app_bar.dart';
 import 'package:diginas_app/authentification/screens/home/widgets/body.dart';
-import 'package:diginas_app/authentification/screens/home/widgets/sideBar.dart';
+import 'package:diginas_app/authentification/screens/home/widgets/side_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'widgets/appbar-research.dart';
+import 'widgets/appbar_research.dart';
 import 'widgets/category_card.dart';
 
 class SeeAll extends StatefulWidget {

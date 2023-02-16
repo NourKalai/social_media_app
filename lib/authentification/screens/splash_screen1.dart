@@ -1,6 +1,6 @@
 // ignore: file_names
 import 'dart:async';
-import 'package:diginas_app/authentification/screens/OnBoard/onboardscreen.dart';
+import 'package:diginas_app/authentification/screens/OnBoard/onboard_screen.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {

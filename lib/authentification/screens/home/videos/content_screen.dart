@@ -2,7 +2,8 @@ import 'package:chewie/chewie.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:video_player/video_player.dart';
 import '../orientation/portrait_player_widget.dart';
-import '../widgets/like_icon.dart';
+import '../widgets/build_post.dart';
+import '../widgets/liked_button.dart';
 import 'options_screen.dart';
 
 class ContentScreen extends StatefulWidget {

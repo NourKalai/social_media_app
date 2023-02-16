@@ -1,5 +1,6 @@
 // ignore: file_names
 import 'package:diginas_app/authentification/screens/home/sidebar-screens/models/info.dart';
+import 'package:diginas_app/authentification/screens/home/sidebar-screens/profile_screen.dart';
 import 'package:diginas_app/authentification/screens/home/video_detail.dart';
 import 'package:flutter/material.dart';
 
@@ -35,7 +36,8 @@ class _ChallengeStepState extends State<ChallengeStep> {
               const SizedBox(
                 width: 15,
               ),
-              const Icon(Icons.arrow_forward_ios, size: 20, color: Colors.black54),
+              const Icon(Icons.arrow_forward_ios,
+                  size: 20, color: Colors.black54),
             ],
           ),
           const SizedBox(height: 30),
@@ -150,8 +152,8 @@ class _ChallengeStepState extends State<ChallengeStep> {
               ),
             ),
           ),
-        // ignore: sized_box_for_whitespace
-        Container(
+          // ignore: sized_box_for_whitespace
+          Container(
             height: 180,
             width: MediaQuery.of(context).size.width,
             child: Stack(children: [
@@ -212,7 +214,9 @@ class _ChallengeStepState extends State<ChallengeStep> {
                                 fontFamily: "Poppins",
                                 color: Colors.grey.shade500,
                                 fontSize: 16),
-                            children: const [TextSpan(text: "stick to your plan")]))
+                            children: const [
+                          TextSpan(text: "stick to your plan")
+                        ]))
                   ],
                 ),
               )
@@ -220,7 +224,7 @@ class _ChallengeStepState extends State<ChallengeStep> {
           ),
           Row(
             children: const [
-               Text(
+              Text(
                 "Competitors",
                 style: TextStyle(
                   fontSize: 20,
@@ -241,76 +245,102 @@ class _ChallengeStepState extends State<ChallengeStep> {
                   int b = 2 * i + 1;
                   return Row(
                     children: [
-                      Container(
-                        height: 150,
-                        margin: const EdgeInsets.only(bottom: 15),
-                        width: (MediaQuery.of(context).size.width - 90) / 2,
-                        padding: const EdgeInsets.only(
-                          bottom: 5,
-                        ),
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(15),
-                            image: DecorationImage(
-                                fit: BoxFit.fill,
-                                image: AssetImage((Cards[a].authorImageUrl)),
-                                // colorFilter: ColorFilter.linearToSrgbGamma(),
-                                opacity: 0.5),
-                            boxShadow: [
-                              BoxShadow(
-                                  blurRadius: 3,
-                                  offset: const Offset(5, 5),
-                                  color: const Color.fromARGB(255, 68, 163, 80)
-                                      .withOpacity(0.1)),
-                              BoxShadow(
-                                  blurRadius: 3,
-                                  offset: const Offset(-5, -5),
-                                  color: const Color.fromARGB(255, 68, 163, 80)
-                                      .withOpacity(0.1))
-                            ]),
-                        child: Center(
-                          child: Align(
-                            alignment: Alignment.bottomCenter,
-                            child: Text(Cards[a].text,
-                                style: const TextStyle(
-                                    fontSize: 20, color: Colors.black)),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ProfileScreen(
+                                    image: Cards[a].authorImageUrl,
+                                    name: Cards[a].text)),
+                          );
+                        },
+                        child: Container(
+                          height: 150,
+                          margin: const EdgeInsets.only(bottom: 15),
+                          width: (MediaQuery.of(context).size.width - 90) / 2,
+                          padding: const EdgeInsets.only(
+                            bottom: 5,
+                          ),
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(15),
+                              image: DecorationImage(
+                                  fit: BoxFit.fill,
+                                  image: AssetImage((Cards[a].authorImageUrl)),
+                                  // colorFilter: ColorFilter.linearToSrgbGamma(),
+                                  opacity: 0.5),
+                              boxShadow: [
+                                BoxShadow(
+                                    blurRadius: 3,
+                                    offset: const Offset(5, 5),
+                                    color:
+                                        const Color.fromARGB(255, 68, 163, 80)
+                                            .withOpacity(0.1)),
+                                BoxShadow(
+                                    blurRadius: 3,
+                                    offset: const Offset(-5, -5),
+                                    color:
+                                        const Color.fromARGB(255, 68, 163, 80)
+                                            .withOpacity(0.1))
+                              ]),
+                          child: Center(
+                            child: Align(
+                              alignment: Alignment.bottomCenter,
+                              child: Text(Cards[a].text,
+                                  style: const TextStyle(
+                                      fontSize: 20, color: Colors.black)),
+                            ),
                           ),
                         ),
                       ),
                       const SizedBox(
                         width: 20,
                       ),
-                      Container(
-                        margin: const EdgeInsets.only(bottom: 15),
-                        height: 150,
-                        width: (MediaQuery.of(context).size.width - 90) / 2,
-                        padding: const EdgeInsets.only(bottom: 5),
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(15),
-                            image: DecorationImage(
-                                fit: BoxFit.fill,
-                                image: AssetImage((Cards[b].authorImageUrl)),
-                                // colorFilter: ColorFilter.linearToSrgbGamma(),
-                                opacity: 0.5),
-                            boxShadow: [
-                              BoxShadow(
-                                  blurRadius: 3,
-                                  offset: const Offset(5, 5),
-                                  color: const Color.fromARGB(255, 68, 163, 80)
-                                      .withOpacity(0.1)),
-                              BoxShadow(
-                                  blurRadius: 3,
-                                  offset: const Offset(-5, -5),
-                                  color: const Color.fromARGB(255, 68, 163, 80)
-                                      .withOpacity(0.1))
-                            ]),
-                        child: Center(
-                          child: Align(
-                            alignment: Alignment.bottomCenter,
-                            child: Text(Cards[b].text,
-                                style: const TextStyle(
-                                    fontSize: 20, color: Colors.black)),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ProfileScreen(
+                                    image: Cards[b].authorImageUrl,
+                                    name: Cards[b].text)),
+                          );
+                        },
+                        child: Container(
+                          margin: const EdgeInsets.only(bottom: 15),
+                          height: 150,
+                          width: (MediaQuery.of(context).size.width - 90) / 2,
+                          padding: const EdgeInsets.only(bottom: 5),
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(15),
+                              image: DecorationImage(
+                                  fit: BoxFit.fill,
+                                  image: AssetImage((Cards[b].authorImageUrl)),
+                                  // colorFilter: ColorFilter.linearToSrgbGamma(),
+                                  opacity: 0.5),
+                              boxShadow: [
+                                BoxShadow(
+                                    blurRadius: 3,
+                                    offset: const Offset(5, 5),
+                                    color:
+                                        const Color.fromARGB(255, 68, 163, 80)
+                                            .withOpacity(0.1)),
+                                BoxShadow(
+                                    blurRadius: 3,
+                                    offset: const Offset(-5, -5),
+                                    color:
+                                        const Color.fromARGB(255, 68, 163, 80)
+                                            .withOpacity(0.1))
+                              ]),
+                          child: Center(
+                            child: Align(
+                              alignment: Alignment.bottomCenter,
+                              child: Text(Cards[b].text,
+                                  style: const TextStyle(
+                                      fontSize: 20, color: Colors.black)),
+                            ),
                           ),
                         ),
                       )

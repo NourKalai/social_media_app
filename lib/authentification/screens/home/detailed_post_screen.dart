@@ -1,64 +1,32 @@
+import 'package:diginas_app/authentification/screens/home/models/comment_model.dart';
+import 'package:diginas_app/authentification/screens/home/widgets/build_comment.dart';
+import 'package:diginas_app/authentification/screens/home/widgets/build_special_options.dart';
 import 'package:flutter/material.dart';
-
-import 'models/comment_model.dart';
 import 'models/post_model.dart';
 
 class ViewPostScreen extends StatefulWidget {
   final Post post;
+  final int nLikes;
+  late int nComments;
 
-  const ViewPostScreen({super.key, required this.post});
+  ViewPostScreen(
+      {super.key,
+      required this.post,
+      required this.nLikes,
+      required this.nComments});
 
   @override
+  // ignore: library_private_types_in_public_api
   _ViewPostScreenState createState() => _ViewPostScreenState();
 }
 
 class _ViewPostScreenState extends State<ViewPostScreen> {
-  Widget _buildComment(int index) {
-    return Padding(
-      padding: const EdgeInsets.all(10.0),
-      child: ListTile(
-        leading: Container(
-          width: 50.0,
-          height: 50.0,
-          decoration: const BoxDecoration(
-            shape: BoxShape.circle,
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black45,
-                offset: Offset(0, 2),
-                blurRadius: 6.0,
-              ),
-            ],
-          ),
-          child: CircleAvatar(
-            child: ClipOval(
-              child: Image(
-                height: 50.0,
-                width: 50.0,
-                image: AssetImage(comments[index].authorImageUrl),
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
-        ),
-        title: Text(
-          comments[index].authorName,
-          style: const TextStyle(
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        subtitle: Text(comments[index].text),
-        trailing: IconButton(
-          icon: const Icon(
-            Icons.favorite_border,
-          ),
-          color: Colors.grey,
-          onPressed: () {},
-        ),
-      ),
-    );
-  }
-
+  final GlobalKey<AnimatedListState> _key = GlobalKey();
+  bool isLiked = false;
+  bool isSaved = false;
+  bool delete = false;
+  final item = comments;
+  final TextEditingController _controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -126,7 +94,7 @@ class _ViewPostScreenState extends State<ViewPostScreen> {
                                 trailing: IconButton(
                                   icon: const Icon(Icons.more_horiz),
                                   color: Colors.black,
-                                  onPressed: (){},
+                                  onPressed: () {},
                                 ),
                               ),
                             ),
@@ -154,61 +122,14 @@ class _ViewPostScreenState extends State<ViewPostScreen> {
                             ),
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: <Widget>[
-                              Row(
-                                children: <Widget>[
-                                  Row(
-                                    children: <Widget>[
-                                      IconButton(
-                                        icon: const Icon(Icons.favorite_border),
-                                        iconSize: 30.0,
-                                        onPressed: () {},
-                                      ),
-                                      const Text(
-                                        '2,515',
-                                        style: TextStyle(
-                                          fontSize: 14.0,
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  const SizedBox(width: 20.0),
-                                  Row(
-                                    children: <Widget>[
-                                      IconButton(
-                                        icon: const Icon(Icons.chat),
-                                        iconSize: 30.0,
-                                        onPressed: () {
-                                        
-                                        },
-                                      ),
-                                      const Text(
-                                        '350',
-                                        style: TextStyle(
-                                          fontSize: 14.0,
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                              IconButton(
-                                icon: const Icon(Icons.bookmark_border),
-                                iconSize: 30.0,
-                                onPressed: () {},
-                              ),
-                            ],
-                          ),
-                        ),
                       ],
                     ),
                   ),
+                  BuildSpecialOptions(
+                    nLikes: widget.nLikes,
+                    index: -1,
+                    nComments: widget.nComments,
+                  )
                 ],
               ),
             ),
@@ -222,15 +143,30 @@ class _ViewPostScreenState extends State<ViewPostScreen> {
                   topRight: Radius.circular(30.0),
                 ),
               ),
-              child: Column(
-                children: <Widget>[
-                  _buildComment(0),
-                  _buildComment(1),
-                  _buildComment(2),
-                  _buildComment(3),
-                  _buildComment(4),
-                ],
-              ),
+              // child: Column(
+              //   children: const <Widget>[
+              //     BuildComment(index: 0),
+              //     BuildComment(index: 1),
+              //     BuildComment(index: 2),
+              //     BuildComment(index: 3),
+              //     BuildComment(index: 4),
+              //   ],
+              // ),
+              child: AnimatedList(
+                  key: _key,
+                  initialItemCount: item.length,
+                  itemBuilder: (((context, index, animation) {
+                    return FadeTransition(
+                      opacity: animation,
+                      child: SizeTransition(
+                        key: UniqueKey(),
+                        sizeFactor: animation,
+                        child: BuildComment(
+                          index: index,
+                        ),
+                      ),
+                    );
+                  }))),
             )
           ],
         ),
@@ -255,6 +191,7 @@ class _ViewPostScreenState extends State<ViewPostScreen> {
           child: Padding(
             padding: const EdgeInsets.all(12.0),
             child: TextField(
+              controller: _controller,
               decoration: InputDecoration(
                 border: InputBorder.none,
                 enabledBorder: OutlineInputBorder(
@@ -286,7 +223,7 @@ class _ViewPostScreenState extends State<ViewPostScreen> {
                       child: Image(
                         height: 48.0,
                         width: 48.0,
-                        image: AssetImage(widget.post.authorImageUrl),
+                        image: AssetImage("assets/images/nan.png"),
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -303,7 +240,10 @@ class _ViewPostScreenState extends State<ViewPostScreen> {
                         borderRadius: BorderRadius.circular(30.0),
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      addItem(_controller.text);
+                      _controller.clear();
+                    },
                     child: const Icon(
                       Icons.send,
                       size: 25.0,
@@ -317,5 +257,17 @@ class _ViewPostScreenState extends State<ViewPostScreen> {
         ),
       ),
     );
+  }
+
+  void addItem(String text) {
+    Comment newComment = Comment(
+        authorImageUrl: "assets/images/nan.png",
+        authorName: 'Nour Kalai',
+        text: text);
+    item.insert(0, newComment);
+    _key.currentState!.insertItem(0, duration: const Duration(seconds: 1));
+    setState(() {
+      widget.nComments++;
+    });
   }
 }

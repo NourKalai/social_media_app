@@ -1,3 +1,4 @@
+import 'package:diginas_app/authentification/screens/home/challenge_step.dart';
 import 'package:flutter/material.dart';
 
 import '../models/content_model.dart';
@@ -45,14 +46,10 @@ class ContentHeader extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 VerticalIconButton(
-                    icon: Icons.add,
-                    title: "List",
-                    onTap: () => {}),
+                    icon: Icons.add, title: "List", onTap: () => {}),
                 _PlayButton(),
                 VerticalIconButton(
-                    icon: Icons.info_outline,
-                    title: "Info",
-                    onTap: () => {})
+                    icon: Icons.info_outline, title: "Info", onTap: () => {})
               ],
             ))
       ],
@@ -69,7 +66,12 @@ class _PlayButton extends StatelessWidget {
         style: ElevatedButton.styleFrom(
             backgroundColor: const Color.fromARGB(255, 108, 160, 24)),
         icon: const Icon(Icons.play_arrow, size: 30),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const ChallengeStep()),
+          );
+        },
         label: const Text('Play',
             style: TextStyle(
               fontSize: 16,

@@ -1,14 +1,15 @@
 import 'package:diginas_app/authentification/screens/home/sidebar-screens/friends.dart';
-import 'package:diginas_app/authentification/screens/home/sidebar-screens/requestScreen.dart';
+import 'package:diginas_app/authentification/screens/home/sidebar-screens/request_screen.dart';
 import 'package:diginas_app/authentification/screens/sign%20in/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import '../sidebar-screens/coinScreen.dart';
-import '../sidebar-screens/favoriteScreen.dart';
-import '../sidebar-screens/policiesScreen.dart';
-import '../sidebar-screens/profileScreen.dart';
-import '../sidebar-screens/settingsScreen.dart';
+import '../sidebar-screens/coin_screen.dart';
+import '../sidebar-screens/favorite_screen.dart';
+import '../sidebar-screens/policies_screen.dart';
+import '../sidebar-screens/profile_screen.dart';
+import '../sidebar-screens/settings_screen.dart';
+
 class SideBar extends StatelessWidget {
   const SideBar({super.key});
 
@@ -57,7 +58,8 @@ class SideBar extends StatelessWidget {
             onTap: () => Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const ProfileScreen(),
+                builder: (context) => const ProfileScreen(
+                    name: "Nour Kalai", image: "assets/images/nan.png"),
               ),
             ),
           ),

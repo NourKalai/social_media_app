@@ -11,7 +11,7 @@ import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../../models/login-response.model.dart';
-import '../../widgets/rounded.input.field.dart';
+import '../../widgets/rounded_input_field.dart';
 import '../../widgets/under_part.dart';
 import '../../widgets/upside.dart';
 import '../forgotpassword/forgot_password.dart';

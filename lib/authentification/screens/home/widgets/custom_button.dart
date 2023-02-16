@@ -12,7 +12,7 @@ class CustomButton extends StatelessWidget {
     Key? key,
   }) : super(key: key);
   String? text;
-  Color? color;
+  Color? color = const Color.fromARGB(255, 238, 234, 234);
   Function() onTap;
   Color? colorBorder;
   Color? textColor;

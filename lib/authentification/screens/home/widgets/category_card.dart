@@ -1,4 +1,4 @@
-import 'package:diginas_app/authentification/screens/home/challengeStep.dart';
+import 'package:diginas_app/authentification/screens/home/challenge_step.dart';
 import 'package:flutter/material.dart';
 
 class CategoryCard extends StatelessWidget {

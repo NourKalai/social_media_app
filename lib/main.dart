@@ -1,3 +1,4 @@
+import 'package:diginas_app/authentification/screens/home/base_screen.dart';
 import 'package:diginas_app/authentification/screens/splash_screen1.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -11,8 +12,7 @@ import 'package:provider/provider.dart';
 Future<void> main() async {
   await Settings.init();
 
-  runApp(
-    const MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -53,9 +53,9 @@ class MyApp extends StatelessWidget {
               GlobalWidgetsLocalizations.delegate,
               GlobalCupertinoLocalizations.delegate,
             ],
-            home: const SplashScreen()
-                // SignUp()
-                
-                );
+            home: const BaseScreen()
+            // SignUp()
+
+            );
       });
 }

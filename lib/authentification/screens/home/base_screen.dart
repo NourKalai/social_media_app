@@ -1,8 +1,8 @@
 // ignore: file_names
 import 'package:diginas_app/authentification/screens/home/feed_screen.dart';
 import 'package:diginas_app/authentification/screens/home/messages.dart';
-import 'package:diginas_app/authentification/screens/home/notificationScreen.dart';
-import 'package:diginas_app/authentification/screens/home/sidebar-screens/profileScreen.dart';
+import 'package:diginas_app/authentification/screens/home/notification_screen.dart';
+import 'package:diginas_app/authentification/screens/home/sidebar-screens/profile_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'home_screen.dart';
@@ -17,10 +17,13 @@ class _BaseScreenState extends State<BaseScreen> {
   int _selectedIndex = 0;
   static final List<Widget> _widgetOptions = <Widget>[
     const HomeScreen(),
-   const FeedScreen(),
+    const FeedScreen(),
     const ChatScreen(),
     NotificationScreen(),
-    const ProfileScreen()
+    const ProfileScreen(
+      name: 'Nour Kalai',
+      image: "assets/images/nan.png",
+    )
   ];
 
   @override

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../messages.dart';
-import '../sidebar-screens/supporterScreen.dart';
+import '../sidebar-screens/supporter_screen.dart';
 
 class CustomAppBarIcons extends StatelessWidget {
   final double scrollOffset;
@@ -19,9 +19,10 @@ class CustomAppBarIcons extends StatelessWidget {
           Image.asset("assets/images/nature1.png"),
           Expanded(
             child: Padding(
-              padding: EdgeInsets.only(left: screenSize.width * 0.42),
+              padding:
+                  EdgeInsets.only(left: screenSize.width * 0.50, right: 10),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   _AppBarButton(
                     widget: Container(
@@ -42,22 +43,26 @@ class CustomAppBarIcons extends StatelessWidget {
                       ),
                     ),
                   ),
-                  _AppBarButton(
-                    widget: Container(
-                      width: 20,
-                      child: IconButton(
-                        icon: const Icon(
-                          Icons.live_tv,
-                          size: 30,
-                          color: Colors.green,
+                  Padding(
+                    padding: const EdgeInsets.only(left: 2),
+                    child: _AppBarButton(
+                      widget: Container(
+                        width: 20,
+                        child: IconButton(
+                          icon: const Icon(
+                            Icons.live_tv,
+                            size: 30,
+                            color: Colors.green,
+                          ),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const SupporterScreen()),
+                            );
+                          },
                         ),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const SupporterScreen()),
-                          );
-                        },
                       ),
                     ),
                   ),
@@ -75,13 +80,9 @@ class _AppBarButton extends StatelessWidget {
   final Widget widget;
 
   final Function? onTap;
-  const _AppBarButton({ required this.widget, this.onTap});
+  const _AppBarButton({required this.widget, this.onTap});
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-        style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.transparent, elevation: 0),
-        onPressed: () => onTap,
-        child: widget);
+    return GestureDetector(onTap: () => onTap, child: widget);
   }
 }

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../widgets/up_widget.dart';
-import '../../widgets/rounded.input.field.dart';
+import '../../widgets/rounded_input_field.dart';
 import 'recovered_password_methods.dart';
 
 class ForgotPassword extends StatefulWidget {

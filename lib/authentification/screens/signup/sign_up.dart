@@ -6,7 +6,7 @@ import 'package:intl/intl.dart';
 
 import 'dart:io';
 
-import '../../widgets/rounded.input.field.dart';
+import '../../widgets/rounded_input_field.dart';
 import '../../widgets/title_widget.dart';
 import 'choose_user.dart';
 

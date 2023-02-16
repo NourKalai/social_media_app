@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'custom_button.dart';
 
 class CustomRequest extends StatefulWidget {
-  final Follow follower;
-  const CustomRequest({Key? key, required this.follower}) : super(key: key);
+  final imageUrl;
+  final name;
+  const CustomRequest({Key? key,  this.imageUrl, this.name}) : super(key: key);
 
   @override
   State<CustomRequest> createState() => _CustomRequestState();
@@ -24,7 +25,7 @@ class _CustomRequestState extends State<CustomRequest> {
             children: [
               CircleAvatar(
                 radius: 30,
-                backgroundImage: AssetImage(widget.follower.imageUrl),
+                backgroundImage: AssetImage(widget.imageUrl),
               ),
               const SizedBox(
                 width: 15,
@@ -33,7 +34,7 @@ class _CustomRequestState extends State<CustomRequest> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text(widget.follower.name,
+                  Text(widget.name,
                       style: Theme.of(context).textTheme.titleLarge),
                   const SizedBox(
                     height: 5,
@@ -43,11 +44,11 @@ class _CustomRequestState extends State<CustomRequest> {
             ],
           ),
           Padding(
-            padding: EdgeInsets.only(left: follow == false ? 20 : 10),
+            padding: EdgeInsets.only(top: 10, left: follow == false ? 20 : 10),
             child: CustomButton(
               height: 40,
               color: follow == false
-                  ? const Color.fromARGB(255, 153, 196, 174)
+                  ? Color.fromARGB(255, 10, 238, 124)
                   : const Color.fromARGB(255, 238, 234, 234),
               textColor: follow == false ? Colors.white : Colors.black,
               onTap: () {
@@ -55,7 +56,7 @@ class _CustomRequestState extends State<CustomRequest> {
                   follow = !follow;
                 });
               },
-              text: follow == false ? "UnFollow" : "Follow",
+              text: follow == false ? "Follow" : "Unfollow",
             ),
           ),
         ],

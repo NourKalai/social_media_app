@@ -1,13 +1,15 @@
-
 import 'package:diginas_app/authentification/screens/home/sidebar-screens/friends.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:transparent_image/transparent_image.dart';
+import "package:transparent_image/transparent_image.dart";
 
-import '../widgets/sideBar.dart';
+import '../widgets/side_bar.dart';
 
 class ProfileScreen extends StatefulWidget {
-  const ProfileScreen({super.key});
+  final String image;
+  final String name;
+  
+  const ProfileScreen({super.key, required this.image, required this.name});
   @override
   State<ProfileScreen> createState() => _ProfileScreenState();
 }
@@ -76,11 +78,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                 Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-                  const Padding(
+                  Padding(
                     padding: EdgeInsets.only(left: 28.0, top: 7),
                     child: CircleAvatar(
                       radius: 35,
-                      backgroundImage: AssetImage("assets/images/nan.png"),
+                      backgroundImage: AssetImage(widget.image),
                     ),
                   ),
                   Padding(
@@ -88,8 +90,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text(
-                            'Nour Kalai',
+                        Text(
+                           widget.name,
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 28,

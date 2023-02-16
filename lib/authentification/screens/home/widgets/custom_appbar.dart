@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../sidebar-screens/supporterScreen.dart';
+import '../sidebar-screens/supporter_screen.dart';
 
 class CustomAppBar extends StatelessWidget {
   final double scrollOffset;
