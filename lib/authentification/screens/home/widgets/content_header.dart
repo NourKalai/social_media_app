@@ -1,8 +1,11 @@
 import 'package:diginas_app/authentification/screens/home/challenge_step.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../models/content_model.dart';
+import '../orientation/portrait_landscape_player_page.dart';
 import '../vertical_icon_button.dart';
+import '../videos/content_challenge.dart';
 
 class ContentHeader extends StatelessWidget {
   final Content featuredContent;
@@ -27,14 +30,14 @@ class ContentHeader extends StatelessWidget {
                   begin: Alignment.bottomCenter,
                   end: Alignment.topCenter)),
         ),
-        const Positioned(
+        Positioned(
           left: 60,
           bottom: 100,
           child: SizedBox(
             width: 350,
             child: Text(
-              "New Challenge",
-              style: TextStyle(color: Colors.white, fontSize: 40),
+              AppLocalizations.of(context)!.newchallenge,
+              style: const TextStyle(color: Colors.white, fontSize: 40),
             ),
           ),
         ),
@@ -46,10 +49,14 @@ class ContentHeader extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 VerticalIconButton(
-                    icon: Icons.add, title: "List", onTap: () => {}),
+                    icon: Icons.add,
+                    title: AppLocalizations.of(context)!.list,
+                    onTap: () => {}),
                 _PlayButton(),
                 VerticalIconButton(
-                    icon: Icons.info_outline, title: "Info", onTap: () => {})
+                    icon: Icons.info_outline,
+                    title: AppLocalizations.of(context)!.info,
+                    onTap: () => const ChallengeStep())
               ],
             ))
       ],
@@ -69,11 +76,14 @@ class _PlayButton extends StatelessWidget {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => const ChallengeStep()),
+            MaterialPageRoute(
+                builder: (context) => const ContentChallenge(
+                      src: 'flutter_assets/help.mp4',
+                    )),
           );
         },
-        label: const Text('Play',
-            style: TextStyle(
+        label: Text(AppLocalizations.of(context)!.play,
+            style: const TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.w600,
             )),

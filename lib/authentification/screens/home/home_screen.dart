@@ -3,7 +3,7 @@ import 'package:diginas_app/authentification/screens/home/widgets/content_list.d
 import 'package:diginas_app/authentification/screens/home/widgets/custom_appbar.dart';
 import 'package:diginas_app/authentification/screens/home/widgets/preview.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'models/data_content.dart';
 
@@ -16,7 +16,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   // late ScrollController _scrollController;
- final double _scrollOffset = 0.0;
+  final double _scrollOffset = 0.0;
   @override
   // void initState() {
   //   _scrollController = ScrollController()
@@ -45,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
             scrollOffset: _scrollOffset,
           ),
         ),
-        body: const CustomScrollView(
+        body: CustomScrollView(
           // controller: _scrollController,
           slivers: [
             SliverToBoxAdapter(
@@ -53,17 +53,25 @@ class _HomeScreenState extends State<HomeScreen> {
             SliverPadding(
               padding: EdgeInsets.only(top: 20),
               sliver: SliverToBoxAdapter(
-                  child: Preview(title: 'Previews', contentList: previews)),
-            ),
-            SliverToBoxAdapter(
-              child: ContentList(title: "My List", contentList: myList),
+                  child: Preview(
+                      title: AppLocalizations.of(context)!.previews,
+                      contentList: previews)),
             ),
             SliverToBoxAdapter(
               child: ContentList(
-                  title: "All Chalenges", contentList: myList, isAll: true),
+                  title: AppLocalizations.of(context)!.mylist,
+                  contentList: myList),
             ),
             SliverToBoxAdapter(
-              child: ContentList(title: "Trending", contentList: myList),
+              child: ContentList(
+                  title: AppLocalizations.of(context)!.allchallenges,
+                  contentList: myList,
+                  isAll: true),
+            ),
+            SliverToBoxAdapter(
+              child: ContentList(
+                  title: AppLocalizations.of(context)!.trending,
+                  contentList: myList),
             ),
           ],
         ),

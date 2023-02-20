@@ -125,20 +125,6 @@ class _BaseScreenState extends State<BaseScreen> {
     //           height: kBottomNavigationBarItemSize),
     //       label: 'WishList',
     //     ),
-    //     BottomNavigationBarItem(
-    //       activeIcon: const Icon(Icons.notifications,
-    //           size: kBottomNavigationBarItemSize),
-    //       icon: Image.asset(icSettingOutlined,
-    //           height: kBottomNavigationBarItemSize),
-    //       label: 'Notifications',
-    //     ),
-    //   ],
-    //   currentIndex: _selectedIndex,
-    //   onTap: (int index) {
-    //     setState(() {
-    //       _selectedIndex = index;
-    //     });
-    //   },
-    // ),
+    //
   }
 }

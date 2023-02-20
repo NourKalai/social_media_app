@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../models/post_model.dart';
 import '../detailed_post_screen.dart';
+import 'package:gallery_saver/gallery_saver.dart';
 
 class BuildPost extends StatefulWidget {
   final int index;
@@ -14,12 +15,12 @@ class BuildPost extends StatefulWidget {
 }
 
 class _BuildPostState extends State<BuildPost> {
-  DropdownMenuItem<String> buildMenuItem(String item) => DropdownMenuItem(
-      value: item,
-      child: Text(
-        item,
-        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-      ));
+  void saveImage(var path) async {
+    print(path);
+    await GallerySaver.saveImage(path, toDcim: true, albumName: "NoorApp");
+  }
+
+  var album_name = "NoorApp";
   bool isLiked = false;
   int nLikes = 1200;
   bool isSaved = false;
@@ -62,7 +63,7 @@ class _BuildPostState extends State<BuildPost> {
                             width: 50.0,
                             image:
                                 AssetImage(posts[widget.index].authorImageUrl),
-                            fit: BoxFit.cover,
+                            fit: BoxFit.fill,
                           ),
                         ),
                       ),
@@ -75,40 +76,38 @@ class _BuildPostState extends State<BuildPost> {
                     ),
                     subtitle: Text(posts[widget.index].timeAgo),
                     trailing: PopupMenuButton(
-                        itemBuilder: (context) => [
-                              PopupMenuItem(
-                                  child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Icon(
-                                    Icons.share,
-                                    color: Colors.green,
-                                  ),
-                                  Text("Share")
-                                ],
-                              )),
-                              PopupMenuItem(
-                                  child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  IconButton(
-                                    onPressed: () {},
-                                    icon: Icon(
-                                        color: Colors.green, Icons.save_alt),
-                                  ),
-                                  Text("Save")
-                                ],
-                              ))
-                            ],
-                        child: IconButton(
-                          onPressed: () {},
-                          icon: Icon(
-                            Icons.more_horiz,
-                            color: Colors.black,
-                          ),
+                      child: Icon(
+                        Icons.more_horiz,
+                        color: Colors.black,
+                      ),
+                      itemBuilder: (context) => [
+                        PopupMenuItem(
+                            child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: const [
+                            Icon(
+                              Icons.share,
+                              color: Colors.green,
+                            ),
+                            Text("Share")
+                          ],
                         )),
+                        PopupMenuItem(
+                            child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            IconButton(
+                              onPressed: () {
+                                print("save picture");
+                                saveImage(posts[widget.index].imageUrl);
+                              },
+                              icon: Icon(color: Colors.green, Icons.save_alt),
+                            ),
+                            Text("Save")
+                          ],
+                        ))
+                      ],
+                    ),
                   ),
                   InkWell(
                     onDoubleTap: () {},
@@ -138,8 +137,8 @@ class _BuildPostState extends State<BuildPost> {
                           ),
                         ],
                         image: DecorationImage(
-                          image: AssetImage(posts[widget.index].imageUrl),
-                          fit: BoxFit.fitWidth,
+                          image: NetworkImage(posts[widget.index].imageUrl),
+                          fit: BoxFit.cover,
                         ),
                       ),
                     ),

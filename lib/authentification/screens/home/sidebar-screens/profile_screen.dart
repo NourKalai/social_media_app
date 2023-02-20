@@ -2,13 +2,14 @@ import 'package:diginas_app/authentification/screens/home/sidebar-screens/friend
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import "package:transparent_image/transparent_image.dart";
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../widgets/side_bar.dart';
 
 class ProfileScreen extends StatefulWidget {
   final String image;
   final String name;
-  
+
   const ProfileScreen({super.key, required this.image, required this.name});
   @override
   State<ProfileScreen> createState() => _ProfileScreenState();
@@ -19,12 +20,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
-    List tags = ['challenge1', 'challenge2', 'challenge3', 'challenge4'];
+    List tags = [
+      "${AppLocalizations.of(context)!.challenge}1",
+      "${AppLocalizations.of(context)!.challenge}2",
+      "${AppLocalizations.of(context)!.challenge}3",
+      "${AppLocalizations.of(context)!.challenge}4"
+    ];
     List<String> imageList = [
       'https://cdn.pixabay.com/photo/2019/03/15/09/49/girl-4056684_960_720.jpg',
       'https://cdn.pixabay.com/photo/2020/12/15/16/25/clock-5834193__340.jpg',
       'https://cdn.pixabay.com/photo/2020/09/18/19/31/laptop-5582775_960_720.jpg',
-      'https://media.istockphoto.com/photos/woman-kayaking-in-fjord-in-norway-picture-id1059380230?b=1&k=6&m=1059380230&s=170667a&w=0&h=kA_A_XrhZJjw2bo5jIJ7089-VktFK0h0I4OWDqaac0c=',
+      'https://cdn.pixabay.com/photo/2020/09/18/19/31/laptop-5582775_960_720.jpg',
       'https://cdn.pixabay.com/photo/2019/11/05/00/53/cellular-4602489_960_720.jpg',
       'https://cdn.pixabay.com/photo/2017/02/12/10/29/christmas-2059698_960_720.jpg',
       'https://cdn.pixabay.com/photo/2020/01/29/17/09/snowboard-4803050_960_720.jpg',
@@ -34,14 +40,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
       'https://cdn.pixabay.com/photo/2020/12/09/09/27/women-5816861_960_720.jpg',
     ];
     List days = [
-      'week1',
-      'week2',
-      'week3',
-      'week4',
-      'week5',
-      'week6',
-      'week7',
-      'week8'
+      "${AppLocalizations.of(context)!.week}1",
+      "${AppLocalizations.of(context)!.week}2",
+      "${AppLocalizations.of(context)!.week}3",
+      "${AppLocalizations.of(context)!.week}4",
+      "${AppLocalizations.of(context)!.week}5",
+      "${AppLocalizations.of(context)!.week}6",
+      "${AppLocalizations.of(context)!.week}7",
+      "${AppLocalizations.of(context)!.week}8",
     ];
     return SafeArea(
       child: Scaffold(
@@ -49,7 +55,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
           key: scaffoldKey,
           appBar: AppBar(
             // backgroundColor: const Color.fromARGB(66, 122, 119, 119),
-
             leading: IconButton(
               icon: const Icon(
                 Icons.arrow_back_ios,
@@ -79,7 +84,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       children: [
                 Row(mainAxisAlignment: MainAxisAlignment.start, children: [
                   Padding(
-                    padding: EdgeInsets.only(left: 28.0, top: 7),
+                    padding: const EdgeInsets.only(left: 28.0, top: 7),
                     child: CircleAvatar(
                       radius: 35,
                       backgroundImage: AssetImage(widget.image),
@@ -90,9 +95,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                        Text(
-                           widget.name,
-                            style: TextStyle(
+                          Text(
+                            widget.name,
+                            style: const TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 28,
                             ),
@@ -101,17 +106,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             padding: const EdgeInsets.only(top: 8.0),
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
-                              children: const [
-                                Icon(
+                              children: [
+                                const Icon(
                                   Icons.location_on,
                                   size: 17,
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.only(
+                                  padding: const EdgeInsets.only(
                                     left: 8.0,
                                   ),
-                                  child: Text('Tunisia',
-                                      style: TextStyle(
+                                  child: Text(
+                                      AppLocalizations.of(context)!.tunisia,
+                                      style: const TextStyle(
                                           wordSpacing: 2, letterSpacing: 4)),
                                 ),
                               ],
@@ -132,16 +138,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 TextButton(
                                   child: Center(
                                     child: RichText(
-                                        text: const TextSpan(
+                                        text: TextSpan(
                                             text: '17K\n',
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 color: Colors.black,
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 25),
                                             children: [
                                           TextSpan(
-                                            text: 'followers',
-                                            style: TextStyle(
+                                            text: AppLocalizations.of(context)!
+                                                .followers,
+                                            style: const TextStyle(
                                                 color: Colors.black87,
                                                 fontSize: 15),
                                           ),
@@ -167,16 +174,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               TextButton(
                                 child: Center(
                                   child: RichText(
-                                      text: const TextSpan(
+                                      text: TextSpan(
                                           text: '2K\n',
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                               color: Colors.black,
                                               fontWeight: FontWeight.bold,
                                               fontSize: 25),
                                           children: [
                                         TextSpan(
-                                          text: 'following',
-                                          style: TextStyle(
+                                          text: AppLocalizations.of(context)!
+                                              .following,
+                                          style: const TextStyle(
                                               color: Colors.black87,
                                               fontSize: 15),
                                         ),
@@ -211,8 +219,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   begin: Alignment.bottomRight,
                                   end: Alignment.centerLeft),
                             ),
-                            child: const Text('follow',
-                                style: TextStyle(
+                            child: Text(AppLocalizations.of(context)!.follow,
+                                style: const TextStyle(
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold)),
                           ),
@@ -229,12 +237,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Padding(
-                          padding: EdgeInsets.only(
+                        Padding(
+                          padding: const EdgeInsets.only(
                               top: 33, right: 24, left: 25, bottom: 25),
                           child: Text(
-                            'Portfolio',
-                            style: TextStyle(
+                            AppLocalizations.of(context)!.portfolio,
+                            style: const TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 33,
                               color: Color.fromARGB(255, 10, 238, 124),
@@ -277,7 +285,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 itemBuilder: (BuildContext context, int index) {
                                   return Padding(
                                       padding: const EdgeInsets.only(
-                                          right: 17.0, top: 10.0, left: 20.0),
+                                        right: 20.0,
+                                        top: 10.0,
+                                        left: 20.0,
+                                      ),
                                       child: index == 0
                                           ? Column(
                                               mainAxisAlignment:
@@ -287,7 +298,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                                   days[index],
                                                   style: const TextStyle(
                                                       color: Color(0xff434AE8),
-                                                      fontSize: 19),
+                                                      fontSize: 15),
                                                 ),
                                                 const CircleAvatar(
                                                   radius: 2,

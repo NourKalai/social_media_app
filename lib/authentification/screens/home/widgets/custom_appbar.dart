@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../sidebar-screens/supporter_screen.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CustomAppBar extends StatelessWidget {
   final double scrollOffset;
@@ -19,7 +20,7 @@ class CustomAppBar extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 _AppBarButton(
-                    widget: const Text("Reels",
+                    widget: Text(AppLocalizations.of(context)!.reels,
                         style: TextStyle(
                             fontSize: 15.0,
                             fontWeight: FontWeight.w600,
@@ -30,11 +31,10 @@ class CustomAppBar extends StatelessWidget {
                         MaterialPageRoute(
                             builder: (context) => const SupporterScreen()),
                       );
-                      
                     }),
                 const SizedBox(width: 30),
                 _AppBarButton(
-                    widget: const Text("Supporters",
+                    widget: Text(AppLocalizations.of(context)!.supporters,
                         style: TextStyle(
                             fontSize: 15.0,
                             fontWeight: FontWeight.w600,
@@ -42,7 +42,7 @@ class CustomAppBar extends StatelessWidget {
                     onTap: () {}),
                 const SizedBox(width: 30),
                 _AppBarButton(
-                    widget: const Text("Others",
+                    widget: Text(AppLocalizations.of(context)!.others,
                         style: TextStyle(
                             fontSize: 15.0,
                             fontWeight: FontWeight.w600,

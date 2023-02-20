@@ -63,7 +63,7 @@ class _BuildSpecialOptionsState extends State<BuildSpecialOptions> {
                     icon: const Icon(Icons.chat),
                     iconSize: 30.0,
                     onPressed: () {
-                      if (widget.index >= 0)
+                      if (widget.index >= 0) {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
@@ -74,6 +74,7 @@ class _BuildSpecialOptionsState extends State<BuildSpecialOptions> {
                             ),
                           ),
                         );
+                      }
                     },
                   ),
                    Text(

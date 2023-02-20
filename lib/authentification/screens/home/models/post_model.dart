@@ -5,8 +5,8 @@ class Post {
   String imageUrl;
 
   Post({
-   required this.authorName,
-   required this.authorImageUrl,
+    required this.authorName,
+    required this.authorImageUrl,
     required this.timeAgo,
     required this.imageUrl,
   });
@@ -17,13 +17,15 @@ final List<Post> posts = [
     authorName: 'Sam Martin',
     authorImageUrl: 'assets/images/user0.png',
     timeAgo: '5 min',
-    imageUrl: 'assets/images/post0.jpg',
+    imageUrl:
+        'https://images.pexels.com/photos/9929115/pexels-photo-9929115.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
   ),
   Post(
     authorName: 'Sam Martin',
     authorImageUrl: 'assets/images/user0.png',
     timeAgo: '10 min',
-    imageUrl: 'assets/images/post1.jpg',
+    imageUrl:
+        'https://ofhsoupkitchen.org/wp-content/uploads/2020/08/Untitled-design.jpg',
   ),
 ];
 
