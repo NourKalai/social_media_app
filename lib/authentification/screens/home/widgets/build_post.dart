@@ -1,10 +1,17 @@
+import 'dart:io';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:diginas_app/authentification/screens/home/models/comment_model.dart';
 import 'package:diginas_app/authentification/screens/home/widgets/build_special_options.dart';
 import 'package:flutter/material.dart';
+import 'package:gallery_saver/files.dart';
+import 'package:http/http.dart' as http;
+import 'package:path_provider/path_provider.dart';
+import 'package:share_plus/share_plus.dart';
 
 import '../models/post_model.dart';
 import '../detailed_post_screen.dart';
 import 'package:gallery_saver/gallery_saver.dart';
+import 'package:path_provider/path_provider.dart';
 
 class BuildPost extends StatefulWidget {
   final int index;
@@ -76,7 +83,7 @@ class _BuildPostState extends State<BuildPost> {
                     ),
                     subtitle: Text(posts[widget.index].timeAgo),
                     trailing: PopupMenuButton(
-                      child: Icon(
+                      child: const Icon(
                         Icons.more_horiz,
                         color: Colors.black,
                       ),
@@ -84,12 +91,25 @@ class _BuildPostState extends State<BuildPost> {
                         PopupMenuItem(
                             child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: const [
-                            Icon(
-                              Icons.share,
-                              color: Colors.green,
+                          children: [
+                            IconButton(
+                              onPressed: () async {
+                                final url =
+                                    Uri.parse(posts[widget.index].imageUrl);
+                                final response = await http.get(url);
+                                final bytes = response.bodyBytes;
+                                final temp = await getTemporaryDirectory();
+                                final path = '${temp.path}/image.jpg';
+                                File(path).writeAsBytesSync(bytes);
+                                await Share.shareFiles([path],
+                                    text: 'Look at this');
+                              },
+                              icon: const Icon(
+                                Icons.share,
+                                color: Colors.green,
+                              ),
                             ),
-                            Text("Share")
+                            const Text("Share")
                           ],
                         )),
                         PopupMenuItem(
@@ -99,11 +119,73 @@ class _BuildPostState extends State<BuildPost> {
                             IconButton(
                               onPressed: () {
                                 print("save picture");
-                                saveImage(posts[widget.index].imageUrl);
+                                //  saveImage(posts[widget.index].imageUrl);
+                                ScaffoldMessenger.of(context)
+                                    .showSnackBar(SnackBar(
+                                  content: Stack(children: [
+                                    Container(
+                                      padding: const EdgeInsets.all(16),
+                                      height: 70,
+                                      decoration: const BoxDecoration(
+                                        gradient: LinearGradient(
+                                          colors: [
+                                            Color.fromARGB(255, 44, 92, 224),
+                                            Color.fromARGB(255, 10, 238, 124),
+                                          ],
+                                        ),
+                                        borderRadius: BorderRadius.all(
+                                          Radius.circular(20),
+                                        ),
+                                      ),
+                                      child: Row(
+                                        children: [
+                                          SizedBox(width: 48),
+                                          Expanded(
+                                            child: Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: const [
+                                                  Text(
+                                                    'Saved successfully!',
+                                                    style: TextStyle(
+                                                        color: Colors.white,
+                                                        fontSize: 12),
+                                                    maxLines: 2,
+                                                    overflow:
+                                                        TextOverflow.ellipsis,
+                                                  ),
+                                                  Text(
+                                                    'You can find this picture on your device.',
+                                                    style: TextStyle(
+                                                        color: Colors.white,
+                                                        fontSize: 12),
+                                                    maxLines: 2,
+                                                    overflow:
+                                                        TextOverflow.ellipsis,
+                                                  )
+                                                ]),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Positioned(
+                                        top: 15,
+                                        left: 8,
+                                        child: SvgPicture.asset(
+                                          "assets/svg/mail.svg",
+                                          height: 40,
+                                          width: 45,
+                                        ))
+                                  ]),
+                                  behavior: SnackBarBehavior.floating,
+                                  backgroundColor: Colors.transparent,
+                                  elevation: 0,
+                                ));
                               },
-                              icon: Icon(color: Colors.green, Icons.save_alt),
+                              icon: const Icon(
+                                  color: Colors.green, Icons.save_alt),
                             ),
-                            Text("Save")
+                            const Text("Save")
                           ],
                         ))
                       ],
