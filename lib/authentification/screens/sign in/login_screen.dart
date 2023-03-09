@@ -226,32 +226,6 @@ class _LoginPageState extends State<LoginPage> {
               });
               Navigator.of(context)
                   .push(MaterialPageRoute(builder: (context) => const BaseScreen()));
-              // AuthService().login(loginRequestModel).then((value)
-
-              //  {
-              //   if (value != null) {
-              //     setState(() {
-              //       isApiCallProcess = false;
-              //     });
-              //         Navigator.of(context).push(MaterialPageRoute(
-              //           builder: (context) => BaseScreen()));
-
-              // if (value.token.isNotEmpty) {
-              //           final snackBar = SnackBar(
-              //             content: Text(
-              //               "Login Successful",
-              //               style: TextStyle(fontSize: 20),
-              //             ),
-              //             backgroundColor: Colors.green,
-              //           );
-              //           Navigator.of(context).push(MaterialPageRoute(
-              //               builder: (context) => BaseScreen()));
-
-              //           ScaffoldMessenger.of(context).showSnackBar(snackBar);
-              //         }
-              //  //     }
-              //     });
-
               const message = 'Successful login! ';
               const snackBar = SnackBar(
                 content: Text(

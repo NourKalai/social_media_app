@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../base_screen.dart';
 import '../messages.dart';
 import '../sidebar-screens/supporter_screen.dart';
 
@@ -16,7 +17,14 @@ class CustomAppBarIcons extends StatelessWidget {
           Colors.white.withOpacity((scrollOffset / 350).clamp(0, 1).toDouble()),
       child: Row(
         children: [
-          Image.asset("assets/images/nature1.png"),
+          InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => BaseScreen()),
+                );
+              },
+              child: Image.asset("assets/images/nature1.png")),
           Expanded(
             child: Padding(
               padding:

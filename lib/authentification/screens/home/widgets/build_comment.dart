@@ -68,7 +68,10 @@ class _BuildCommentState extends State<BuildComment> {
                 isLiked = !isLiked;
               });
             else {
-              removeItem(widget.index, context);
+              setState(() {
+                comments.removeAt(widget.index);
+          
+              });
             }
           },
         ),

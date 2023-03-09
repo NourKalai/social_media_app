@@ -70,28 +70,7 @@ class _FollowersScreenState extends State<FollowersScreen> {
 
     return SafeArea(
       child: Scaffold(
-        // appBar: EasySearchBar(
-        //     elevation: 2,
-        //     searchBackIconTheme:
-        //         IconThemeData(color: Color.fromARGB(255, 10, 238, 124)),
-        //     suggestionBackgroundColor: Color.fromARGB(255, 10, 238, 124),
-        //     title: const Text(
-        //       'Search',
-        //       style: TextStyle(color: Colors.white),
-        //     ),
-        //     onSearch: (value) => setState(() => searchValue = value),
-        //     suggestions: _suggestions),
-
-        // appBar: AppBar(
-        //   title: Text('Search'),
-        //   actions: [
-        //     IconButton(
-        //         onPressed: () {
-        //           showSearch(context: context, delegate: MySearchDelegate());
-        //         },
-        //         icon: const Icon(Icons.search))
-        //  ],
-        //   ),
+    
         body: SingleChildScrollView(
           child: Column(
             children: [

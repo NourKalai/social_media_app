@@ -1,4 +1,5 @@
 // ignore: file_names
+import 'package:diginas_app/authentification/screens/home/add_content.dart';
 import 'package:diginas_app/authentification/screens/home/feed_screen.dart';
 import 'package:diginas_app/authentification/screens/home/messages.dart';
 import 'package:diginas_app/authentification/screens/home/notification_screen.dart';
@@ -86,14 +87,7 @@ class _BaseScreenState extends State<BaseScreen> {
 
     return Scaffold(
         body: Center(
-          child: _widgetOptions.elementAt(_selectedIndex),
-        ),
-        // bottomNavigationBar: BottomNavigationBar(
-        //   type: BottomNavigationBarType.fixed,
-        //   selectedItemColor: kPurpleColor,
-        //   backgroundColor: Colors.white,
-        //   elevation: 0,
-        //   items: [
+          child: _widgetOptions.elementAt(_selectedIndex),),
         bottomNavigationBar: ClipRRect(
             borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(30.0),
@@ -129,7 +123,12 @@ class _BaseScreenState extends State<BaseScreen> {
                           ),
                           backgroundColor: const Color(0xFF23B66F),
                         ),
-                        onPressed: _showAlertDialog,
+                        onPressed:(){ Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) =>AddContentScreen()
+                        ),
+                      );},
                         child: const Icon(
                           Icons.add,
                           size: 35.0,
@@ -160,27 +159,5 @@ class _BaseScreenState extends State<BaseScreen> {
                 });
               },
             )));
-    //     BottomNavigationBarItem(
-    //       activeIcon:
-    //           Image.asset(icFeatured, height: kBottomNavigationBarItemSize),
-    //       icon: Image.asset(icFeaturedOutlined,
-    //           height: kBottomNavigationBarItemSize),
-    //       label: 'Featured',
-    //     ),
-    //     BottomNavigationBarItem(
-    //       activeIcon:
-    //           Image.asset(icLearning, height: kBottomNavigationBarItemSize),
-    //       icon: Image.asset(icLearningOutlined,
-    //           height: kBottomNavigationBarItemSize),
-    //       label: 'My challenges',
-    //     ),
-    //     BottomNavigationBarItem(
-    //       activeIcon:
-    //           Image.asset(icWishlist, height: kBottomNavigationBarItemSize),
-    //       icon: Image.asset(icWishlistOutlined,
-    //           height: kBottomNavigationBarItemSize),
-    //       label: 'WishList',
-    //     ),
-    //
   }
 }

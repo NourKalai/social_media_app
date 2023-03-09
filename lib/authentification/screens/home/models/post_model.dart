@@ -1,18 +1,24 @@
+import 'dart:io';
+
 class Post {
   String authorName;
   String authorImageUrl;
   String timeAgo;
-  String imageUrl;
+  String? imageUrl;
+  File? file;
+  bool isDeleted;
 
   Post({
+    this.isDeleted = false,
     required this.authorName,
     required this.authorImageUrl,
     required this.timeAgo,
-    required this.imageUrl,
+    this.imageUrl,
+    this.file,
   });
 }
 
-final List<Post> posts = [
+List<Post> posts = [
   Post(
     authorName: 'Sam Martin',
     authorImageUrl: 'assets/images/user0.png',

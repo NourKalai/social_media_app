@@ -403,22 +403,7 @@ class _SignUpState extends State<SignUp> {
                                                           const ChooseAccount()),
                                                 )
                                               : null;
-                                          // if (_loginFormKey.currentState!
-                                          //         .validate() &&
-                                          //     isChecked == true) {
-                                          //   //check if form data is valid
-                                          //   const message =
-                                          //       'Successful sign up! ';
-                                          //   const snackBar = SnackBar(
-                                          //     content: Text(
-                                          //       message,
-                                          //       style: TextStyle(fontSize: 20),
-                                          //     ),
-                                          //     backgroundColor: Colors.green,
-                                          //   );
-                                          //   ScaffoldMessenger.of(context)
-                                          //       .showSnackBar(snackBar);
-                                          // }
+                                     
                                         },
                                       ),
                                     ),

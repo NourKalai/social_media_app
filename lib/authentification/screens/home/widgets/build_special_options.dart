@@ -9,7 +9,11 @@ class BuildSpecialOptions extends StatefulWidget {
   late int nLikes;
   final int nComments;
 
-  BuildSpecialOptions({super.key, required this.nLikes, required this.index,required this.nComments});
+  BuildSpecialOptions(
+      {super.key,
+      required this.nLikes,
+      required this.index,
+      required this.nComments});
 
   @override
   State<BuildSpecialOptions> createState() => _BuildSpecialOptionsState();
@@ -77,7 +81,7 @@ class _BuildSpecialOptionsState extends State<BuildSpecialOptions> {
                       }
                     },
                   ),
-                   Text(
+                  Text(
                     widget.nComments.toString(),
                     style: TextStyle(
                       fontSize: 14.0,

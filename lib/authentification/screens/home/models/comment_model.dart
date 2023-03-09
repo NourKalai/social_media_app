@@ -2,9 +2,11 @@ class Comment {
   String authorName;
   String authorImageUrl;
   String text;
+  bool isLiked;
 
   Comment({
-  required  this.authorName,
+    this.isLiked = false,
+    required this.authorName,
     required this.authorImageUrl,
     required this.text,
   });

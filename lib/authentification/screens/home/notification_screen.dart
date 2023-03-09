@@ -2,6 +2,7 @@ import 'package:diginas_app/authentification/screens/home/widgets/appbar_simple.
 import 'package:diginas_app/authentification/screens/home/widgets/custom_follow_notification.dart';
 import 'package:diginas_app/authentification/screens/home/widgets/custom_liked_follow.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class NotificationScreen extends StatelessWidget {
   NotificationScreen({super.key});
@@ -15,7 +16,8 @@ class NotificationScreen extends StatelessWidget {
 
     return SafeArea(
         child: Scaffold(
-            appBar: const AppBarSimple(title: "Notification"),
+            appBar: AppBarSimple(
+                title: AppLocalizations.of(context)!.notifications),
             body: Padding(
               padding: const EdgeInsets.all(20),
               child: SingleChildScrollView(
@@ -23,7 +25,7 @@ class NotificationScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "New",
+                      AppLocalizations.of(context)!.neww,
                       style: Theme.of(context).textTheme.titleLarge!.copyWith(
                             fontSize: 20,
                           ),
@@ -39,7 +41,7 @@ class NotificationScreen extends StatelessWidget {
                         }),
                     const SizedBox(height: 10),
                     Text(
-                      "Today",
+                      AppLocalizations.of(context)!.today,
                       style: Theme.of(context)
                           .textTheme
                           .titleLarge!
@@ -55,7 +57,7 @@ class NotificationScreen extends StatelessWidget {
                         }),
                     const SizedBox(height: 10),
                     Text(
-                      "Oldest",
+                      AppLocalizations.of(context)!.oldest,
                       style: Theme.of(context)
                           .textTheme
                           .titleLarge!
@@ -75,6 +77,5 @@ class NotificationScreen extends StatelessWidget {
                 ),
               ),
             )));
-    
   }
 }

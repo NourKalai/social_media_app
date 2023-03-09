@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'custom_button.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CustomFollowNotifcation extends StatefulWidget {
   const CustomFollowNotifcation({Key? key}) : super(key: key);
@@ -37,8 +38,8 @@ class _CustomFollowNotifcationState extends State<CustomFollowNotifcation> {
                   const SizedBox(
                     height: 5,
                   ),
-                  const Text(
-                    "New following you .15am",
+                  Text(
+                    AppLocalizations.of(context)!.newfollowingyou + "15am",
                   ),
                 ],
               ),
@@ -57,7 +58,7 @@ class _CustomFollowNotifcationState extends State<CustomFollowNotifcation> {
                   follow = !follow;
                 });
               },
-              text: "Follow",
+              text: AppLocalizations.of(context)!.follow,
             ),
           ),
         ],

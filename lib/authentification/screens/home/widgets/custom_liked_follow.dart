@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class CustomLikedNotifcation extends StatelessWidget {
   const CustomLikedNotifcation({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -34,12 +35,11 @@ class CustomLikedNotifcation extends StatelessWidget {
               RichText(
                 maxLines: 2,
                 text: TextSpan(
-                    text: "Emna",
+                    text: "Emna ",
                     style: Theme.of(context).textTheme.titleLarge,
-               
                     children: [
                       TextSpan(
-                        text: " and",
+                        text: AppLocalizations.of(context)!.and,
                         style: Theme.of(context).textTheme.titleLarge,
                         //   style: Theme.of(context)
                         // .textTheme
@@ -55,9 +55,8 @@ class CustomLikedNotifcation extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              const Text(
-                "Liked your video. 6am",
-  
+              Text(
+                AppLocalizations.of(context)!.likedyourvideo + "6am",
               )
             ],
           ),

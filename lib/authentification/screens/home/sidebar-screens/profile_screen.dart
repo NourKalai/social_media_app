@@ -1,9 +1,13 @@
+import 'package:diginas_app/authentification/screens/home/models/comment_model.dart';
 import 'package:diginas_app/authentification/screens/home/sidebar-screens/friends.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import "package:transparent_image/transparent_image.dart";
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import '../detailed_post_screen.dart';
+import '../feed_screen.dart';
+import '../models/post_model.dart';
 import '../widgets/side_bar.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -323,18 +327,42 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               mainAxisSpacing: 12,
                               itemCount: imageList.length,
                               itemBuilder: (context, index) {
-                                return Container(
-                                  decoration: const BoxDecoration(
-                                      color: Color.fromARGB(207, 230, 217, 217),
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(15))),
-                                  child: ClipRRect(
-                                    borderRadius: const BorderRadius.all(
-                                        Radius.circular(15)),
-                                    child: FadeInImage.memoryNetwork(
-                                      placeholder: kTransparentImage,
-                                      image: imageList[index],
-                                      fit: BoxFit.cover,
+                                return GestureDetector(
+                                  onTap: () {
+                                    Post newPost = Post(
+                                        authorName: widget.name,
+                                        authorImageUrl: widget.image,
+                                        timeAgo: 'Now',
+                                        imageUrl: imageList[index]);
+
+                                    setState(() {
+                                      posts.add(newPost);
+                                    });
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => ViewPostScreen(
+                                          nComments: comments.length,
+                                          nLikes: 200,
+                                          post: newPost,
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                  child: Container(
+                                    decoration: const BoxDecoration(
+                                        color:
+                                            Color.fromARGB(207, 230, 217, 217),
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(15))),
+                                    child: ClipRRect(
+                                      borderRadius: const BorderRadius.all(
+                                          Radius.circular(15)),
+                                      child: FadeInImage.memoryNetwork(
+                                        placeholder: kTransparentImage,
+                                        image: imageList[index],
+                                        fit: BoxFit.cover,
+                                      ),
                                     ),
                                   ),
                                 );

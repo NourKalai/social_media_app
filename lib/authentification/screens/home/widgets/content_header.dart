@@ -17,11 +17,11 @@ class ContentHeader extends StatelessWidget {
       alignment: Alignment.center,
       children: [
         Container(
-            height: 500,
-            decoration: const BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage('assets/images/challenge5.jpg'),
-                    fit: BoxFit.cover))),
+     height: 500,
+     decoration: const BoxDecoration(
+       image: DecorationImage(
+   image: AssetImage('assets/images/challenge5.jpg'),
+   fit: BoxFit.cover))),
         Container(
           height: 500,
           decoration: const BoxDecoration(

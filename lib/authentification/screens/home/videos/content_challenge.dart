@@ -20,6 +20,7 @@ class _ContentChallengeState extends State<ContentChallenge> {
   late VideoPlayerController _videoPlayerController;
   late ChewieController chewieController;
   bool _liked = false;
+
   @override
   void initState() {
     super.initState();
@@ -29,7 +30,7 @@ class _ContentChallengeState extends State<ContentChallenge> {
         autoPlay: true,
         showControls: false,
         fullScreenByDefault: true);
-    setState(() {});
+    // setState(() {});
   }
 
   @override
@@ -46,7 +47,10 @@ class _ContentChallengeState extends State<ContentChallenge> {
         fit: StackFit.expand,
         children: [
           GestureDetector(
-            child: PortraitPlayerWidget(src: widget.src),
+            child: PortraitPlayerWidget(
+              src: widget.src,
+              isFromInternet: false,
+            ),
             onDoubleTap: () {
               setState(() {
                 _liked = !_liked;

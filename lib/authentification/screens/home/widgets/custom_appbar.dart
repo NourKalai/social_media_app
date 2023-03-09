@@ -1,3 +1,4 @@
+import 'package:diginas_app/authentification/screens/home/base_screen.dart';
 import 'package:flutter/material.dart';
 import '../sidebar-screens/supporter_screen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -13,7 +14,14 @@ class CustomAppBar extends StatelessWidget {
           Colors.white.withOpacity((scrollOffset / 350).clamp(0, 1).toDouble()),
       child: Row(
         children: [
-          Image.asset("assets/images/nature1.png"),
+          InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => BaseScreen()),
+                );
+              },
+              child: Image.asset("assets/images/nature1.png")),
           const SizedBox(width: 12.0),
           Expanded(
             child: Row(

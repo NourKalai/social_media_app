@@ -25,7 +25,6 @@ class _ViewPostScreenState extends State<ViewPostScreen> {
   bool isLiked = false;
   bool isSaved = false;
   bool delete = false;
-  final item = comments;
   final TextEditingController _controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -101,27 +100,46 @@ class _ViewPostScreenState extends State<ViewPostScreen> {
                           ],
                         ),
                         InkWell(
-                          onDoubleTap: () {},
-                          child: Container(
-                            margin: const EdgeInsets.all(10.0),
-                            width: double.infinity,
-                            height: 400.0,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(25.0),
-                              boxShadow: const [
-                                BoxShadow(
-                                  color: Colors.black45,
-                                  offset: Offset(0, 5),
-                                  blurRadius: 8.0,
-                                ),
-                              ],
-                              image: DecorationImage(
-                                image: AssetImage(widget.post.imageUrl),
-                                fit: BoxFit.fitWidth,
-                              ),
-                            ),
-                          ),
-                        ),
+                            onDoubleTap: () {},
+                            child: (widget.post.imageUrl != null)
+                                ? Container(
+                                    margin: const EdgeInsets.all(10.0),
+                                    width: double.infinity,
+                                    height: 400.0,
+                                    decoration: BoxDecoration(
+                                        borderRadius:
+                                            BorderRadius.circular(25.0),
+                                        boxShadow: const [
+                                          BoxShadow(
+                                            color: Colors.black45,
+                                            offset: Offset(0, 5),
+                                            blurRadius: 8.0,
+                                          ),
+                                        ],
+                                        image: DecorationImage(
+                                          image: NetworkImage(
+                                              widget.post.imageUrl!),
+                                          fit: BoxFit.cover,
+                                        )),
+                                  )
+                                : Container(
+                                    margin: const EdgeInsets.all(10.0),
+                                    width: double.infinity,
+                                    height: 400.0,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(25.0),
+                                      boxShadow: const [
+                                        BoxShadow(
+                                          color: Colors.black45,
+                                          offset: Offset(0, 5),
+                                          blurRadius: 8.0,
+                                        ),
+                                      ],
+                                    ),
+                                    child: Image.file(widget.post.file!,
+                                        width: 200,
+                                        height: 200,
+                                        fit: BoxFit.cover))),
                       ],
                     ),
                   ),
@@ -135,39 +153,114 @@ class _ViewPostScreenState extends State<ViewPostScreen> {
             ),
             const SizedBox(height: 10.0),
             Container(
-              width: double.infinity,
-              height: 600.0,
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(30.0),
-                  topRight: Radius.circular(30.0),
+                width: double.infinity,
+                height: 600.0,
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(30.0),
+                    topRight: Radius.circular(30.0),
+                  ),
                 ),
-              ),
-              // child: Column(
-              //   children: const <Widget>[
-              //     BuildComment(index: 0),
-              //     BuildComment(index: 1),
-              //     BuildComment(index: 2),
-              //     BuildComment(index: 3),
-              //     BuildComment(index: 4),
-              //   ],
-              // ),
-              child: AnimatedList(
-                  key: _key,
-                  initialItemCount: item.length,
-                  itemBuilder: (((context, index, animation) {
-                    return FadeTransition(
-                      opacity: animation,
-                      child: SizeTransition(
-                        key: UniqueKey(),
-                        sizeFactor: animation,
-                        child: BuildComment(
-                          index: index,
+                child: ListView.builder(
+                    itemCount: comments.length,
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: ListTile(
+                          leading: Container(
+                            width: 50.0,
+                            height: 50.0,
+                            decoration: const BoxDecoration(
+                              shape: BoxShape.circle,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black45,
+                                  offset: Offset(0, 2),
+                                  blurRadius: 6.0,
+                                ),
+                              ],
+                            ),
+                            child: CircleAvatar(
+                              child: ClipOval(
+                                child: Image(
+                                  height: 50.0,
+                                  width: 50.0,
+                                  image: AssetImage(
+                                      comments[index].authorImageUrl),
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                          ),
+                          title: Text(
+                            comments[index].authorName,
+                            style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          subtitle: Text(comments[index].text),
+                          trailing: IconButton(
+                            iconSize: 30,
+                            icon: (comments[index].authorName != "Nour Kalai")
+                                ? (comments[index].isLiked == false)
+                                    ? const Icon(
+                                        Icons.favorite_border,
+                                      )
+                                    : const Icon(Icons.favorite,
+                                        color: Colors.red)
+                                : Icon(Icons.delete),
+                            onPressed: () {
+                              print("comment of " + comments[index].authorName);
+                              print("is liked" +
+                                  comments[index].isLiked.toString());
+                              if (comments[index].authorName != "Nour Kalai")
+                                setState(() {
+                                  if (comments[index].isLiked == true)
+                                    comments[index].isLiked = false;
+                                  else
+                                    comments[index].isLiked = true;
+                                  print("now" +
+                                      comments[index].isLiked.toString());
+                                });
+                              else {
+                                setState(() {
+                                  comments.removeAt(index);
+                                  widget.nComments--;
+                                });
+
+                                ScaffoldMessenger.of(context)
+                                    .showSnackBar(SnackBar(
+                                        backgroundColor: Colors.transparent,
+                                        content: Container(
+                                            height: 40,
+                                            decoration: const BoxDecoration(
+                                              gradient: LinearGradient(
+                                                colors: [
+                                                  Color.fromARGB(
+                                                      255, 44, 92, 224),
+                                                  Color.fromARGB(
+                                                      255, 10, 238, 124),
+                                                ],
+                                              ),
+                                              borderRadius: BorderRadius.all(
+                                                Radius.circular(20),
+                                              ),
+                                            ),
+                                            child: Center(
+                                              child: Text(
+                                                'Your comment is deleted!',
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 15),
+                                                maxLines: 2,
+                                              ),
+                                            ))));
+                              }
+                            },
+                          ),
                         ),
-                      ),
-                    );
-                  }))),
-            )
+                      );
+                    })),
           ],
         ),
       ),
@@ -209,6 +302,7 @@ class _ViewPostScreenState extends State<ViewPostScreen> {
                   width: 48.0,
                   height: 48.0,
                   decoration: const BoxDecoration(
+                    color: Colors.white,
                     shape: BoxShape.circle,
                     boxShadow: [
                       BoxShadow(
@@ -264,9 +358,8 @@ class _ViewPostScreenState extends State<ViewPostScreen> {
         authorImageUrl: "assets/images/nan.png",
         authorName: 'Nour Kalai',
         text: text);
-    item.insert(0, newComment);
-    _key.currentState!.insertItem(0, duration: const Duration(seconds: 1));
     setState(() {
+      comments.add(newComment);
       widget.nComments++;
     });
   }

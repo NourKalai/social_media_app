@@ -29,7 +29,6 @@ class _FeedScreenState extends State<FeedScreen> {
           ),
         ),
         body: ListView(
-          physics: const AlwaysScrollableScrollPhysics(),
           children: <Widget>[
             Container(
               width: double.infinity,
@@ -69,10 +68,18 @@ class _FeedScreenState extends State<FeedScreen> {
                 },
               ),
             ),
-            const BuildPost(
-              index: 0,
-            ),
-            const BuildPost(index: 1),
+            ListView.builder(
+                shrinkWrap: true,
+                reverse: true,
+                physics: NeverScrollableScrollPhysics(),
+                itemCount: posts.length,
+                itemBuilder: (context, int i) {
+                  if (posts[i].isDeleted == false)
+                    return BuildPost(index: i);
+                  else {
+                    return SizedBox();
+                  }
+                })
           ],
         ),
       ),
