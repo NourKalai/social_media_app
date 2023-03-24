@@ -142,13 +142,11 @@ class _AddContentScreenState extends State<AddContentScreen> {
                     context,
                     MaterialPageRoute(builder: (context) => const FeedScreen()),
                   );
-
                   Post newPost = Post(
                       authorName: "Nour Kalai",
                       authorImageUrl: "assets/images/nan.png",
                       timeAgo: 'Now',
                       file: image!);
-
                   setState(() {
                     posts.add(newPost);
                   });

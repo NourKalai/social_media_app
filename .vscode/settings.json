@@ -1,3 +1,8 @@
 {
-    "java.configuration.updateBuildConfiguration": "interactive"
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "editor.codeActionWidget.showHeaders": true,
+    "editor.columnSelection": true,
+    "dart.notifyAnalyzerErrors": true,
+  
+
 }

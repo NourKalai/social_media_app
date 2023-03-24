@@ -1,5 +1,6 @@
 import 'package:diginas_app/authentification/screens/home/widgets/appbar_simple.dart';
 import 'package:diginas_app/authentification/screens/home/widgets/circle_button.dart';
+import 'package:diginas_app/buisness/widget_tree.dart';
 import 'package:diginas_app/constant/provider/theme_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -179,6 +180,17 @@ class _SettingsPageState extends State<SettingsPage> {
                   icon: Icons.delete,
                   color: Colors.red,
                   onPressed: () {}),
+            ),
+            SimpleSettingsTile(
+              title: 'Switch to buisness account',
+              leading: CircleButton(
+                  backgroundcolor: Colors.white,
+                  icon: Icons.switch_access_shortcut_rounded,
+                  color: Colors.red,
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => WidgetTree()));
+                  }),
             )
           ]),
           const SizedBox(height: 10),
