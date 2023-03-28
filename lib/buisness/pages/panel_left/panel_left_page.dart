@@ -2,7 +2,7 @@ import 'package:diginas_app/buisness/constants.dart';
 import 'package:flutter/material.dart';
 
 import '../../responsive_layouts.dart';
-import '../charts.dart';
+import '../charts/charts.dart';
 
 class Todo {
   String name;
@@ -32,11 +32,9 @@ class _PanelLeftPageState extends State<PanelLeftPage> {
         children: [
           if (ResponsiveLayout.isComputer(context))
             Container(
-              color: Constants.purpleLight,
               width: 50,
               child: Container(
                 decoration: BoxDecoration(
-                  color: Constants.purpleDark,
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(50),
                   ),
@@ -52,13 +50,23 @@ class _PanelLeftPageState extends State<PanelLeftPage> {
                       top: Constants.kPadding / 2,
                       right: Constants.kPadding / 2),
                   child: Card(
-                    color: Constants.purpleLight,
                     elevation: 3,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(50),
                     ),
                     child: Container(
                       width: double.infinity,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        gradient: LinearGradient(
+                          colors: [
+                            Constants.red.withOpacity(0.9),
+                            Constants.orange.withOpacity(0.9),
+                          ],
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                        ),
+                      ),
                       child: ListTile(
                         //leading: Icon(Icons.shopping_basket),
                         title: Text(
@@ -79,8 +87,8 @@ class _PanelLeftPageState extends State<PanelLeftPage> {
                     ),
                   ),
                 ),
-          //      LineChartSample2(),
-             //   PieChartSample2(),
+                //      LineChartSample2(),
+                //   PieChartSample2(),
                 Padding(
                   padding: const EdgeInsets.only(
                       right: Constants.kPadding / 2,
@@ -88,24 +96,36 @@ class _PanelLeftPageState extends State<PanelLeftPage> {
                       top: Constants.kPadding,
                       left: Constants.kPadding / 2),
                   child: Card(
-                    color: Constants.purpleLight,
                     elevation: 3,
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20)),
-                    child: Column(
-                      children: List.generate(
-                        _todos.length,
-                        (index) => CheckboxListTile(
-                          title: Text(
-                            _todos[index].name,
-                            style: TextStyle(color: Colors.white),
+                        borderRadius: BorderRadius.circular(50)),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        gradient: LinearGradient(
+                          colors: [
+                            Constants.red.withOpacity(0.9),
+                            Constants.orange.withOpacity(0.9),
+                          ],
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                        ),
+                      ),
+                      child: Column(
+                        children: List.generate(
+                          _todos.length,
+                          (index) => CheckboxListTile(
+                            title: Text(
+                              _todos[index].name,
+                              style: TextStyle(color: Colors.white),
+                            ),
+                            value: _todos[index].enable,
+                            onChanged: (newValue) {
+                              setState(() {
+                                _todos[index].enable = newValue ?? true;
+                              });
+                            },
                           ),
-                          value: _todos[index].enable,
-                          onChanged: (newValue) {
-                            setState(() {
-                              _todos[index].enable = newValue ?? true;
-                            });
-                          },
                         ),
                       ),
                     ),

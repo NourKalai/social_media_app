@@ -1,8 +1,8 @@
 {
     "java.configuration.updateBuildConfiguration": "interactive",
     "editor.codeActionWidget.showHeaders": true,
-    "editor.columnSelection": true,
+    "editor.columnSelection": false,
     "dart.notifyAnalyzerErrors": true,
-  
+    "C_Cpp.errorSquiggles":"enabled"
 
 }

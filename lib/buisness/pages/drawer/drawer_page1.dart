@@ -1,13 +1,22 @@
-
+import 'package:diginas_app/authentification/screens/home/base_screen.dart';
+import 'package:diginas_app/buisness/pages/sidebar_screens/contacts.dart';
+import 'package:diginas_app/buisness/pages/sidebar_screens/notifications.dart';
+import 'package:diginas_app/buisness/pages/sidebar_screens/notifications1.dart';
+import 'package:diginas_app/buisness/pages/sidebar_screens/sales.dart';
+import 'package:diginas_app/buisness/pages/sidebar_screens/security.dart';
+import 'package:diginas_app/buisness/pages/sidebar_screens/users.dart';
+import 'package:diginas_app/buisness/widget_tree.dart';
 import 'package:flutter/material.dart';
 import '../../constants.dart';
 import '../../responsive_layouts.dart';
+import 'package:diginas_app/buisness/pages/sidebar_screens/settings.dart';
 
 class ButtonsInfo {
   String title;
   IconData icon;
+  Widget page;
 
-  ButtonsInfo({required this.title, required this.icon});
+  ButtonsInfo({required this.title, required this.icon, required this.page});
 }
 
 class Task {
@@ -21,23 +30,37 @@ class Task {
 int _currentIndex = 0;
 
 List<ButtonsInfo> _buttonNames = [
-  ButtonsInfo(title: "Home", icon: Icons.home),
-  ButtonsInfo(title: "Setting", icon: Icons.settings),
-  ButtonsInfo(title: "Notifications", icon: Icons.notifications),
-  ButtonsInfo(title: "Contacts", icon: Icons.contact_phone_rounded),
-  ButtonsInfo(title: "Sales", icon: Icons.sell),
-  ButtonsInfo(title: "Marketing", icon: Icons.mark_email_read),
-  ButtonsInfo(title: "Security", icon: Icons.verified_user),
-  ButtonsInfo(title: "Users", icon: Icons.supervised_user_circle_rounded),
-   ButtonsInfo(title: "Switch Account",icon: Icons.switch_access_shortcut_rounded),
+  ButtonsInfo(title: "Home", icon: Icons.home, page: WidgetTree()),
+  ButtonsInfo(title: "Setting", icon: Icons.settings, page: SettingsScreen()),
+  ButtonsInfo(
+      title: "Notifications", icon: Icons.notifications, page: MarketingTree()),
+  ButtonsInfo(
+      title: "Contacts",
+      icon: Icons.contact_phone_rounded,
+      page: ContactsScreen()),
+  ButtonsInfo(title: "Sales", icon: Icons.sell, page: SalesScreen()),
+  ButtonsInfo(
+      title: "Marketing", icon: Icons.mark_email_read, page: MarketingTree()),
+  ButtonsInfo(
+      title: "Security",
+      icon: Icons.verified_user,
+      page: const SecurityScreen()),
+  ButtonsInfo(
+      title: "Users",
+      icon: Icons.supervised_user_circle_rounded,
+      page: UsersScreen()),
+  ButtonsInfo(
+      title: "Switch Account",
+      icon: Icons.switch_access_shortcut_rounded,
+      page: BaseScreen()),
 ];
 
-class DrawerPage extends StatefulWidget {
+class DrawerPage1 extends StatefulWidget {
   @override
-  _DrawerPageState createState() => _DrawerPageState();
+  _DrawerPage1State createState() => _DrawerPage1State();
 }
 
-class _DrawerPageState extends State<DrawerPage> {
+class _DrawerPage1State extends State<DrawerPage1> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -102,10 +125,15 @@ class _DrawerPageState extends State<DrawerPage> {
                           ),
                         ),
                         onTap: () {
-          
-          
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      _buttonNames[index].page));
                           setState(() {
-                            _currentIndex = index;});},
+                            _currentIndex = index;
+                          });
+                        },
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20),
                         ),

@@ -1,21 +1,24 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:diginas_app/buisness/constants.dart';
+import 'package:diginas_app/buisness/pages/charts/charts.dart';
 import 'package:diginas_app/buisness/pages/drawer/drawer_page1.dart';
 import 'package:diginas_app/buisness/pages/panel_center/panel_center_page.dart';
 import 'package:diginas_app/buisness/pages/panel_left/panel_left_page.dart';
 import 'package:diginas_app/buisness/pages/pannel_right/panel_right_page.dart';
+import 'package:diginas_app/buisness/pages/sidebar_screens/notifications1.dart';
 import 'package:diginas_app/buisness/pages/widgets/app_bar_widget.dart';
 import 'package:diginas_app/buisness/responsive_layouts.dart';
 
 import 'package:flutter/material.dart';
 
-import 'constants.dart';
+import '../charts/bar_chart.dart';
 
-class WidgetTree extends StatefulWidget {
+class MarketingTree extends StatefulWidget {
   @override
-  _WidgetTreeState createState() => _WidgetTreeState();
+  _MarketingTreeState createState() => _MarketingTreeState();
 }
 
-class _WidgetTreeState extends State<WidgetTree> {
+class _MarketingTreeState extends State<MarketingTree> {
   int currentIndex = 1;
 
   List<Widget> _icons = [
@@ -28,7 +31,7 @@ class _WidgetTreeState extends State<WidgetTree> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size(double.infinity, 100),
+        preferredSize: Size(double.infinity, 80),
         child: (ResponsiveLayout.isTinyLimit(context) ||
                 ResponsiveLayout.isTinyHeightLimit(context))
             ? Container()
@@ -36,37 +39,36 @@ class _WidgetTreeState extends State<WidgetTree> {
       ),
       body: ResponsiveLayout(
         tiny: Container(),
-        phone: currentIndex == 0
-            ? Expanded(child: PanelLeftPage())
-            : currentIndex == 1
-                ? Expanded(child: PanelCenterPage())
-                : Expanded(child: PanelRightPage()),
-        tablet: Row(
+        phone: Marketing1(),
+        tablet: Column(
           children: [
-            Expanded(child: PanelLeftPage()),
             Expanded(
-              child: PanelCenterPage(),
-            )
+              child: Chart(
+                show: false,
+              ),
+            ),
+            Expanded(child: BarChartSample2())
           ],
         ),
         largeTablet: Row(
           children: [
-            Expanded(child: PanelLeftPage()),
-            Expanded(child: PanelCenterPage()),
+            Expanded(child: DrawerPage1()),
             Expanded(
-              child: PanelRightPage(),
-            )
+              child: Chart(show: false),
+            ),
+            Expanded(child: BarChartSample2())
           ],
         ),
         computer: Row(
           children: [
             Expanded(child: DrawerPage1()),
-            Expanded(child: PanelLeftPage()),
             Expanded(
-              child: PanelCenterPage(),
+              child: Chart(
+                show: false,
+              ),
             ),
             Expanded(
-              child: PanelRightPage(),
+              child: BarChartSample2(),
             )
           ],
         ),

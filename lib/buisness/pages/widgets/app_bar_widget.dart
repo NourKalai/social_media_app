@@ -15,7 +15,16 @@ class _AppBarWidgetState extends State<AppBarWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Constants.purpleLight,
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [
+            Constants.red.withOpacity(0.9),
+            Constants.orange.withOpacity(0.9),
+          ],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+      ),
       child: Row(
         children: [
           if (ResponsiveLayout.isComputer(context))

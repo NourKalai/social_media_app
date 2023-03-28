@@ -1,21 +1,21 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:diginas_app/buisness/pages/drawer/drawer_page1.dart';
-import 'package:diginas_app/buisness/pages/panel_center/panel_center_page.dart';
-import 'package:diginas_app/buisness/pages/panel_left/panel_left_page.dart';
-import 'package:diginas_app/buisness/pages/pannel_right/panel_right_page.dart';
-import 'package:diginas_app/buisness/pages/widgets/app_bar_widget.dart';
-import 'package:diginas_app/buisness/responsive_layouts.dart';
-
+import 'package:diginas_app/buisness/constants.dart';
 import 'package:flutter/material.dart';
 
-import 'constants.dart';
+import '../../../authentification/screens/home/widgets/appbar_simple.dart';
+import '../../responsive_layouts.dart';
+import '../drawer/drawer_page1.dart';
+import '../panel_center/panel_center_page.dart';
+import '../panel_left/panel_left_page.dart';
+import '../pannel_right/panel_right_page.dart';
+import '../widgets/app_bar_widget.dart';
 
-class WidgetTree extends StatefulWidget {
+class ContactsScreen extends StatefulWidget {
   @override
-  _WidgetTreeState createState() => _WidgetTreeState();
+  _ContactsScreenState createState() => _ContactsScreenState();
 }
 
-class _WidgetTreeState extends State<WidgetTree> {
+class _ContactsScreenState extends State<ContactsScreen> {
   int currentIndex = 1;
 
   List<Widget> _icons = [
@@ -37,10 +37,10 @@ class _WidgetTreeState extends State<WidgetTree> {
       body: ResponsiveLayout(
         tiny: Container(),
         phone: currentIndex == 0
-            ? Expanded(child: PanelLeftPage())
+            ? PanelLeftPage()
             : currentIndex == 1
-                ? Expanded(child: PanelCenterPage())
-                : Expanded(child: PanelRightPage()),
+                ? PanelCenterPage()
+                : PanelRightPage(),
         tablet: Row(
           children: [
             Expanded(child: PanelLeftPage()),
@@ -61,13 +61,14 @@ class _WidgetTreeState extends State<WidgetTree> {
         computer: Row(
           children: [
             Expanded(child: DrawerPage1()),
-            Expanded(child: PanelLeftPage()),
             Expanded(
-              child: PanelCenterPage(),
+              child: Scaffold(
+                body: Container(
+                  color: Colors.red,
+                ),
+              ),
             ),
-            Expanded(
-              child: PanelRightPage(),
-            )
+            Expanded(child: Container()),
           ],
         ),
       ),
@@ -75,7 +76,7 @@ class _WidgetTreeState extends State<WidgetTree> {
       bottomNavigationBar: ResponsiveLayout.isPhone(context)
           ? CurvedNavigationBar(
               index: currentIndex,
-              backgroundColor: Constants.orange.withOpacity(0.9),
+              backgroundColor: Constants.purpleDark,
               items: _icons,
               onTap: (index) {
                 setState(() {

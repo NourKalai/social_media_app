@@ -3,12 +3,8 @@ import 'package:diginas_app/authentification/screens/home/widgets/custom_appbar.
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:http/http.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
-
 import 'models/post_model.dart';
 
 class AddContentScreen extends StatefulWidget {

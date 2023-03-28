@@ -1,8 +1,7 @@
-
 import 'package:flutter/material.dart';
 
 import '../../constants.dart';
-import '../charts.dart';
+import '../charts/charts.dart';
 
 class Product {
   String name;
@@ -41,12 +40,22 @@ class _PanelRightPageState extends State<PanelRightPage> {
                   top: Constants.kPadding / 2,
                   left: Constants.kPadding / 2),
               child: Card(
-                color: Constants.purpleLight,
                 elevation: 3,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(50),
                 ),
                 child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(50),
+                    gradient: LinearGradient(
+                      colors: [
+                        Constants.red.withOpacity(0.9),
+                        Constants.orange.withOpacity(0.9),
+                      ],
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                    ),
+                  ),
                   width: double.infinity,
                   child: ListTile(
                     //leading: Icon(Icons.monetization_on),
@@ -68,7 +77,6 @@ class _PanelRightPageState extends State<PanelRightPage> {
                 ),
               ),
             ),
-        //    LineChartSample1(),
             Padding(
               padding: const EdgeInsets.only(
                   right: Constants.kPadding / 2,
@@ -76,24 +84,36 @@ class _PanelRightPageState extends State<PanelRightPage> {
                   top: Constants.kPadding,
                   left: Constants.kPadding / 2),
               child: Card(
-                color: Constants.purpleLight,
                 elevation: 3,
                 shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20)),
-                child: Column(
-                  children: List.generate(
-                    _products.length,
-                    (index) => SwitchListTile.adaptive(
-                      title: Text(
-                        _products[index].name,
-                        style: TextStyle(color: Colors.white),
+                    borderRadius: BorderRadius.circular(50)),
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(50),
+                    gradient: LinearGradient(
+                      colors: [
+                        Constants.red.withOpacity(0.9),
+                        Constants.orange.withOpacity(0.9),
+                      ],
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                    ),
+                  ),
+                  child: Column(
+                    children: List.generate(
+                      _products.length,
+                      (index) => SwitchListTile.adaptive(
+                        title: Text(
+                          _products[index].name,
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        value: _products[index].enable,
+                        onChanged: (newValue) {
+                          setState(() {
+                            _products[index].enable = newValue;
+                          });
+                        },
                       ),
-                      value: _products[index].enable,
-                      onChanged: (newValue) {
-                        setState(() {
-                          _products[index].enable = newValue;
-                        });
-                      },
                     ),
                   ),
                 ),

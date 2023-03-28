@@ -2,7 +2,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 import '../../constants.dart';
-import '../charts.dart';
+import '../charts/charts.dart';
 
 class Person {
   String name;
@@ -34,12 +34,22 @@ class PanelCenterPage extends StatelessWidget {
                 right: Constants.kPadding / 2,
                 left: Constants.kPadding / 2),
             child: Card(
-              color: Constants.purpleLight,
               elevation: 3,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(50),
               ),
               child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(50),
+                  gradient: LinearGradient(
+                    colors: [
+                      Constants.red.withOpacity(0.9),
+                      Constants.orange.withOpacity(0.9),
+                    ],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                  ),
+                ),
                 width: double.infinity,
                 child: ListTile(
                   //leading: Icon(Icons.sell),
@@ -69,32 +79,42 @@ class PanelCenterPage extends StatelessWidget {
                 right: Constants.kPadding / 2,
                 bottom: Constants.kPadding),
             child: Card(
-              color: Constants.purpleLight,
               elevation: 3,
               shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20)),
-              child: Column(
-                children: List.generate(
-                  _persons.length,
-                  (index) => ListTile(
-                    leading: CircleAvatar(
-                      radius: 15,
-                      child: Text(
-                        _persons[index].name.substring(0, 1),
+                  borderRadius: BorderRadius.circular(50)),
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(50),
+                  gradient: LinearGradient(
+                    colors: [
+                      Constants.red.withOpacity(0.9),
+                      Constants.orange.withOpacity(0.9),
+                    ],
+                  ),
+                ),
+                child: Column(
+                  children: List.generate(
+                    _persons.length,
+                    (index) => ListTile(
+                      leading: CircleAvatar(
+                        radius: 15,
+                        child: Text(
+                          _persons[index].name.substring(0, 1),
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        backgroundColor: _persons[index].color,
+                      ),
+                      title: Text(
+                        _persons[index].name,
                         style: TextStyle(color: Colors.white),
                       ),
-                      backgroundColor: _persons[index].color,
+                      trailing: IconButton(
+                          onPressed: () {},
+                          icon: Icon(
+                            Icons.message,
+                            color: Colors.white,
+                          )),
                     ),
-                    title: Text(
-                      _persons[index].name,
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    trailing: IconButton(
-                        onPressed: () {},
-                        icon: Icon(
-                          Icons.message,
-                          color: Colors.white,
-                        )),
                   ),
                 ),
               ),
