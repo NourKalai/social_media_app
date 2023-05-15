@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../authentification/screens/home/widgets/appbar_simple.dart';
+import '../../../challenger/screens/home/widgets/appbar_simple.dart';
 
 class UsersScreen extends StatefulWidget {
   const UsersScreen({super.key});

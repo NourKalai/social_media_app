@@ -1,4 +1,4 @@
-import 'package:diginas_app/authentification/screens/home/base_screen.dart';
+import 'package:diginas_app/challenger/screens/home/base_screen.dart';
 import 'package:diginas_app/buisness/pages/sidebar_screens/contacts.dart';
 import 'package:diginas_app/buisness/pages/sidebar_screens/notifications.dart';
 import 'package:diginas_app/buisness/pages/sidebar_screens/notifications1.dart';

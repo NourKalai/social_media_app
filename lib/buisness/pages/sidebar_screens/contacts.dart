@@ -2,7 +2,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:diginas_app/buisness/constants.dart';
 import 'package:flutter/material.dart';
 
-import '../../../authentification/screens/home/widgets/appbar_simple.dart';
+import '../../../challenger/screens/home/widgets/appbar_simple.dart';
 import '../../responsive_layouts.dart';
 import '../drawer/drawer_page1.dart';
 import '../panel_center/panel_center_page.dart';

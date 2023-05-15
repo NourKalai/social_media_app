@@ -1,5 +1,5 @@
-import 'package:diginas_app/authentification/screens/home/base_screen.dart';
-import 'package:diginas_app/authentification/screens/splash_screen1.dart';
+import 'package:diginas_app/challenger/screens/home/base_screen.dart';
+import 'package:diginas_app/challenger/screens/splash_screen1.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -54,7 +54,7 @@ class MyApp extends StatelessWidget {
               GlobalWidgetsLocalizations.delegate,
               GlobalCupertinoLocalizations.delegate,
             ],
-            home: WidgetTree()
+            home: BaseScreen()
             // SignUp()
 
             );
